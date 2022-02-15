@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Hooshang Control Panel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"><link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+  <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="icons-1.5.0/font/bootstrap-icons.css">
+  
+  <link rel='stylesheet' href='https://storage.googleapis.com/code.getmdl.io/1.0.4/material.indigo-pink.min.css'>
+  <link rel="stylesheet" href="./style.css">
+  <!-- <link href="https://www.cssscript.com/wp-includes/css/sticky.css" rel="stylesheet" type="text/css"> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link rel='stylesheet' href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css'><link rel="stylesheet" href="./styleui.css">
+  <link rel="stylesheet" href="./stylespots.css">
+  <script type="text/javascript" src="http://static.robotwebtools.org/EventEmitter2/current/eventemitter2.min.js"></script>
+  <script type="text/javascript" src="http://static.robotwebtools.org/roslibjs/current/roslib.min.js"></script>
+  <!-- <script>
+    robot_WS = 'ws://localhost:9090';
+//     // // Init handle for rosbridge_websocket
+    ros = new ROSLIB.Ros({
+        url: robot_WS
+        
+    });  
+  </script> -->
+  
+  <!-- <script type="text/javascript" type="text/javascript">
+    // Connecting to ROS
+    // -----------------
+  
+    // var ros = new ROSLIB.Ros({
+    //   url : 'ws://localhost:9090'
+    // });
+  
+    // ros.on('connection', function() {
+    //   console.log('Connected to websocket server.');
+    // });
+  
+    // ros.on('error', function(error) {
+    //   console.log('Error connecting to websocket server: ', error);
+    // });
+  
+    // ros.on('close', function() {
+    //   console.log('Connection to websocket server closed.');
+    // });
+  
+  
+    // Subscribing to a Topic
+    // ----------------------
+  
+    // var listener = new ROSLIB.Topic({
+    //   ros : ros,
+    //   name : '/cmd_vel',
+    //   messageType : 'geometry_msgs/Twist'
+    // });
+  
+    // listener.subscribe(function(message) {
+    //   console.log('Received message on ' + listener.name + ': ' + message.data);
+    //   var msgd = message.data;
+    //   // listener.unsubscribe();
+    //   document.getElementById("msg").innerHTML = msgd;
+    // });
+  
+    // Calling a service
+    // -----------------
+    // var addTwoIntsClient = new ROSLIB.Service({
+    //   ros : ros,
+    //   name : '/add_two_ints',
+    //   serviceType : 'rospy_tutorials/AddTwoInts'
+    // });
+  
+    // var request = new ROSLIB.ServiceRequest({
+    //   a : 1,
+    //   b : 2
+    // });
+  
+    // addTwoIntsClient.callService(request, function(result) {
+    //   console.log('Result for service call on '
+    //     + addTwoIntsClient.name
+    //     + ': '
+    //     + result.sum);
+    // });
+  
+    // // Getting and setting a param value
+    // // ---------------------------------
+  
+    // ros.getParams(function(params) {
+    //   console.log(params);
+    // });
+  
+    // var maxVelX = new ROSLIB.Param({
+    //   ros : ros,
+    //   name : 'max_vel_y'
+    // });
+  
+    // maxVelX.set(0.8);
+    // maxVelX.get(function(value) {
+    //   console.log('MAX VAL: ' + value);
+    // });
+  </script> -->
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="container main">
+  <p id="msg" ></p>
+  <div class="row main">
+    <div class="text-center box main">
+      <nav class="navbar navbar-default">
+        <div class="container-fluid main" style="padding-right: 0">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header main">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#" data-toggle="dropdown" role="button"><span class="caret"></span> <span class="glyphicon glyphicon-off" aria-hidden="true"></span></a>
+            <ul class="dropdown-menu" style="z-index: 10000">
+              <li><a href="#">Start   <i class="bi bi-play-circle"></i> </a>      
+              <ul class="dropdown-menu second" style="z-index: 10000">
+                <li><a href="#">Start All</a></li>
+                <li><a href="#">Start Parrot</a></li>
+                <li><a href="#">Start Houshang</a></li>
+              </ul>
+              <li><a href="#">Reboot</a></li>
+              <li role="separator" class="divider"></li>
+              <li><a href="#">Shutdown    <i class="bi bi-stop-circle-fill"></i></a></li>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="main collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav main" style="margin-left:40px">
+              <li class="maintab anchor"><a href="#" onclick="viewdiv('control_panel');"><i class="fa fa-gamepad" aria-hidden="true">&nbsp;</i>Control Panel Houshang<span class="sr-only">(current)</span></a></li>
+              <li class="anchor"><a href="#" onclick="viewdiv('camera');"><span class="fa fa-camera" aria-hidden="true">&nbsp;</span>Control Panel Parrot</a></li>
+              <li class="anchor">
+                <a href="#" onclick="viewdiv('model');"><span class="fa fa-smile-o" aria-hidden="true">&nbsp;</span>Model</a>
+              </li>
+              <li class="anchor voice"><a href="#" onclick="viewdiv('voice');"><span class="fa fa-microphone" aria-hidden="true">&nbsp;</span>Voice Control</a></li>
+              <li class="anchor"><a href="#" onclick="viewdiv('slam');"><span class="fa fa-location-arrow" aria-hidden="true">&nbsp;</span>SLAM</a></li>
+              <li class="anchor"><a href="#" onclick="viewdiv('settings');"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a></li>
+              <li class="bot" style="margin: inherit;">
+                <div id="mainbot" onmouseenter="reload();">
+                  <div id="bot">
+                    <div id="eyes">
+                      <div id="left">
+                        <div class="eye"></div>
+                      </div>
+                      <div id="right">
+                        <div class="eye"></div>
+                      </div>
+                    </div>
+                    <div id="leftarm">
+                      <div class="finger"></div>
+                      <div class="finger"></div>
+                    </div>
+                    <div id="rightarm">
+                      <div class="finger"></div>
+                      <div class="finger"></div>
+                    </div>
+                  </div>
+                  <div id="neck"></div>
+                  <div id="body"></div>
+                  <div id="legs">
+                    <div id="left">
+                      <div class="foot"></div>
+                    </div>
+                    <div id="right">
+                      <div class="foot"></div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+
+            <!-- <ul class="nav navbar-nav navbar-right">
+              <li><a href="#"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li><a href="#">Separated link</a></li>
+                </ul>
+              </li>
+            </ul> -->
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
+  </div>
+  </div>
+  <!-- Closes the navigation -->
+<div class="change">
+<div id="control_panel">
+  <div class="row">
+    <div class="col-md-5 col-sm-5 houshi imagespot">
+      
+      <span>
+        <img id="houshi" src="./untitled.png">
+        <div class="face">
+          <div id="cube" class="cube">
+            <!-- <div class="side blue front"></div>
+              <div class="side pink back"></div>
+              <div class="side aqua right"></div> -->
+              <div class="side green right"><i id="al" class="bi bi-arrow-left"></i></div>
+              <!-- <div class="side orange top"></div> -->
+              <div class="side red bottom"><i  id="au" class="bi bi-arrow-up"></i></div>
+            </div> 
+            
+            <div class=" housheye lefteye happyeye"></div>
+            <div class=" housheye righteye happyeye"></div>
+            <div class="shyblush right"></div>
+            <div class="shyblush left"></div>
+            <div id="mouth" class="mouth-happy"></div>
+          </div>
+          <div class="btn-group mb-3 emotions" style="display:inline-grid">
+            <!--Normal-->
+            <button value="happy" class="btn btn-outline-secondary ebtn anchor" id='happy' onclick="exp(this); normal();"><i class="bi bi-emoji-smile"></i></button>
+            <!--Laugh-->
+            <button class="btn btn-outline-secondary ebtn anchor" id='laugh' onclick="exp(this); laugh()"><i class="bi bi-emoji-laughing"></i></button>
+            <!--Upset-->
+            <button  class="btn btn-outline-secondary ebtn anchor" id='upset' onclick="exp(this); upset();"><i class="bi bi-emoji-frown"></i></button> 
+            <!--Surprise-->		  
+            <button class="btn btn-outline-secondary ebtn anchor" id='surprise' onclick="exp(this); surprise()"><i class="bi bi-emoji-dizzy"></i> </button>
+            <!--Shy-->
+            <button class="btn btn-outline-secondary ebtn anchor" id='shy' onclick="exp(this); shy();"><i class="bi bi-emoji-heart-eyes"></i> </button>
+            <!-- autu -->
+            <button class="btn btn-outline-secondary ebtn anchor" id='auto' onclick="exp(this)"><i class="bi bi-emoji-neutral"></i> </button>
+          </div>
+        </span>
+      </div>
+      <div class="col-md-6 col-sm-6">
+        <img src="" class="img-responsive" alt="" id="video" style="border: 5px solid whitesmoke;"/>
+        <div class="col btn-group" style="display:inline-grid;position: fixed;left: 1%;top: 35%;width: fit-content;background: whitesmoke;height: fit-content;justify-content: space-around;justify-content: space-evenly;justify-content: space-around;justify-content: space-between;justify-content: space-around;justify-content: space-evenly;justify-content: end;justify-content: start;justify-content: center;align-items: center;align-items: start;align-items: center;justify-items: center;">
+          <!--Normal-->
+          <h style="
+          
+          border-bottom: 5px solid grey;
+          background: linear-gradient(2deg, #808080, #0a72b8);
+          padding-top: 14%;
+          padding-bottom: 14%;
+          width: -webkit-fill-available;
+          text-align: -webkit-center;
+          color: whitesmoke;
+          font-weight: bolder;
+      
+      ">Move Robot</h>
+          <div id="joystickArea" style="position:sticky;padding: 3rem;width: -webkit-fill-available;">
+          </div>
+          <div id="debug" style="font-size: smaller;text-align: left;width: -webkit-fill-available;color: #7d7d7d;padding: 11%;">
+            <ul style="display:inline-grid;justify-content: space-evenly;grid-gap: 1rem;">
+                <li class="position">
+                    position :
+                    <ul>
+                        <li class="x">x : <span id="x"></span></li>
+                        <li class="y">y : <span id="y"></span></li>
+                    </ul>
+                </li>
+                
+                
+                
+                <li class="angle">velocity:<ul>
+                        <li class="radian">linear x: <p id="vlx"></p></li>
+                        
+                    <li class="degree">angular z: <span id="vaz"></span></li></ul>
+                </li>
+                <li class="direction">
+                    direction :
+                    <ul>
+                        <li class="x">x : <span id="dx"></span></li>
+                        <li class="y">y : <span id="dy"></span></li>
+                    </ul>
+                </li>
+            </ul>
+          </div>
+ 
+        </div>
+    </div>
+  </div>
+</div>
+<!-- <div class="row">
+    <div class="col-md-6 col-sm-6">
+      <div>
+        <div>
+          <div id="jog_dial_example"></div>
+          <div id="jog_dial_example_meter">
+            <div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-sm-6">
+          
+          <div class="level1-circle">
+            <div class="level1-gear">
+              <div class="level1-dot"></div>
+            </div>
+            <div class="level1-arm" ondrag="drag();"></div>
+            <div class="level2-circle">
+              <div class="level2-gear">
+                <div class="level2-dot"></div>
+              </div>
+              <div class="level2-arm"></div>
+              <div class="level2-pointer"></div>
+            </div>
+          </div>
+          
+          
+          <br/>
+          <div class="controls">
+            <h3>Controls:</h3>
+            <label for="arm1">Rotate Whole Arm</label>
+            <input id="arm1" class="slider" type="range" value="0" min="-180" max="180" />
+            <br />
+            <label for="arm2">Rotate Lower Arm</label>
+            <input id="arm2" class="slider" type="range" value="0" min="-180" max="180" />
+            <br/>
+            <br/>
+            <label for="autoplay">Enable Auto Play</label>
+            <input type="checkbox" id="autoplay">
+            <br/>
+            <br/>
+          </div>
+    </div>
+ 
+        
+  </div>
+  <div class="row">
+    <div class="col-md-3 col-sm-3 col-lg-3">
+      <div class='component buttons'>
+        <button>Head</button>    
+        <br/><br/>
+        <button>Hands</button>
+        <br/><br/>
+        <button>Move</button>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-3 col-lg-3">
+      <div class='component toggles'>
+          <input type='checkbox' id='toggle_1' />
+          <label for='toggle_1' class='toggle'>
+            <div class='thumb'></div>
+          </label>
+          <input type='checkbox' checked id='toggle_2' />
+          <label for='toggle_2' class='toggle'>
+            <div class='thumb'></div>
+          </label>
+          <input type='checkbox' id='toggle_3' />
+          <label for='toggle_3' class='toggle'>
+            <div class='thumb'></div>
+          </label>
+          <input type='checkbox' checked id='toggle_4' />
+          <label for='toggle_4' class='toggle'>
+            <div class='thumb'></div>
+          </label>
+        </div>
+        
+    </div>
+
+    <div class="col-md-6 col-sm-6 col-lg-6">
+      <div class="box light_box component sliders">
+          <div class='ui-slider'></div>
+          <div class='ui-slider'></div>
+          <div class='ui-slider'></div>
+        </div>
+    </div>
+
+    <div class="col-md-3 col-sm-3 col-lg-3">
+      <div class="box">
+      <div class="progress">
+          <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">60%
+            <span class="sr-only">60% Complete (warning)</span>
+          </div>
+        </div>
+        <div class="progress">
+          <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">80% 
+            <span class="sr-only">80% Complete (danger)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <!-- <div class="row">
+    <div class="col-md-6 col-sm-6 col-lg-6">
+      <div class="box">
+        <div id="clock"></div>
+        <div class="clock">
+            <div class="hour"></div>
+            <div class="minute"></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-sm-6 col-lg-6">
+      <div class="box">
+        <div class="col-md-8 col-sm-8 col-lg-8">
+          <div class="demo-card-event mdl-card mdl-shadow--2dp">
+            <div class="mdl-card__title mdl-card--expand">
+              <h4>
+              Featured event:<br>
+              May 24, 2016<br>
+              7-11pm
+            </h4>
+            </div>
+          <div class="mdl-card__actions mdl-card--border">
+            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+              Add to Calendar
+            </a>
+            <button id="#load" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect">
+              <i class="material-icons">event</i>
+            </button>
+          </div>
+        </div>
+        </div>
+        
+        <div id="notify" class="col-md-4 col-sm-4 col-lg-4">
+          <p id="spinny"class="mdl-spinner mdl-js-spinner mdl-spinner--single-color"></p>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-12">
+      <div class="light_box music">
+        <div class="song_info ">
+          <p class="song">A Sky Full of Stars</p>
+          <p class="album">Ghost Stories</p>
+          <p class="artist">Coldplay</p>
+        </div>
+        <div class="controls col-xs-8 col-md-8 col-sm-8 col-lg-8">
+          <span class="glyphicon glyphicon-step-backward" aria-hidden="true"></span>
+          <span class="glyphicon glyphicon-step-forward" aria-hidden="true"></span>
+          <span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
+          <div class="volume">
+            <div class="volume-control">
+              <span class="glyphicon glyphicon-volume-up" aria-hidden="true"></span>
+              <input class="mdl-slider mdl-js-slider" type="range"
+      min="0" max="100" value="25" tabindex="0"/>
+            </div>
+          </div>
+        </div>
+        <div class="album_image col-xs-4 col-md-4 col-sm-4 col-lg-4">
+          <a class="glyphicon glyphicon-play center-block" aria-hidden="true"></a>
+         </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </div> -->
+  <div id="camera">
+    <div class="container ">
+      <div class="row" style="display: grid; grid-auto-flow: column; " >
+        <div id="main-circle">
+          <div id="inner-circle">STOP ALL</div>
+        </div>
+        <div class="col btn-group" style="display:inline-grid;width: fit-content;background: whitesmoke;height: fit-content;justify-items: center;">
+          <!--Normal-->
+          <button class="btn ebtn parrot anchor" style="
+          
+          border-bottom: 5px solid grey;
+          background: #0a72b8;
+          padding-top: 14%;
+          padding-bottom: 14%;
+          width: -webkit-fill-available;
+          text-align: -webkit-center;
+          color: whitesmoke;
+          font-weight: bolder;
+      
+      ">play sound</button>
+          <div id="debug" style="height:4rem; font-size: smaller;text-align: left;width: -webkit-fill-available;color: #7d7d7d;padding: 11%;">
+            play_sound service
+          </div>
+
+        </div>
+        <div class="col btn-group" style="display:inline-grid;width: fit-content;background: whitesmoke;height: fit-content;justify-items: center;">
+          <!--Normal-->
+          <button class="btn ebtn parrot anchor" style="
+          
+          border-bottom: 5px solid grey;
+          background: #0a72b8;
+          padding-top: 14%;
+          padding-bottom: 14%;
+          width: -webkit-fill-available;
+          text-align: -webkit-center;
+          color: whitesmoke;
+          font-weight: bolder;
+      
+      ">Dance</button>
+          <div id="debug" style="height:4rem; font-size: smaller;text-align: left;width: -webkit-fill-available;color: #7d7d7d;padding: 11%;">
+            Dance
+          </div>
+
+        </div>
+        <div class="col btn-group" style="display:inline-grid;width: fit-content;background: whitesmoke;height: fit-content;justify-items: center;">
+          <!--Normal-->
+          <button class="btn ebtn parrot anchor" style="
+          
+          border-bottom: 5px solid grey;
+          background: #0a72b8;
+          padding-top: 14%;
+          padding-bottom: 14%;
+          width: -webkit-fill-available;
+          text-align: -webkit-center;
+          color: whitesmoke;
+          font-weight: bolder;
+      
+      ">blink</button>
+          <div id="debug" style="height:4rem; font-size: smaller;text-align: left;width: -webkit-fill-available;color: #7d7d7d;padding: 11%;">
+            open and close eyes
+          </div>
+
+        </div>
+        <div class="col btn-group" style="display:inline-grid;width: fit-content;background: whitesmoke;height: fit-content;justify-items: center;">
+          <!--Normal-->
+          <button class="btn ebtn parrot anchor" style="
+          
+          border-bottom: 5px solid grey;
+          background: #0a72b8;
+          padding-top: 14%;
+          padding-bottom: 14%;
+          width: -webkit-fill-available;
+          text-align: -webkit-center;
+          color: whitesmoke;
+          font-weight: bolder;
+      
+      ">Open Eye</button>
+          <div id="debug" style="height:4rem; font-size: smaller;text-align: left;width: -webkit-fill-available;color: #7d7d7d;padding: 11%;">
+            openclose eyes
+          </div>
+
+        </div>
+        <div class="col btn-group" style="display:inline-grid;width: fit-content;background: whitesmoke;height: fit-content;justify-items: center;">
+          <!--Normal-->
+          <button class="btn ebtn parrot anchor" style="
+          
+          border-bottom: 5px solid grey;
+          background: #0a72b8;
+          padding-top: 14%;
+          padding-bottom: 14%;
+          width: -webkit-fill-available;
+          text-align: -webkit-center;
+          color: whitesmoke;
+          font-weight: bolder;
+      
+      ">Close eye</button>
+          <div id="debug" style="height:4rem; font-size: smaller;text-align: left;width: -webkit-fill-available;color: #7d7d7d;padding: 11%;">
+            close eyes
+          </div>
+
+        </div>
+        <div class="col btn-group" style="display:inline-grid;width: fit-content;background: whitesmoke;height: fit-content;justify-items: center;">
+          <!--Normal-->
+          <button class="btn ebtn parrot anchor" style="
+          
+          border-bottom: 5px solid grey;
+          background: #0a72b8;
+          padding-top: 14%;
+          padding-bottom: 14%;
+          width: -webkit-fill-available;
+          text-align: -webkit-center;
+          color: whitesmoke;
+          font-weight: bolder;
+      
+      ">Talk</button>
+          <div id="debug" style="height:4rem; font-size: smaller;text-align: left;width: -webkit-fill-available;color: #7d7d7d;padding: 11%;">
+            open and close the mouth continuesly
+          </div>
+
+        </div>
+        <div class="col btn-group" style="display:inline-grid;width: fit-content;background: whitesmoke;height: fit-content;justify-items: center;">
+          <!--Normal-->
+          <button class="btn ebtn parrot anchor" style="
+          
+          border-bottom: 5px solid grey;
+          background: #0a72b8;
+          padding-top: 14%;
+          padding-bottom: 14%;
+          width: -webkit-fill-available;
+          text-align: -webkit-center;
+          color: whitesmoke;
+          font-weight: bolder;
+      
+      ">Open Mouth</button>
+          <div id="debug" style="height:4rem; font-size: smaller;text-align: left;width: -webkit-fill-available;color: #7d7d7d;padding: 11%;">
+            close the mouth
+          </div>
+
+        </div>
+        <div class="col btn-group" style="display:inline-grid;width: fit-content;background: whitesmoke;height: fit-content;justify-items: center;">
+          <!--Normal-->
+          <button class="btn ebtn parrot anchor" style="
+          
+          border-bottom: 5px solid grey;
+          background: #0a72b8;
+          padding-top: 14%;
+          padding-bottom: 14%;
+          width: -webkit-fill-available;
+          text-align: -webkit-center;
+          color: whitesmoke;
+          font-weight: bolder;
+      
+      ">Close Mouth</button>
+          <div id="debug" style="height:4rem; font-size: smaller;text-align: left;width: -webkit-fill-available;color: #7d7d7d;padding: 11%;">
+            close the mouth
+          </div>
+
+        </div>
+        <div class="col btn-group" style="display:inline-grid;width: fit-content;background: whitesmoke;height: fit-content;justify-items: center;">
+          <!--Normal-->
+          <button class="btn ebtn parrot anchor" style="
+          
+          border-bottom: 5px solid grey;
+          background: #0a72b8;
+          padding-top: 14%;
+          padding-bottom: 14%;
+          width: -webkit-fill-available;
+          text-align: -webkit-center;
+          color: whitesmoke;
+          font-weight: bolder;
+      
+      ">Talk</button>
+          <div id="debug" style="height:4rem; font-size: smaller;text-align: left;width: -webkit-fill-available;color: #7d7d7d;padding: 11%;">
+            open and close the mouth
+          </div>
+
+        </div>
+
+
+      </div>
+      </div>
+   </div>
+
+  <div id="model">
+    <div class="container ">
+      <div class="box" style="padding: 1rem !important;">
+        <iframe src="test1.tiff" allowfullscreen
+        sandbox="allow-scripts allow-presentation allow-same-origin"
+        allow="autoplay; fullscreen; picture-in-picture; xr-spatial-tracking; encrypted-media" style="height: -webkit-fill-available; width: -webkit-fill-available;">
+        </iframe>
+      </div>
+   </div>
+  </div>
+
+  <div id="voice">
+    <div class="container box">
+      <div class="mic">
+        <button id="speech" class="micbtn m-left type2 stop">
+          <div id="pulse-ring"></div>
+          <i class="fa fa-microphone" aria-hidden="true"></i></button>
+          <div style="left: 33%; position:absolute; padding: 3rem;">
+            <audio id="player" controls style="border-radius: 12% 12% 12% 12%;border: solid #189bff;"></audio>
+            <a id="download">Download</a>
+            <span id="stop"></span>
+          </div>
+        </div>
+      </div>
+          <!-- <script>
+            const handleSuccess = function(stream) {
+              const context = new AudioContext();
+              const source = context.createMediaStreamSource(stream);
+              const processor = context.createScriptProcessor(1024, 1, 1);
+          
+              source.connect(processor);
+              processor.connect(context.destination);
+          
+              processor.onaudioprocess = function(e) {
+                // Do something with the data, e.g. convert it to WAV
+                console.log(e.inputBuffer);
+              };
+            };
+          
+            navigator.mediaDevices.getUserMedia({ audio: true, video: false })
+                .then(handleSuccess);
+          </script> -->
+
+
+      </div>  
+    </div>
+  </div>
+</div>
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script src='http://code.jquery.com/jquery-3.3.1.slim.min.js'></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha384-xBuQ/xzmlsLoJpyjoggmTEz8OWUFM0/RC5BsqQBDX2v5cMvDHcMakNTNrHIW2I5f" crossorigin="anonymous"></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js'></script>
+<script src='https://storage.googleapis.com/code.getmdl.io/1.0.4/material.min.js'></script>
+<script  src="./script.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+<script src="jogDial.js"></script>
+<!-- partial -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script><script  src="./scriptui.js"></script>
+<script src='https://ricostacruz.com/jquery.transit/jquery.transit.min.js'></script><script  src="./scriptspots.js"></script>
+<script src="jquery.keyframes.js"></script>
+<script src="./nipple.js"></script>
+<script src="./webui.js"></script>
+<script src="./server.js"></script>
+<script src="https://static.robotwebtools.org/keyboardteleopjs/current/keyboardteleop.min.js"></script>
+<script>
+  var s = function (sel) { return document.querySelector(sel); };
+  var sId = function (sel) { return document.getElementById(sel); };
+  var removeClass = function (el, clss) {
+    el.className = el.className.replace(new RegExp('\\b' + clss + ' ?\\b', 'g'), '');
+  }
+  
+  
+  // Get debug elements and map them
+  
+</script>
+<!-- <script src='https://cdn.rawgit.com/Verlangieri/robot-animation/master/app/vendor/three.min.js'></script>
+<script src='https://cdn.rawgit.com/Verlangieri/robot-animation/master/app/vendor/gsap.min.js'></script>
+<script src='https://cdn.rawgit.com/Verlangieri/robot-animation/master/app/vendor/dat.gui.min.js'></script>
+<script src='https://cdn.rawgit.com/Verlangieri/robot-animation/master/app/vendor/colladaLoader2.min.js'></script>
+<script src="./3dmotion.js"></script> -->
+</body>
+</html>
