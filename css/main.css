@@ -1804,9 +1804,24 @@ button::-moz-focus-inner, input::-moz-focus-inner {
     margin-top: 0;
 }
 
+
+
 .home-content__main {
     padding-right: 300px;
     position: relative;
+}
+
+.home-content__explain h1 {
+    font-size: 4rem !important;
+
+}
+
+#smaller_h1 {
+    font-size: 2rem !important;
+    letter-spacing: normal !important;
+    line-height: revert;
+    font-family: "librebaskerville-regular", serif !important;
+
 }
 
 .home-content__buttons {
@@ -1966,6 +1981,7 @@ html.ss-loaded .home-content__main {
     animation-duration: 2s;
     -webkit-animation-name: fadeIn;
     animation-name: fadeIn;
+    top: 8rem;
 }
 
 html.no-csstransitions .home-content__main {
