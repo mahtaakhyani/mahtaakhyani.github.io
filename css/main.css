@@ -1811,6 +1811,10 @@ button::-moz-focus-inner, input::-moz-focus-inner {
     position: relative;
 }
 
+.home-content__explain {
+    padding-right: inherit;
+}
+
 .home-content__explain h1 {
     font-size: 4rem !important;
 
