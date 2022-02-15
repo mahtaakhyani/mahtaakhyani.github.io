@@ -1,730 +1,928 @@
 <!DOCTYPE html>
-<html lang="en" >
+<!--[if lt IE 9 ]><html class="no-js oldie" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
 <head>
-  <meta charset="UTF-8">
-  <title>Hooshang Control Panel</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"><link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
-  <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="icons-1.5.0/font/bootstrap-icons.css">
-  
-  <link rel='stylesheet' href='https://storage.googleapis.com/code.getmdl.io/1.0.4/material.indigo-pink.min.css'>
-  <link rel="stylesheet" href="./style.css">
-  <!-- <link href="https://www.cssscript.com/wp-includes/css/sticky.css" rel="stylesheet" type="text/css"> -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-  <link rel='stylesheet' href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css'><link rel="stylesheet" href="./styleui.css">
-  <link rel="stylesheet" href="./stylespots.css">
-  <script type="text/javascript" src="http://static.robotwebtools.org/EventEmitter2/current/eventemitter2.min.js"></script>
-  <script type="text/javascript" src="http://static.robotwebtools.org/roslibjs/current/roslib.min.js"></script>
-  <!-- <script>
-    robot_WS = 'ws://localhost:9090';
-//     // // Init handle for rosbridge_websocket
-    ros = new ROSLIB.Ros({
-        url: robot_WS
-        
-    });  
-  </script> -->
-  
-  <!-- <script type="text/javascript" type="text/javascript">
-    // Connecting to ROS
-    // -----------------
-  
-    // var ros = new ROSLIB.Ros({
-    //   url : 'ws://localhost:9090'
-    // });
-  
-    // ros.on('connection', function() {
-    //   console.log('Connected to websocket server.');
-    // });
-  
-    // ros.on('error', function(error) {
-    //   console.log('Error connecting to websocket server: ', error);
-    // });
-  
-    // ros.on('close', function() {
-    //   console.log('Connection to websocket server closed.');
-    // });
-  
-  
-    // Subscribing to a Topic
-    // ----------------------
-  
-    // var listener = new ROSLIB.Topic({
-    //   ros : ros,
-    //   name : '/cmd_vel',
-    //   messageType : 'geometry_msgs/Twist'
-    // });
-  
-    // listener.subscribe(function(message) {
-    //   console.log('Received message on ' + listener.name + ': ' + message.data);
-    //   var msgd = message.data;
-    //   // listener.unsubscribe();
-    //   document.getElementById("msg").innerHTML = msgd;
-    // });
-  
-    // Calling a service
-    // -----------------
-    // var addTwoIntsClient = new ROSLIB.Service({
-    //   ros : ros,
-    //   name : '/add_two_ints',
-    //   serviceType : 'rospy_tutorials/AddTwoInts'
-    // });
-  
-    // var request = new ROSLIB.ServiceRequest({
-    //   a : 1,
-    //   b : 2
-    // });
-  
-    // addTwoIntsClient.callService(request, function(result) {
-    //   console.log('Result for service call on '
-    //     + addTwoIntsClient.name
-    //     + ': '
-    //     + result.sum);
-    // });
-  
-    // // Getting and setting a param value
-    // // ---------------------------------
-  
-    // ros.getParams(function(params) {
-    //   console.log(params);
-    // });
-  
-    // var maxVelX = new ROSLIB.Param({
-    //   ros : ros,
-    //   name : 'max_vel_y'
-    // });
-  
-    // maxVelX.set(0.8);
-    // maxVelX.get(function(value) {
-    //   console.log('MAX VAL: ' + value);
-    // });
-  </script> -->
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>Hola</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/vendor.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- script
+    ================================================== -->
+    <script src="js/modernizr.js"></script>
+    <script src="js/pace.min.js"></script>
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
 </head>
-<body>
-<!-- partial:index.partial.html -->
-<div class="container main">
-  <p id="msg" ></p>
-  <div class="row main">
-    <div class="text-center box main">
-      <nav class="navbar navbar-default">
-        <div class="container-fluid main" style="padding-right: 0">
-          <!-- Brand and toggle get grouped for better mobile display -->
-          <div class="navbar-header main">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#" data-toggle="dropdown" role="button"><span class="caret"></span> <span class="glyphicon glyphicon-off" aria-hidden="true"></span></a>
-            <ul class="dropdown-menu" style="z-index: 10000">
-              <li><a href="#">Start   <i class="bi bi-play-circle"></i> </a>      
-              <ul class="dropdown-menu second" style="z-index: 10000">
-                <li><a href="#">Start All</a></li>
-                <li><a href="#">Start Parrot</a></li>
-                <li><a href="#">Start Houshang</a></li>
-              </ul>
-              <li><a href="#">Reboot</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Shutdown    <i class="bi bi-stop-circle-fill"></i></a></li>
-              </li>
-            </ul>
-          </div>
 
-          <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="main collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav main" style="margin-left:40px">
-              <li class="maintab anchor"><a href="#" onclick="viewdiv('control_panel');"><i class="fa fa-gamepad" aria-hidden="true">&nbsp;</i>Control Panel Houshang<span class="sr-only">(current)</span></a></li>
-              <li class="anchor"><a href="#" onclick="viewdiv('camera');"><span class="fa fa-camera" aria-hidden="true">&nbsp;</span>Control Panel Parrot</a></li>
-              <li class="anchor">
-                <a href="#" onclick="viewdiv('model');"><span class="fa fa-smile-o" aria-hidden="true">&nbsp;</span>Model</a>
-              </li>
-              <li class="anchor voice"><a href="#" onclick="viewdiv('voice');"><span class="fa fa-microphone" aria-hidden="true">&nbsp;</span>Voice Control</a></li>
-              <li class="anchor"><a href="#" onclick="viewdiv('slam');"><span class="fa fa-location-arrow" aria-hidden="true">&nbsp;</span>SLAM</a></li>
-              <li class="anchor"><a href="#" onclick="viewdiv('settings');"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a></li>
-              <li class="bot" style="margin: inherit;">
-                <div id="mainbot" onmouseenter="reload();">
-                  <div id="bot">
-                    <div id="eyes">
-                      <div id="left">
-                        <div class="eye"></div>
-                      </div>
-                      <div id="right">
-                        <div class="eye"></div>
-                      </div>
-                    </div>
-                    <div id="leftarm">
-                      <div class="finger"></div>
-                      <div class="finger"></div>
-                    </div>
-                    <div id="rightarm">
-                      <div class="finger"></div>
-                      <div class="finger"></div>
-                    </div>
-                  </div>
-                  <div id="neck"></div>
-                  <div id="body"></div>
-                  <div id="legs">
-                    <div id="left">
-                      <div class="foot"></div>
-                    </div>
-                    <div id="right">
-                      <div class="foot"></div>
-                    </div>
-                  </div>
+<body id="top">
+
+    <!-- header
+    ================================================== -->
+    <header class="s-header">
+
+        <div class="header-logo">
+            <a class="site-logo" href="index.html"><img src="images/logo.png" alt="Homepage"></a>
+        </div>
+
+        <nav class="header-nav-wrap">
+            <ul class="header-nav">
+                <li class="current"><a class="smoothscroll"  href="#home" title="home">Home</a></li>
+                <li><a class="smoothscroll"  href="#about" title="about">About</a></li>
+                <li><a class="smoothscroll"  href="#works" title="works">Works</a></li>
+                <li><a class="smoothscroll"  href="#blog" title="blog">Blog</a></li>
+                <li><a class="smoothscroll"  href="#contact" title="contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <a class="header-menu-toggle" href="#0"><span>Menu</span></a>
+
+    </header> <!-- end s-header -->
+
+
+   <!-- home
+   ================================================== -->
+   <section id="home" class="s-home page-hero target-section" data-parallax="scroll" data-image-src="images/hero-bg.jpg" data-natural-width=3000 data-natural-height=2000 data-position-y=center>
+
+        <div class="overlay"></div>
+        <div class="shadow-overlay"></div>
+
+        <div class="home-content">
+
+            <div class="row home-content__main">
+
+                <h3>Hello There</h3>
+
+                <h1>
+                    I am Jonathan Doe. <br>
+                    I am a graphic & UI/UX <br>
+                    designer based in Somewhere.
+                </h1>
+
+                <div class="home-content__buttons">
+                    <a href="#works" class="smoothscroll btn btn--stroke">
+                        Latest Projects
+                    </a>
+                    <a href="#about" class="smoothscroll btn btn--stroke">
+                        More About Me
+                    </a>
                 </div>
-              </li>
-            </ul>
 
-            <!-- <ul class="nav navbar-nav navbar-right">
-              <li><a href="#"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a></li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li role="separator" class="divider"></li>
-                  <li><a href="#">Separated link</a></li>
+                <div class="home-content__scroll">
+                    <a href="#about" class="scroll-link smoothscroll">
+                        <span>Scroll Down</span>
+                    </a>
+                </div>
+
+            </div>
+
+        </div> <!-- end home-content -->
+
+        <ul class="home-social">
+            <li>
+                <a href="#"><i class="im im-facebook" aria-hidden="true"></i><span>Facebook</span></a>
+            </li>
+            <li>
+                <a href="#"><i class="im im-twitter" aria-hidden="true"></i><span>Twiiter</span></a>
+            </li>
+            <li>
+                <a href="#"><i class="im im-instagram" aria-hidden="true"></i><span>Instagram</span></a>
+            </li>
+            <li>
+                <a href="#"><i class="im im-behance" aria-hidden="true"></i><span>Behance</span></a>
+            </li>
+            <li>
+                <a href="#"><i class="im im-pinterest" aria-hidden="true"></i><span>Pinterest</span></a>
+            </li>
+        </ul> 
+        <!-- end home-social -->
+
+    </section> <!-- end s-home -->
+
+
+    <!-- about
+    ================================================== -->
+    <section id="about" class="s-about target-section">
+        
+        <div class="row narrow section-intro has-bottom-sep">
+            <div class="col-full text-center">
+                <h3>About</h3>
+                <h1>More About Me</h1>
+                <p class="lead">Lorem ipsum Dolor adipisicing nostrud et aute Excepteur amet commodo ea dolore irure esse Duis nulla sint fugiat cillum ullamco proident aliquip quis qui voluptate dolore veniam Ut laborum non est in officia.</p>
+            </div>
+        </div>
+
+        <div class="row about-content">
+
+            <div class="col-six tab-full left">
+                <h3>Howdy!</h3>
+
+                <p>Lorem ipsum Ut eiusmod ex magna sit dolor esse adipisicing minim ad cupidatat eu veniam nostrud mollit laboris sunt magna velit culpa consectetur nostrud consectetur labore sed do.</p>
+
+                <p>
+                Lorem ipsum Nisi officia Duis irure voluptate dolor commodo pariatur occaecat aliquip adipisicing voluptate Ut in qui ea sint occaecat in commodo in in in incididunt ut sunt in Ut Duis in ut ex qui anim cupidatat cupidatat ex in non dolore labore ea amet cillum ea qui dolor nisi sed velit mollit exercitation ex fugiat labore in deserunt culpa laborum culpa anim dolore laboris amet irure mollit proident velit fugiat aute ea elit magna consequat qui officia quis elit Duis dolor esse cupidatat tempor proident voluptate aliqua ex cupidatat do eiusmod veniam irure laborum ut magna nostrud dolore ullamco commodo elit sit magna aliqua laborum veniam officia dolor.	
+                </p>
+            </div>
+
+            <div class="col-six tab-full right">
+                <h3>I've Got Some skills.</h3>
+
+                <ul class="skill-bars">
+                    <li>
+                    <div class="progress percent90"><span>90%</span></div>
+                    <strong>HTML5</strong>
+                    </li>
+                    <li>
+                    <div class="progress percent85"><span>85%</span></div>
+                    <strong>CSS3</strong>
+                    </li>
+                    <li>
+                    <div class="progress percent70"><span>70%</span></div>
+                    <strong>JQuery</strong>
+                    </li>
+                    <li>
+                    <div class="progress percent95"><span>95%</span></div>
+                    <strong>PHP</strong>
+                    </li>
+                    <li>
+                    <div class="progress percent75"><span>75%</span></div>
+                    <strong>Wordpress</strong>
+                    </li>   
+                    <li>
+                    <div class="progress percent90"><span>90%</span></div>
+                    <strong>Angular JS</strong>
+                    </li>   
                 </ul>
-              </li>
-            </ul> -->
-          </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-      </nav>
-  </div>
-  </div>
-  <!-- Closes the navigation -->
-<div class="change">
-<div id="control_panel">
-  <div class="row">
-    <div class="col-md-5 col-sm-5 houshi imagespot">
-      
-      <span>
-        <img id="houshi" src="./untitled.png">
-        <div class="face">
-          <div id="cube" class="cube">
-            <!-- <div class="side blue front"></div>
-              <div class="side pink back"></div>
-              <div class="side aqua right"></div> -->
-              <div class="side green right"><i id="al" class="bi bi-arrow-left"></i></div>
-              <!-- <div class="side orange top"></div> -->
-              <div class="side red bottom"><i  id="au" class="bi bi-arrow-up"></i></div>
-            </div> 
-            
-            <div class=" housheye lefteye happyeye"></div>
-            <div class=" housheye righteye happyeye"></div>
-            <div class="shyblush right"></div>
-            <div class="shyblush left"></div>
-            <div id="mouth" class="mouth-happy"></div>
-          </div>
-          <div class="btn-group mb-3 emotions" style="display:inline-grid">
-            <!--Normal-->
-            <button value="happy" class="btn btn-outline-secondary ebtn anchor" id='happy' onclick="exp(this); normal();"><i class="bi bi-emoji-smile"></i></button>
-            <!--Laugh-->
-            <button class="btn btn-outline-secondary ebtn anchor" id='laugh' onclick="exp(this); laugh()"><i class="bi bi-emoji-laughing"></i></button>
-            <!--Upset-->
-            <button  class="btn btn-outline-secondary ebtn anchor" id='upset' onclick="exp(this); upset();"><i class="bi bi-emoji-frown"></i></button> 
-            <!--Surprise-->		  
-            <button class="btn btn-outline-secondary ebtn anchor" id='surprise' onclick="exp(this); surprise()"><i class="bi bi-emoji-dizzy"></i> </button>
-            <!--Shy-->
-            <button class="btn btn-outline-secondary ebtn anchor" id='shy' onclick="exp(this); shy();"><i class="bi bi-emoji-heart-eyes"></i> </button>
-            <!-- autu -->
-            <button class="btn btn-outline-secondary ebtn anchor" id='auto' onclick="exp(this)"><i class="bi bi-emoji-neutral"></i> </button>
-          </div>
-        </span>
-      </div>
-      <div class="col-md-6 col-sm-6">
-        <img src="" class="img-responsive" alt="" id="video" style="border: 5px solid whitesmoke;"/>
-        <div class="col btn-group" style="display:inline-grid;position: fixed;left: 1%;top: 35%;width: fit-content;background: whitesmoke;height: fit-content;justify-content: space-around;justify-content: space-evenly;justify-content: space-around;justify-content: space-between;justify-content: space-around;justify-content: space-evenly;justify-content: end;justify-content: start;justify-content: center;align-items: center;align-items: start;align-items: center;justify-items: center;">
-          <!--Normal-->
-          <h style="
-          
-          border-bottom: 5px solid grey;
-          background: linear-gradient(2deg, #808080, #0a72b8);
-          padding-top: 14%;
-          padding-bottom: 14%;
-          width: -webkit-fill-available;
-          text-align: -webkit-center;
-          color: whitesmoke;
-          font-weight: bolder;
-      
-      ">Move Robot</h>
-          <div id="joystickArea" style="position:sticky;padding: 3rem;width: -webkit-fill-available;">
-          </div>
-          <div id="debug" style="font-size: smaller;text-align: left;width: -webkit-fill-available;color: #7d7d7d;padding: 11%;">
-            <ul style="display:inline-grid;justify-content: space-evenly;grid-gap: 1rem;">
-                <li class="position">
-                    position :
-                    <ul>
-                        <li class="x">x : <span id="x"></span></li>
-                        <li class="y">y : <span id="y"></span></li>
-                    </ul>
-                </li>
+            </div>
+
+        </div> <!-- end about-content -->
+
+        <div class="row about-content about-content--buttons">
+
+            <div class="col-six tab-full left">
+                <a href="#0" class="btn btn--primary full-width">Download My CV</a>
+            </div>
+            <div class="col-six tab-full right">
+                <a href="#0" class="btn full-width">Hire Me Now</a>
+            </div>
+
+        </div> <!-- end about-content buttons -->
+
+        <div class="row about-content about-content--timeline">
+
+            <div class="col-full text-center">
+                <h3>My Work Experience.</h3>
+            </div>
+
+            <div class="col-six tab-full left">
+                <div class="timeline">
+
+                    <div class="timeline__block">
+                        <div class="timeline__bullet"></div>
+                        <div class="timeline__header">
+                            <p class="timeline__timeframe">July 2015 - Present</p>
+                            <h3>Awesome Studio</h3>
+                            <h5>Lead Designer</h5>
+                        </div>
+                        <div class="timeline__desc">
+                            <p>Lorem ipsum Occaecat do esse ex et dolor culpa nisi ex in magna consectetur nisi cupidatat laboris esse eiusmod deserunt aute do quis velit esse sed Ut proident cupidatat nulla esse cillum laborum occaecat nostrud sit dolor incididunt amet est occaecat nisi.</p>
+                        </div>
+                    </div> <!-- end timeline__block -->
+
+                    <div class="timeline__block">
+                        <div class="timeline__bullet"></div>
+                        <div class="timeline__header">
+                            <p class="timeline__timeframe">July 2014 - June 2015</p>
+                            <h3>Super Cool Agency</h3>
+                            <h5>Front-end Developer</h5>
+                        </div>
+                        <div class="timeline__desc">	
+                            <p>Lorem ipsum Occaecat do esse ex et dolor culpa nisi ex in magna consectetur nisi cupidatat laboris esse eiusmod deserunt aute do quis velit esse sed Ut proident cupidatat nulla esse cillum laborum occaecat nostrud sit dolor incididunt amet est occaecat nisi incididunt.</p>
+                        </div>
+                    </div> <!-- end timeline__block -->
+
+                </div> <!-- end timeline -->
+            </div> <!-- end left -->
+
+            <div class="col-six tab-full right">
+                <div class="timeline">
+
+                    <div class="timeline__block">
+                        <div class="timeline__bullet"></div>
+                        <div class="timeline__header">
+                            <p class="timeline__timeframe">July 2012 - June 2014</p>
+                            <h3>Great Design Studio</h3>
+                            <h5>Web Designer</h5>
+                        </div>
+                        <div class="timeline__desc">
+                            <p>Lorem ipsum Occaecat do esse ex et dolor culpa nisi ex in magna consectetur nisi cupidatat laboris esse eiusmod deserunt aute do quis velit esse sed Ut proident cupidatat nulla esse cillum laborum occaecat nostrud sit dolor incididunt amet est occaecat nisi.</p>
+                        </div>
+                    </div> <!-- end timeline__block -->
+
+                    <div class="timeline__block">
+                        <div class="timeline__bullet"></div>
+                        <div class="timeline__header">
+                            <p class="timeline__timeframe">July 2011 - June 2012</p>
+                            <h3>Epic Design Agency</h3>
+                            <h5>Web Designer</h5>
+                        </div>
+                        <div class="timeline__desc">
+                            <p>Lorem ipsum Occaecat do esse ex et dolor culpa nisi ex in magna consectetur nisi cupidatat laboris esse eiusmod deserunt aute do quis velit esse sed Ut proident cupidatat nulla esse cillum laborum occaecat nostrud sit dolor incididunt amet est occaecat nisi incididunt.</p>
+                        </div>
+                    </div> <!-- end timeline__block -->
+
+                </div> <!-- end timeline -->
+            </div> <!-- end right -->
+
+        </div> <!-- end about-content timeline -->
+
+    </section> <!-- end about -->
+    
+
+    <!-- works
+    ================================================== -->
+    <section id="works" class="s-works target-section">
+
+        <div class="row narrow section-intro has-bottom-sep">
+            <div class="col-full">
+                <h3>Portfolio</h3>
+                <h1>See My Latest Projects.</h1>
                 
+                <p class="lead">Lorem ipsum Dolor adipisicing nostrud et aute Excepteur amet commodo ea dolore irure esse Duis nulla sint fugiat cillum ullamco proident aliquip quis qui voluptate dolore veniam Ut laborum non est in officia.</p>
+            </div>
+        </div>
+
+        <div class="row masonry-wrap">
+            <div class="masonry">
+
+                <div class="masonry__brick">
+                    <div class="item-folio">
+
+                        <div class="item-folio__thumb">
+                            <a href="images/portfolio/gallery/g-beetle.jpg" class="thumb-link" title="The Beetle Car" data-size="1050x700">
+                                <img src="images/portfolio/beetle.jpg" 
+                                     srcset="images/portfolio/beetle.jpg 1x, images/portfolio/beetle@2x.jpg 2x" alt="">
+                                <span class="shadow-overlay"></span>
+                            </a>
+                        </div>
+
+                        <div class="item-folio__text">
+                            <h3 class="item-folio__title">
+                                The Beetle
+                            </h3>
+                            <p class="item-folio__cat">
+                                Web Development
+                            </p>
+                        </div>
+
+                        <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
+                            <i class="im im-link"></i>
+                        </a>
+
+                        <div class="item-folio__caption">
+                            <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde dolorem corrupti neque nisi.</p>
+                        </div>
+
+                    </div> <!-- end item-folio -->
+                </div> <!-- end masonry__brick -->
+
+                <div class="masonry__brick">
+                    <div class="item-folio">
+
+                        <div class="item-folio__thumb">
+                            <a href="images/portfolio/gallery/g-lighthouse.jpg" class="thumb-link" title="Lighthouse" data-size="1050x700">
+                                <img src="images/portfolio/lighthouse.jpg" 
+                                     srcset="images/portfolio/lighthouse.jpg 1x, images/portfolio/lighthouse@2x.jpg 2x" alt="">
+                                <span class="shadow-overlay"></span>
+                            </a>
+                        </div>
+
+                        <div class="item-folio__text">
+                            <h3 class="item-folio__title">
+                                Lighthouse
+                            </h3>
+                            <p class="item-folio__cat">
+                                Web Design
+                            </p>
+                        </div>
+
+                        <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
+                            <i class="im im-link"></i>
+                        </a>
+
+                        <div class="item-folio__caption">
+                            <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde dolorem corrupti neque nisi.</p>
+                        </div>
+
+                    </div> <!-- end item-folio -->
+                </div> <!-- end masonry__brick -->
+
+                <div class="masonry__brick">
+                    <div class="item-folio">
+
+                        <div class="item-folio__thumb">
+                            <a href="images/portfolio/gallery/g-salad.jpg" class="thumb-link" data-size="1050x700">
+                                <img src="images/portfolio/salad.jpg" 
+                                     srcset="images/portfolio/salad.jpg 1x, images/portfolio/salad@2x.jpg 2x" alt="">
+                                <span class="shadow-overlay"></span>
+                            </a>
+                        </div>
+
+                        <div class="item-folio__text">
+                            <h3 class="item-folio__title">
+                                Salad
+                            </h3>
+                            <p class="item-folio__cat">
+                                Branding
+                            </p>
+                        </div>
+
+                        <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
+                            <i class="im im-link"></i>
+                        </a>
+
+                        <span class="item-folio__caption">
+                            <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde dolorem corrupti neque nisi.</p>
+                        </span>
+
+                    </div> <!-- end item-folio -->
+                </div> <!-- end masonry__brick -->
+
+                <div class="masonry__brick">
+                    <div class="item-folio">
+
+                        <div class="item-folio__thumb">
+                            <a href="images/portfolio/gallery/g-woodcraft.jpg" class="thumb-link" data-size="1050x700">
+                                <img src="images/portfolio/woodcraft.jpg"
+                                     srcset="images/portfolio/woodcraft.jpg 1x, images/portfolio/woodcraft@2x.jpg 2x" alt="">
+                                <span class="shadow-overlay"></span>
+                            </a>
+                        </div>
+
+                        <div class="item-folio__text">
+                            <h3 class="item-folio__title">
+                                Woodcraft
+                            </h3>
+                            <p class="item-folio__cat">
+                                Branding
+                            </p>
+                        </div>
+
+                        <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
+                            <i class="im im-link"></i>
+                        </a>
+
+                        <span class="item-folio__caption">
+                            <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde dolorem corrupti neque nisi.</p>
+                        </span>
+
+                    </div> <!-- end item-folio -->
+                </div> <!-- end masonry__brick -->
+
+                <div class="masonry__brick">
+                    <div class="item-folio">
+
+                        <div class="item-folio__thumb">
+                            <a href="images/portfolio/gallery/g-skaterboy.jpg" class="thumb-link" data-size="1050x700">
+                                <img src="images/portfolio/skaterboy.jpg"
+                                     srcset="images/portfolio/skaterboy.jpg 1x, images/portfolio/skaterboy@2x.jpg 2x" alt="">
+                                <span class="shadow-overlay"></span>
+                            </a>
+                        </div>
+
+                        <div class="item-folio__text">
+                            <h3 class="item-folio__title">
+                                Skaterboy
+                            </h3>
+                            <p class="item-folio__cat">
+                                Web Development
+                            </p>
+                        </div>
+
+                        <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
+                            <i class="im im-link"></i>
+                        </a>
+
+                        <span class="item-folio__caption">
+                            <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde dolorem corrupti neque nisi.</p>
+                        </span>
+
+                    </div> <!-- end item-folio -->
+                </div> <!-- end masonry__brick -->
+
+                <div class="masonry__brick">
+                    <div class="item-folio">
+
+                        <div class="item-folio__thumb">
+                            <a href="images/portfolio/gallery/g-liberty.jpg" class="thumb-link" data-size="1050x700">
+                                <img src="images/portfolio/liberty.jpg"
+                                     srcset="images/portfolio/liberty.jpg 1x, images/portfolio/liberty@2x.jpg 2x" alt="">
+                                <span class="shadow-overlay"></span>
+                            </a>
+                        </div>
+
+                        <div class="item-folio__text">
+                            <h3 class="item-folio__title">
+                                Liberty
+                            </h3>
+                            <p class="item-folio__cat">
+                                Branding
+                            </p>
+                        </div>
+
+                        <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
+                            <i class="im im-link"></i>
+                        </a>
+
+                        <span class="item-folio__caption">
+                            <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde dolorem corrupti neque nisi.</p>
+                        </span>
+
+                    </div> <!-- end item-folio -->
+                </div> <!-- end masonry__brick -->
+
+                <div class="masonry__brick">
+                    <div class="item-folio">
+
+                        <div class="item-folio__thumb">
+                            <a href="images/portfolio/gallery/g-minimalismo.jpg" class="thumb-link" data-size="1050x700">
+                                <img src="images/portfolio/minimalismo.jpg"
+                                     srcset="images/portfolio/minimalismo.jpg 1x, images/portfolio/minimalismo@2x.jpg 2x" alt="">
+                                <span class="shadow-overlay"></span>
+                            </a>
+                        </div>
+
+                        <div class="item-folio__text">
+                            <h3 class="item-folio__title">
+                                Minimalismo
+                            </h3>
+                            <p class="item-folio__cat">
+                                Web Design
+                            </p>
+                        </div>
+
+                        <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
+                            <i class="im im-link"></i>
+                        </a>
+
+                        <span class="item-folio__caption">
+                            <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde dolorem corrupti neque nisi.</p>
+                        </span>
+
+                    </div> <!-- end item-folio -->
+                </div> <!-- end masonry__brick -->
+
+                <div class="masonry__brick">
+                    <div class="item-folio">
+
+                        <div class="item-folio__thumb">
+                            <a href="images/portfolio/gallery/g-shutterbug.jpg" class="thumb-link" data-size="1050x700">
+                                <img src="images/portfolio/shutterbug.jpg"
+                                     srcset="images/portfolio/shutterbug.jpg 1x, images/portfolio/shutterbug@2x.jpg 2x" alt="">
+                                <span class="shadow-overlay"></span>
+                            </a>
+                        </div>
+
+                        <div class="item-folio__text">
+                            <h3 class="item-folio__title">
+                                Lady Shutterbug
+                            </h3>
+                            <p class="item-folio__cat">
+                                Branding
+                            </p>
+                        </div>
+
+                        <a href="https://www.behance.net/" class="item-folio__project-link" title="Project link">
+                            <i class="im im-link"></i>
+                        </a>
+
+                        <span class="item-folio__caption">
+                            <p>Vero molestiae sed aut natus excepturi. Et tempora numquam. Temporibus iusto quo.Unde dolorem corrupti neque nisi.</p>
+                        </span>
+
+                    </div> <!-- end item-folio -->
+                </div> <!-- end masonry__brick -->
+
+            </div>
+        </div> <!-- end masonry -->
+
+    </section> <!-- end works -->
+
+
+
+    <!-- testimonials
+    ================================================== -->
+    <div class="s-testimonials">
+
+        <div class="overlay"></div>
+
+        <div class="row testimonials-header">
+            <div class="col-full">
+                <h1 class="h02">What People Say.</h1>
+            </div>
+        </div>
+
+        <div class="row testimonials">
+
+            <div class="col-full testimonials__slider">
+
+                <div class="testimonials__slide">
+                    <img src="images/avatars/user-01.jpg" alt="Author image" class="testimonials__avatar">
+                    <p>Qui ipsam temporibus quisquam velMaiores eos cumque distinctio nam accusantium ipsum. 
+                    Laudantium quia consequatur molestias delectus culpa facere hic dolores aperiam. Accusantium quos qui praesentium corpori.</p>
+                    <div class="testimonials__author h06">
+                        Tim Cook
+                        <span>CEO, Apple</span>
+                    </div>
+                </div>
+
+                <div class="testimonials__slide">
+                    <img src="images/avatars/user-05.jpg" alt="Author image" class="testimonials__avatar">
+                    <p>Excepturi nam cupiditate culpa doloremque deleniti repellat. Veniam quos repellat voluptas animi adipisci.
+                    Nisi eaque consequatur. Quasi voluptas eius distinctio. Atque eos maxime. Qui ipsam temporibus quisquam vel.</p>
+                    <div class="testimonials__author h06">
+                        Sundar Pichai
+                        <span>CEO, Google</span>
+                    </div>
+                </div>
+
+                <div class="testimonials__slide">
+                    <img src="images/avatars/user-02.jpg" alt="Author image" class="testimonials__avatar">
+                    <p>Repellat dignissimos libero. Qui sed at corrupti expedita voluptas odit. Nihil ea quia nesciunt. Ducimus aut sed ipsam.  
+                    Autem eaque officia cum exercitationem sunt voluptatum accusamus. Quasi voluptas eius distinctio.</p>
+                    <div class="testimonials__author h06">
+                        Satya Nadella
+                        <span>CEO, Microsoft</span>
+                    </div>
+                </div>
                 
-                
-                <li class="angle">velocity:<ul>
-                        <li class="radian">linear x: <p id="vlx"></p></li>
+            </div> <!-- end testimonials__slider -->
+
+        </div> <!-- end testimonials -->
+
+    </div> <!-- end s-testimonials -->
+
+
+    <!-- blog
+    ================================================== -->
+    <section id="blog" class="s-blog target-section">
+
+        <div class="row narrow section-intro has-bottom-sep">
+            <div class="col-full">
+                <h3>Journal</h3>
+                <h1>Latest From The Blog.</h1>
+                <p class="lead">Lorem ipsum Dolor adipisicing nostrud et aute. 
+                Excepteur amet commodo ea dolore irure esse Duis nulla sint fugiat cillum 
+                ullamco proident aliquip quis qui voluptate dolore veniam Ut laborum non est in officia.</p>
+            </div>
+        </div>
+
+        <div class="row blog-content">
+            <div class="col-full">
+
+                <div class="blog-list block-1-2 block-tab-full">
+                    <article class="col-block">
+                                
+                        <div class="blog-date">
+                            <a href="blog-single.html">Sept 16, 2017</a>
+                        </div>  
                         
-                    <li class="degree">angular z: <span id="vaz"></span></li></ul>
-                </li>
-                <li class="direction">
-                    direction :
-                    <ul>
-                        <li class="x">x : <span id="dx"></span></li>
-                        <li class="y">y : <span id="dy"></span></li>
-                    </ul>
-                </li>
-            </ul>
-          </div>
- 
-        </div>
-    </div>
-  </div>
-</div>
-<!-- <div class="row">
-    <div class="col-md-6 col-sm-6">
-      <div>
-        <div>
-          <div id="jog_dial_example"></div>
-          <div id="jog_dial_example_meter">
-            <div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6 col-sm-6">
-          
-          <div class="level1-circle">
-            <div class="level1-gear">
-              <div class="level1-dot"></div>
-            </div>
-            <div class="level1-arm" ondrag="drag();"></div>
-            <div class="level2-circle">
-              <div class="level2-gear">
-                <div class="level2-dot"></div>
-              </div>
-              <div class="level2-arm"></div>
-              <div class="level2-pointer"></div>
-            </div>
-          </div>
-          
-          
-          <br/>
-          <div class="controls">
-            <h3>Controls:</h3>
-            <label for="arm1">Rotate Whole Arm</label>
-            <input id="arm1" class="slider" type="range" value="0" min="-180" max="180" />
-            <br />
-            <label for="arm2">Rotate Lower Arm</label>
-            <input id="arm2" class="slider" type="range" value="0" min="-180" max="180" />
-            <br/>
-            <br/>
-            <label for="autoplay">Enable Auto Play</label>
-            <input type="checkbox" id="autoplay">
-            <br/>
-            <br/>
-          </div>
-    </div>
- 
+                        <h2 class="h01"><a href="blog-single.html">The 10 Golden Rules of Clean Simple Design.</a></h2>
+                        <p>
+                        Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Pellentesque in ipsum id orci porta dapibus. Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Cras ultricies ligula sed magna dictum porta. Sed porttitor lectus nibh..
+                        </p>
+
+                        <div class="blog-cat">
+                                <a href="blog.html">Branding</a><a href="blog.html">Design</a>
+                        </div>
+
+                        
+                    </article>
+                    <article class="col-block">
+                                
+                        <div class="blog-date">
+                            <a href="blog-single.html">Sept 15, 2017</a>
+                        </div>  
+                        
+                        <h2 class="h01"><a href="blog-single.html">Photography Can Improve Your Graphic Design.</a></h2>
+                        <p>
+                        Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Pellentesque in ipsum id orci porta dapibus. Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Cras ultricies ligula sed magna dictum porta. Sed porttitor lectus nibh..
+                        </p>
+
+                        <div class="blog-cat">
+                            <a href="blog.html">Photography</a>
+                        </div>
+
+                        
+                    </article>
+                    <article class="col-block">
+                        
+                        <div class="blog-date">
+                            <a href="blog-single.html">Sept 14, 2017</a>
+                        </div>
+
+                        <h2 class="h01"><a href="blog-single.html">Workspace Design Trends and Ideas.</a></h2>
+                        <p>
+                        Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Pellentesque in ipsum id orci porta dapibus. Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Cras ultricies ligula sed magna dictum porta. Sed porttitor lectus nibh dolore irure esse Duis nulla sint.
+                        </p>
+
+                        <div class="blog-cat">
+                            <a href="blog.html">Branding</a><a href="blog.html">Wordpress</a>
+                        </div>
+                    </article>
+                    <article class="col-block">
+                        
+                        <div class="blog-date">
+                            <a href="blog-single.html">Sept 12, 2017</a>
+                        </div>    
+                        <h2 class="h01"><a href="blog-single.html">Using Patterns in your Branding.</a></h2>
+                        <p>
+                        Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Pellentesque in ipsum id orci porta dapibus. Donec sollicitudin molestie malesuada. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Cras ultricies ligula sed magna dictum porta. Sed porttitor lectus nibh.
+                        </p>
+
+                        <div class="blog-cat">
+                            <a href="blog.html">Design</a><a href="blog.html">Branding</a>
+                        </div>
+                    </article>
+                </div> <!-- end blog-list -->
+
+            </div> <!-- end col-full -->
+        </div> <!-- end blog-content -->
+
+    </section> <!-- end s-blog -->
+
+
+    <!-- s-cta
+    ================================================== -->
+    <section class="s-cta">
         
-  </div>
-  <div class="row">
-    <div class="col-md-3 col-sm-3 col-lg-3">
-      <div class='component buttons'>
-        <button>Head</button>    
-        <br/><br/>
-        <button>Hands</button>
-        <br/><br/>
-        <button>Move</button>
-      </div>
-    </div>
-    <div class="col-md-3 col-sm-3 col-lg-3">
-      <div class='component toggles'>
-          <input type='checkbox' id='toggle_1' />
-          <label for='toggle_1' class='toggle'>
-            <div class='thumb'></div>
-          </label>
-          <input type='checkbox' checked id='toggle_2' />
-          <label for='toggle_2' class='toggle'>
-            <div class='thumb'></div>
-          </label>
-          <input type='checkbox' id='toggle_3' />
-          <label for='toggle_3' class='toggle'>
-            <div class='thumb'></div>
-          </label>
-          <input type='checkbox' checked id='toggle_4' />
-          <label for='toggle_4' class='toggle'>
-            <div class='thumb'></div>
-          </label>
-        </div>
-        
-    </div>
+        <div class="row narrow cta">
 
-    <div class="col-md-6 col-sm-6 col-lg-6">
-      <div class="box light_box component sliders">
-          <div class='ui-slider'></div>
-          <div class='ui-slider'></div>
-          <div class='ui-slider'></div>
-        </div>
-    </div>
+            <div class="col-full cta__content">
 
-    <div class="col-md-3 col-sm-3 col-lg-3">
-      <div class="box">
-      <div class="progress">
-          <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">60%
-            <span class="sr-only">60% Complete (warning)</span>
-          </div>
-        </div>
-        <div class="progress">
-          <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">80% 
-            <span class="sr-only">80% Complete (danger)</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
+                <h2 class="h01"><a href="http://www.dreamhost.com/r.cgi?287326|STYLESHOUT">Styleshout Recommends Dreamhost.</a></h2>
 
-  <!-- <div class="row">
-    <div class="col-md-6 col-sm-6 col-lg-6">
-      <div class="box">
-        <div id="clock"></div>
-        <div class="clock">
-            <div class="hour"></div>
-            <div class="minute"></div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6 col-sm-6 col-lg-6">
-      <div class="box">
-        <div class="col-md-8 col-sm-8 col-lg-8">
-          <div class="demo-card-event mdl-card mdl-shadow--2dp">
-            <div class="mdl-card__title mdl-card--expand">
-              <h4>
-              Featured event:<br>
-              May 24, 2016<br>
-              7-11pm
-            </h4>
+                <p class="lead">
+                Looking for an awesome and reliable webhosting? Try <a href="http://www.dreamhost.com/r.cgi?287326|STYLESHOUT">DreamHost</a>.
+                Get <span>$50 off</span> when you sign up with the promocode <span>styleshout</span>.
+                </p>
+
+                <div class="cta__action">
+                    <a class="btn btn--primary btn--large" href="http://www.dreamhost.com/r.cgi?287326|STYLESHOUT">Sign Up Now</a>
+                </div>	
+
             </div>
-          <div class="mdl-card__actions mdl-card--border">
-            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-              Add to Calendar
-            </a>
-            <button id="#load" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect">
-              <i class="material-icons">event</i>
-            </button>
-          </div>
-        </div>
-        </div>
+
+        </div> <!-- end cta -->
         
-        <div id="notify" class="col-md-4 col-sm-4 col-lg-4">
-          <p id="spinny"class="mdl-spinner mdl-js-spinner mdl-spinner--single-color"></p>
-        </div>
-        <div class="clearfix"></div>
-      </div>
-    </div>
-  </div>
-  
-  <div class="row">
-    <div class="col-md-12">
-      <div class="light_box music">
-        <div class="song_info ">
-          <p class="song">A Sky Full of Stars</p>
-          <p class="album">Ghost Stories</p>
-          <p class="artist">Coldplay</p>
-        </div>
-        <div class="controls col-xs-8 col-md-8 col-sm-8 col-lg-8">
-          <span class="glyphicon glyphicon-step-backward" aria-hidden="true"></span>
-          <span class="glyphicon glyphicon-step-forward" aria-hidden="true"></span>
-          <span class="glyphicon glyphicon-pause" aria-hidden="true"></span>
-          <div class="volume">
-            <div class="volume-control">
-              <span class="glyphicon glyphicon-volume-up" aria-hidden="true"></span>
-              <input class="mdl-slider mdl-js-slider" type="range"
-      min="0" max="100" value="25" tabindex="0"/>
+    </section>
+
+
+    <!-- s-stats
+    ================================================== -->
+    <section id="stats" class="s-stats">
+        <div class="row block-1-4 block-tab-1-2 block-mob-full stats">
+
+            <div class="col-block stats__col ">
+                <div class="stats__count">
+                    128
+                </div>
+                <h4>Awards Received</h4>
             </div>
-          </div>
+            <div class="col-block stats__col">
+                <div class="stats__count">
+                    1500
+                </div>
+                <h4>Cups of Coffee</h4>
+            </div>
+            <div class="col-block stats__col stats__col--highlight">
+                <div class="stats__upsign">
+                    <a href="#"><i class="im im-arrow-up" aria-hidden="true"></i></a>
+                </div>
+                <div class="stats__count">
+                    110
+                </div>
+                <h4>Projects Completed</h4>
+            </div>
+            <div class="col-block stats__col">
+                <div class="stats__count">
+                    101
+                </div>
+                <h4>Happy Clients</h4> 
+            </div>
+
         </div>
-        <div class="album_image col-xs-4 col-md-4 col-sm-4 col-lg-4">
-          <a class="glyphicon glyphicon-play center-block" aria-hidden="true"></a>
-         </div>
-        <div class="clearfix"></div>
-      </div>
+    </section> <!-- end s-stats -->
+
+
+    <!-- s-stats
+    ================================================== -->
+    <section id="contact" class="s-contact target-section">
+
+        <div class="overlay"></div>
+
+        <div class="row narrow section-intro">
+            <div class="col-full">
+                <h3>Contact</h3>
+                <h1>Say Hello.</h1>
+                
+                <p class="lead">Lorem ipsum Dolor adipisicing nostrud et aute Excepteur amet commodo ea dolore irure esse Duis nulla sint fugiat cillum ullamco proident aliquip quis qui voluptate dolore veniam Ut laborum non est in officia.</p>
+            </div>
+        </div>
+
+        <div class="row contact__main">
+            <div class="col-eight tab-full contact__form">
+                <form name="contactForm" id="contactForm" method="post" action="">
+                    <fieldset>
+    
+                    <div class="form-field">
+                        <input name="contactName" type="text" id="contactName" placeholder="Name" value="" minlength="2" required="" aria-required="true" class="full-width">
+                    </div>
+                    <div class="form-field">
+                        <input name="contactEmail" type="email" id="contactEmail" placeholder="Email" value="" required="" aria-required="true" class="full-width">
+                    </div>
+                    <div class="form-field">
+                        <input name="contactSubject" type="text" id="contactSubject" placeholder="Subject" value="" class="full-width">
+                    </div>
+                    <div class="form-field">
+                        <textarea name="contactMessage" id="contactMessage" placeholder="message" rows="10" cols="50" required="" aria-required="true" class="full-width"></textarea>
+                    </div>
+                    <div class="form-field">
+                        <button class="full-width btn--primary">Submit</button>
+                        <div class="submit-loader">
+                            <div class="text-loader">Sending...</div>
+                            <div class="s-loader">
+                                <div class="bounce1"></div>
+                                <div class="bounce2"></div>
+                                <div class="bounce3"></div>
+                            </div>
+                        </div>
+                    </div>
+    
+                    </fieldset>
+                </form>
+
+                <!-- contact-warning -->
+                <div class="message-warning">
+                    Something went wrong. Please try again.
+                </div> 
+            
+                <!-- contact-success -->
+                <div class="message-success">
+                    Your message was sent, thank you!<br>
+                </div>
+                        
+            </div>
+            <div class="col-four tab-full contact__infos">
+                <h4 class="h06">Phone</h4>
+                <p>Phone: (+63) 555 1212<br>
+                Mobile: (+63) 555 0100<br>
+                Fax: (+63) 555 0101
+                </p>
+
+                <h4 class="h06">Email</h4>
+                <p>someone@holawebsite.com<br>
+                info@holawebsite.com
+                </p>
+
+                <h4 class="h06">Address</h4>
+                <p>
+                1600 Amphitheatre Parkway<br>
+                Mountain View, CA<br>
+                94043 US
+                </p>
+            </div>
+
+        </div>
+
+    </section> <!-- end s-contact -->
+
+
+    <!-- footer
+    ================================================== -->
+    <footer>
+        <div class="row">
+            <div class="col-full">
+
+                <div class="footer-logo">
+                    <a class="footer-site-logo" href="#0"><img src="images/logo.png" alt="Homepage"></a>
+                </div>
+
+                <ul class="footer-social">
+                    <li><a href="#0">
+                        <i class="im im-facebook" aria-hidden="true"></i>
+                        <span>Facebook</span>
+                    </a></li>
+                    <li><a href="#0">
+                        <i class="im im-twitter" aria-hidden="true"></i>
+                        <span>Twitter</span>
+                    </a></li>
+                    <li><a href="#0">
+                        <i class="im im-instagram" aria-hidden="true"></i>
+                        <span>Instagram</span>
+                    </a></li>
+                    <li><a href="#0">
+                        <i class="im im-behance" aria-hidden="true"></i>
+                        <span>Behance</span>
+                    </a></li>
+                    <li><a href="#0">
+                        <i class="im im-pinterest" aria-hidden="true"></i>
+                        <span>Pinterest</span>
+                    </a></li>
+                </ul>
+                    
+            </div>
+        </div>
+
+        <div class="row footer-bottom">
+
+            <div class="col-twelve">
+                <div class="copyright">
+                    <span>© Copyright Hola 2017</span> 
+                    <span>Design by <a href="https://www.styleshout.com/">styleshout</a></span>	
+                </div>
+
+                <div class="go-top">
+                <a class="smoothscroll" title="Back to Top" href="#top"><i class="im im-arrow-up" aria-hidden="true"></i></a>
+                </div>
+            </div>
+
+        </div> <!-- end footer-bottom -->
+
+    </footer> <!-- end footer -->
+
+
+    <!-- photoswipe background
+    ================================================== -->
+    <div aria-hidden="true" class="pswp" role="dialog" tabindex="-1">
+
+        <div class="pswp__bg"></div>
+        <div class="pswp__scroll-wrap">
+
+            <div class="pswp__container">
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+            </div>
+
+            <div class="pswp__ui pswp__ui--hidden">
+                <div class="pswp__top-bar">
+                    <div class="pswp__counter"></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button> <button class="pswp__button pswp__button--share" title=
+                    "Share"></button> <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button> <button class="pswp__button pswp__button--zoom" title=
+                    "Zoom in/out"></button>
+                    <div class="pswp__preloader">
+                        <div class="pswp__preloader__icn">
+                            <div class="pswp__preloader__cut">
+                                <div class="pswp__preloader__donut"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                    <div class="pswp__share-tooltip"></div>
+                </div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button> <button class="pswp__button pswp__button--arrow--right" title=
+                "Next (arrow right)"></button>
+                <div class="pswp__caption">
+                    <div class="pswp__caption__center"></div>
+                </div>
+            </div>
+
+        </div>
+
+    </div><!-- end photoSwipe background -->
+
+    <div id="preloader">
+        <div id="loader"></div>
     </div>
-  </div> -->
-  <div id="camera">
-    <div class="container ">
-      <div class="row" style="display: grid; grid-auto-flow: column; " >
-        <div id="main-circle">
-          <div id="inner-circle">STOP ALL</div>
-        </div>
-        <div class="col btn-group" style="display:inline-grid;width: fit-content;background: whitesmoke;height: fit-content;justify-items: center;">
-          <!--Normal-->
-          <button class="btn ebtn parrot anchor" style="
-          
-          border-bottom: 5px solid grey;
-          background: #0a72b8;
-          padding-top: 14%;
-          padding-bottom: 14%;
-          width: -webkit-fill-available;
-          text-align: -webkit-center;
-          color: whitesmoke;
-          font-weight: bolder;
-      
-      ">play sound</button>
-          <div id="debug" style="height:4rem; font-size: smaller;text-align: left;width: -webkit-fill-available;color: #7d7d7d;padding: 11%;">
-            play_sound service
-          </div>
-
-        </div>
-        <div class="col btn-group" style="display:inline-grid;width: fit-content;background: whitesmoke;height: fit-content;justify-items: center;">
-          <!--Normal-->
-          <button class="btn ebtn parrot anchor" style="
-          
-          border-bottom: 5px solid grey;
-          background: #0a72b8;
-          padding-top: 14%;
-          padding-bottom: 14%;
-          width: -webkit-fill-available;
-          text-align: -webkit-center;
-          color: whitesmoke;
-          font-weight: bolder;
-      
-      ">Dance</button>
-          <div id="debug" style="height:4rem; font-size: smaller;text-align: left;width: -webkit-fill-available;color: #7d7d7d;padding: 11%;">
-            Dance
-          </div>
-
-        </div>
-        <div class="col btn-group" style="display:inline-grid;width: fit-content;background: whitesmoke;height: fit-content;justify-items: center;">
-          <!--Normal-->
-          <button class="btn ebtn parrot anchor" style="
-          
-          border-bottom: 5px solid grey;
-          background: #0a72b8;
-          padding-top: 14%;
-          padding-bottom: 14%;
-          width: -webkit-fill-available;
-          text-align: -webkit-center;
-          color: whitesmoke;
-          font-weight: bolder;
-      
-      ">blink</button>
-          <div id="debug" style="height:4rem; font-size: smaller;text-align: left;width: -webkit-fill-available;color: #7d7d7d;padding: 11%;">
-            open and close eyes
-          </div>
-
-        </div>
-        <div class="col btn-group" style="display:inline-grid;width: fit-content;background: whitesmoke;height: fit-content;justify-items: center;">
-          <!--Normal-->
-          <button class="btn ebtn parrot anchor" style="
-          
-          border-bottom: 5px solid grey;
-          background: #0a72b8;
-          padding-top: 14%;
-          padding-bottom: 14%;
-          width: -webkit-fill-available;
-          text-align: -webkit-center;
-          color: whitesmoke;
-          font-weight: bolder;
-      
-      ">Open Eye</button>
-          <div id="debug" style="height:4rem; font-size: smaller;text-align: left;width: -webkit-fill-available;color: #7d7d7d;padding: 11%;">
-            openclose eyes
-          </div>
-
-        </div>
-        <div class="col btn-group" style="display:inline-grid;width: fit-content;background: whitesmoke;height: fit-content;justify-items: center;">
-          <!--Normal-->
-          <button class="btn ebtn parrot anchor" style="
-          
-          border-bottom: 5px solid grey;
-          background: #0a72b8;
-          padding-top: 14%;
-          padding-bottom: 14%;
-          width: -webkit-fill-available;
-          text-align: -webkit-center;
-          color: whitesmoke;
-          font-weight: bolder;
-      
-      ">Close eye</button>
-          <div id="debug" style="height:4rem; font-size: smaller;text-align: left;width: -webkit-fill-available;color: #7d7d7d;padding: 11%;">
-            close eyes
-          </div>
-
-        </div>
-        <div class="col btn-group" style="display:inline-grid;width: fit-content;background: whitesmoke;height: fit-content;justify-items: center;">
-          <!--Normal-->
-          <button class="btn ebtn parrot anchor" style="
-          
-          border-bottom: 5px solid grey;
-          background: #0a72b8;
-          padding-top: 14%;
-          padding-bottom: 14%;
-          width: -webkit-fill-available;
-          text-align: -webkit-center;
-          color: whitesmoke;
-          font-weight: bolder;
-      
-      ">Talk</button>
-          <div id="debug" style="height:4rem; font-size: smaller;text-align: left;width: -webkit-fill-available;color: #7d7d7d;padding: 11%;">
-            open and close the mouth continuesly
-          </div>
-
-        </div>
-        <div class="col btn-group" style="display:inline-grid;width: fit-content;background: whitesmoke;height: fit-content;justify-items: center;">
-          <!--Normal-->
-          <button class="btn ebtn parrot anchor" style="
-          
-          border-bottom: 5px solid grey;
-          background: #0a72b8;
-          padding-top: 14%;
-          padding-bottom: 14%;
-          width: -webkit-fill-available;
-          text-align: -webkit-center;
-          color: whitesmoke;
-          font-weight: bolder;
-      
-      ">Open Mouth</button>
-          <div id="debug" style="height:4rem; font-size: smaller;text-align: left;width: -webkit-fill-available;color: #7d7d7d;padding: 11%;">
-            close the mouth
-          </div>
-
-        </div>
-        <div class="col btn-group" style="display:inline-grid;width: fit-content;background: whitesmoke;height: fit-content;justify-items: center;">
-          <!--Normal-->
-          <button class="btn ebtn parrot anchor" style="
-          
-          border-bottom: 5px solid grey;
-          background: #0a72b8;
-          padding-top: 14%;
-          padding-bottom: 14%;
-          width: -webkit-fill-available;
-          text-align: -webkit-center;
-          color: whitesmoke;
-          font-weight: bolder;
-      
-      ">Close Mouth</button>
-          <div id="debug" style="height:4rem; font-size: smaller;text-align: left;width: -webkit-fill-available;color: #7d7d7d;padding: 11%;">
-            close the mouth
-          </div>
-
-        </div>
-        <div class="col btn-group" style="display:inline-grid;width: fit-content;background: whitesmoke;height: fit-content;justify-items: center;">
-          <!--Normal-->
-          <button class="btn ebtn parrot anchor" style="
-          
-          border-bottom: 5px solid grey;
-          background: #0a72b8;
-          padding-top: 14%;
-          padding-bottom: 14%;
-          width: -webkit-fill-available;
-          text-align: -webkit-center;
-          color: whitesmoke;
-          font-weight: bolder;
-      
-      ">Talk</button>
-          <div id="debug" style="height:4rem; font-size: smaller;text-align: left;width: -webkit-fill-available;color: #7d7d7d;padding: 11%;">
-            open and close the mouth
-          </div>
-
-        </div>
 
 
-      </div>
-      </div>
-   </div>
+    <!-- Java Script
+    ================================================== -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
 
-  <div id="model">
-    <div class="container ">
-      <div class="box" style="padding: 1rem !important;">
-        <iframe src="test1.tiff" allowfullscreen
-        sandbox="allow-scripts allow-presentation allow-same-origin"
-        allow="autoplay; fullscreen; picture-in-picture; xr-spatial-tracking; encrypted-media" style="height: -webkit-fill-available; width: -webkit-fill-available;">
-        </iframe>
-      </div>
-   </div>
-  </div>
-
-  <div id="voice">
-    <div class="container box">
-      <div class="mic">
-        <button id="speech" class="micbtn m-left type2 stop">
-          <div id="pulse-ring"></div>
-          <i class="fa fa-microphone" aria-hidden="true"></i></button>
-          <div style="left: 33%; position:absolute; padding: 3rem;">
-            <audio id="player" controls style="border-radius: 12% 12% 12% 12%;border: solid #189bff;"></audio>
-            <a id="download">Download</a>
-            <span id="stop"></span>
-          </div>
-        </div>
-      </div>
-          <!-- <script>
-            const handleSuccess = function(stream) {
-              const context = new AudioContext();
-              const source = context.createMediaStreamSource(stream);
-              const processor = context.createScriptProcessor(1024, 1, 1);
-          
-              source.connect(processor);
-              processor.connect(context.destination);
-          
-              processor.onaudioprocess = function(e) {
-                // Do something with the data, e.g. convert it to WAV
-                console.log(e.inputBuffer);
-              };
-            };
-          
-            navigator.mediaDevices.getUserMedia({ audio: true, video: false })
-                .then(handleSuccess);
-          </script> -->
-
-
-      </div>  
-    </div>
-  </div>
-</div>
-</div>
-<!-- partial -->
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-  <script src='http://code.jquery.com/jquery-3.3.1.slim.min.js'></script>
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha384-xBuQ/xzmlsLoJpyjoggmTEz8OWUFM0/RC5BsqQBDX2v5cMvDHcMakNTNrHIW2I5f" crossorigin="anonymous"></script>
-<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js'></script>
-<script src='https://storage.googleapis.com/code.getmdl.io/1.0.4/material.min.js'></script>
-<script  src="./script.js"></script>
-<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
-<script src="jogDial.js"></script>
-<!-- partial -->
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<script src='https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script><script  src="./scriptui.js"></script>
-<script src='https://ricostacruz.com/jquery.transit/jquery.transit.min.js'></script><script  src="./scriptspots.js"></script>
-<script src="jquery.keyframes.js"></script>
-<script src="./nipple.js"></script>
-<script src="./webui.js"></script>
-<script src="./server.js"></script>
-<script src="https://static.robotwebtools.org/keyboardteleopjs/current/keyboardteleop.min.js"></script>
-<script>
-  var s = function (sel) { return document.querySelector(sel); };
-  var sId = function (sel) { return document.getElementById(sel); };
-  var removeClass = function (el, clss) {
-    el.className = el.className.replace(new RegExp('\\b' + clss + ' ?\\b', 'g'), '');
-  }
-  
-  
-  // Get debug elements and map them
-  
-</script>
-<!-- <script src='https://cdn.rawgit.com/Verlangieri/robot-animation/master/app/vendor/three.min.js'></script>
-<script src='https://cdn.rawgit.com/Verlangieri/robot-animation/master/app/vendor/gsap.min.js'></script>
-<script src='https://cdn.rawgit.com/Verlangieri/robot-animation/master/app/vendor/dat.gui.min.js'></script>
-<script src='https://cdn.rawgit.com/Verlangieri/robot-animation/master/app/vendor/colladaLoader2.min.js'></script>
-<script src="./3dmotion.js"></script> -->
 </body>
+
 </html>
