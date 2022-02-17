@@ -564,11 +564,673 @@ form,
     margin-left: -30px;
     margin-top: -30px;
     padding: 0;
-    background-color: #862121;
-    border-radius: 100%;
-    -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
-    animation: sk-scaleout 1.0s infinite ease-in-out;
+    height: 10px;
+    width: 5px;
+    background-color: #3498db;
+    -webkit-animation: 5.6s eyeBlink 0.35s linear infinite;
+    animation: 5.6s eyeBlink 0.35s linear infinite;
+    border-radius: 40%;
+
 }
+
+
+.bot {
+    /* zoom: 3.5;
+    -moz-transform: scale(3.5); */
+    position: relative;
+    background-color:inherit;
+    box-shadow: none;
+  }
+  #bot {
+    position: absolute;
+    height: 30px;
+    width: 50px;
+    background-color: #bdc3c7;
+    -webkit-animation: 5s botMotion linear forwards;
+            animation: 5s botMotion linear forwards;
+  }
+  #bot #eyes {
+    position: absolute;
+    width: 40px;
+    height: 20px;
+    top: 5px;
+    left: 5px;
+    background-color: #333;
+  }
+ #bot #eyes .eye {
+    height: 10px;
+    width: 5px;
+    background-color: #3498db;
+    -webkit-animation: 5.6s eyeBlink 0.35s linear infinite;
+            animation: 5.6s eyeBlink 0.35s linear infinite;
+    border-radius: 40%;
+  }
+#bot #eyes #left {
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    margin-top: -5px;
+  }
+#bot #eyes #right {
+    position: absolute;
+    top: 50%;
+    right: 25%;
+    margin-top: -5px;
+  }
+
+  @-webkit-keyframes eyeBlink {
+    0%, 10% {
+      background-color: #3498db;
+    }
+    15% {
+      background-color: #333;
+    }
+    20%, 50%, 80% {
+      background-color: #3498db;
+    }
+    85% {
+      background-color: #333;
+    }
+    90%, 100% {
+      background-color: #3498db;
+    }
+  }
+  @keyframes eyeBlink {
+    0%, 10% {
+      background-color: #3498db ;
+    }
+    15% {
+      background-color: #333;
+    }
+    20%, 50%, 80% {
+      background-color: #3498db;
+  
+    }
+    85% {
+      background-color: #333;
+    }
+    90%, 100% {
+      background-color: #3498db;
+    }
+  }
+#bot .finger {
+    position: absolute;
+    height: 10px;
+    width: 5px;
+    background-color: #bdc3c7;
+  }
+#bot #leftarm {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 30px;
+    width: 25px;
+  }
+#bot #leftarm .finger:nth-of-type(1) {
+    -webkit-animation: 5s lefttopfinger linear forwards;
+            animation: 5s lefttopfinger linear forwards;
+  }
+#bot #leftarm .finger:nth-of-type(2) {
+    -webkit-animation: 5s leftbotfinger linear forwards;
+            animation: 5s leftbotfinger linear forwards;
+  }
+#bot #rightarm {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 30px;
+    width: 25px;
+  }
+#bot #rightarm .finger:nth-of-type(1) {
+    -webkit-animation: 5s righttopfinger linear forwards;
+            animation: 5s righttopfinger linear forwards;
+  }
+#bot #rightarm .finger:nth-of-type(2) {
+    -webkit-animation: 5s rightbotfinger linear forwards;
+            animation: 5s rightbotfinger linear forwards;
+  }
+#neck {
+    position: absolute;
+    top: 30px;
+    width: 40px;
+    height: 3px;
+    background-color: #333;
+    margin-left: 5px;
+    -webkit-animation: 5s neckMotion linear forwards;
+            animation: 5s neckMotion linear forwards;
+  }
+ #body {
+    position: absolute;
+    top: 33px;
+    width: 50px;
+    height: 10px;
+    background-color: #bdc3c7;
+    -webkit-animation: 5s bodyMotion linear forwards;
+            animation: 5s bodyMotion linear forwards;
+  }
+ #legs {
+    position: absolute;
+    top: 33px;
+    left: 25px;
+  }
+#legs .foot {
+    width: 25px;
+    height: 10px;
+    background-color: #bdc3c7;
+  }
+#legs #left {
+    position: absolute;
+    top: -10px;
+    left: 0;
+    -webkit-animation: 5s leftfoot linear forwards;
+            animation: 5s leftfoot linear forwards;
+  }
+#legs #right {
+    position: absolute;
+    top: -10px;
+    right: 0;
+    -webkit-animation: 5s rightfoot linear forwards;
+            animation: 5s rightfoot linear forwards;
+  }
+  
+  @-webkit-keyframes lefttopfinger {
+    0% {
+      left: 0;
+      top: 5px;
+    }
+    10%, 20% {
+      left: -10px;
+      top: 5px;
+    }
+    30% {
+      left: -10px;
+      top: 2px;
+    }
+    40% {
+      left: -10px;
+      top: 5px;
+    }
+    50% {
+      left: -10px;
+      top: 2px;
+    }
+    60% {
+      left: -10px;
+      top: 5px;
+    }
+    70% {
+      left: -10px;
+      top: 2px;
+    }
+    80%, 90% {
+      left: -10px;
+      top: 5px;
+    }
+    100% {
+      left: 0;
+      top: 5px;
+    }
+  }
+  @keyframes lefttopfinger {
+    0% {
+      left: 0;
+      top: 5px;
+    }
+    10%, 20% {
+      left: -10px;
+      top: 5px;
+    }
+    30% {
+      left: -10px;
+      top: 2px;
+    }
+    40% {
+      left: -10px;
+      top: 5px;
+    }
+    50% {
+      left: -10px;
+      top: 2px;
+    }
+    60% {
+      left: -10px;
+      top: 5px;
+    }
+    70% {
+      left: -10px;
+      top: 2px;
+    }
+    80%, 90% {
+      left: -10px;
+      top: 5px;
+    }
+    100% {
+      left: 0;
+      top: 5px;
+    }
+  }
+  @-webkit-keyframes leftbotfinger {
+    0% {
+      left: 0;
+      bottom: 5px;
+    }
+    10%, 20% {
+      left: -10px;
+      bottom: 5px;
+    }
+    30% {
+      left: -10px;
+      bottom: 2px;
+    }
+    40% {
+      left: -10px;
+      bottom: 5px;
+    }
+    50% {
+      left: -10px;
+      bottom: 2px;
+    }
+    60% {
+      left: -10px;
+      bottom: 5px;
+    }
+    70% {
+      left: -10px;
+      bottom: 2px;
+    }
+    80%, 90% {
+      left: -10px;
+      bottom: 5px;
+    }
+    100% {
+      left: 0;
+      bottom: 5px;
+    }
+  }
+  @keyframes leftbotfinger {
+    0% {
+      left: 0;
+      bottom: 5px;
+    }
+    10%, 20% {
+      left: -10px;
+      bottom: 5px;
+    }
+    30% {
+      left: -10px;
+      bottom: 2px;
+    }
+    40% {
+      left: -10px;
+      bottom: 5px;
+    }
+    50% {
+      left: -10px;
+      bottom: 2px;
+    }
+    60% {
+      left: -10px;
+      bottom: 5px;
+    }
+    70% {
+      left: -10px;
+      bottom: 2px;
+    }
+    80%, 90% {
+      left: -10px;
+      bottom: 5px;
+    }
+    100% {
+      left: 0;
+      bottom: 5px;
+    }
+  }
+  @-webkit-keyframes righttopfinger {
+    0% {
+      right: 0;
+      top: 5px;
+    }
+    10%, 20% {
+      right: -10px;
+      top: 5px;
+    }
+    30% {
+      right: -10px;
+      top: 2px;
+    }
+    40% {
+      right: -10px;
+      top: 5px;
+    }
+    50% {
+      right: -10px;
+      top: 2px;
+    }
+    60% {
+      right: -10px;
+      top: 5px;
+    }
+    70% {
+      right: -10px;
+      top: 2px;
+    }
+    80%, 90% {
+      right: -10px;
+      top: 5px;
+    }
+    100% {
+      right: 0;
+      top: 5px;
+    }
+  }
+  @keyframes righttopfinger {
+    0% {
+      right: 0;
+      top: 5px;
+    }
+    10%, 20% {
+      right: -10px;
+      top: 5px;
+    }
+    30% {
+      right: -10px;
+      top: 2px;
+    }
+    40% {
+      right: -10px;
+      top: 5px;
+    }
+    50% {
+      right: -10px;
+      top: 2px;
+    }
+    60% {
+      right: -10px;
+      top: 5px;
+    }
+    70% {
+      right: -10px;
+      top: 2px;
+    }
+    80%, 90% {
+      right: -10px;
+      top: 5px;
+    }
+    100% {
+      right: 0;
+      top: 5px;
+    }
+  }
+  @-webkit-keyframes rightbotfinger {
+    0% {
+      right: 0;
+      bottom: 5px;
+    }
+    10%, 20% {
+      right: -10px;
+      bottom: 5px;
+    }
+    30% {
+      right: -10px;
+      bottom: 2px;
+    }
+    40% {
+      right: -10px;
+      bottom: 5px;
+    }
+    50% {
+      right: -10px;
+      bottom: 2px;
+    }
+    60% {
+      right: -10px;
+      bottom: 5px;
+    }
+    70% {
+      right: -10px;
+      bottom: 2px;
+    }
+    80%, 90% {
+      right: -10px;
+      bottom: 5px;
+    }
+    100% {
+      right: 0;
+      bottom: 5px;
+    }
+  }
+  @keyframes rightbotfinger {
+    0% {
+      right: 0;
+      bottom: 5px;
+    }
+    10%, 20% {
+      right: -10px;
+      bottom: 5px;
+    }
+    30% {
+      right: -10px;
+      bottom: 2px;
+    }
+    40% {
+      right: -10px;
+      bottom: 5px;
+    }
+    50% {
+      right: -10px;
+      bottom: 2px;
+    }
+    60% {
+      right: -10px;
+      bottom: 5px;
+    }
+    70% {
+      right: -10px;
+      bottom: 2px;
+    }
+    80%, 90% {
+      right: -10px;
+      bottom: 5px;
+    }
+    100% {
+      right: 0;
+      bottom: 5px;
+    }
+  }
+  @-webkit-keyframes leftfoot {
+    0% {
+      top: 0;
+    }
+    10%, 20% {
+      top: 0;
+    }
+    30% {
+      top: 12px;
+    }
+    40% {
+      top: 0;
+    }
+    50% {
+      top: 12px;
+    }
+    60% {
+      top: 0;
+    }
+    70% {
+      top: 12px;
+    }
+    80%, 90%, 100% {
+      top: 0;
+    }
+  }
+  @keyframes leftfoot {
+    0% {
+      top: 0;
+    }
+    10%, 20% {
+      top: 0;
+    }
+    30% {
+      top: 12px;
+    }
+    40% {
+      top: 0;
+    }
+    50% {
+      top: 12px;
+    }
+    60% {
+      top: 0;
+    }
+    70% {
+      top: 12px;
+    }
+    80%, 90%, 100% {
+      top: 0;
+    }
+  }
+  @-webkit-keyframes rightfoot {
+    0% {
+      top: 0;
+    }
+    10%, 20%, 30% {
+      top: 0;
+    }
+    40% {
+      top: 12px;
+    }
+    50% {
+      top: 0;
+    }
+    60% {
+      top: 12px;
+    }
+    70%, 80%, 90%, 100% {
+      top: 0;
+    }
+  }
+  @keyframes rightfoot {
+    0% {
+      top: 0;
+    }
+    10%, 20%, 30% {
+      top: 0;
+    }
+    40% {
+      top: 12px;
+    }
+    50% {
+      top: 0;
+    }
+    60% {
+      top: 12px;
+    }
+    70%, 80%, 90%, 100% {
+      top: 0;
+    }
+  }
+  @-webkit-keyframes botMotion {
+    0%, 10% {
+      top: 0;
+    }
+    20%, 80% {
+      top: -13px;
+    }
+    90%, 100% {
+      top: 0;
+    }
+  }
+  @keyframes botMotion {
+    0%, 10% {
+      top: 0;
+    }
+    20%, 80% {
+      top: -13px;
+    }
+    90%, 100% {
+      top: 0;
+    }
+  }
+  @-webkit-keyframes neckMotion {
+    0%, 10% {
+      top: 30px;
+    }
+    20%, 80% {
+      top: 17px;
+    }
+    90%, 100% {
+      top: 30px;
+    }
+  }
+  @keyframes neckMotion {
+    0%, 10% {
+      top: 30px;
+    }
+    20%, 80% {
+      top: 17px;
+    }
+    90%, 100% {
+      top: 30px;
+    }
+  }
+  @-webkit-keyframes bodyMotion {
+    0%, 10% {
+      top: 33px;
+    }
+    20%, 80% {
+      top: 20px;
+    }
+    90%, 100% {
+      top: 33px;
+    }
+  }
+  @keyframes bodyMotion {
+    0%, 10% {
+      top: 33px;
+    }
+    20%, 80% {
+      top: 20px;
+    }
+    90%, 100% {
+      top: 33px;
+    }
+  }
+  @-webkit-keyframes eyeBlink {
+    0%, 10% {
+      background-color: #3498db;
+    }
+    15% {
+      background-color: #333;
+    }
+    20%, 50%, 80% {
+      background-color: #3498db;
+    }
+    85% {
+      background-color: #333;
+    }
+    90%, 100% {
+      background-color: #3498db;
+    }
+  }
+  @keyframes eyeBlink {
+    0%, 10% {
+      background-color: #3498db ;
+    }
+    15% {
+      background-color: #333;
+    }
+    20%, 50%, 80% {
+      background-color: #3498db;
+  
+    }
+    85% {
+      background-color: #333;
+    }
+    90%, 100% {
+      background-color: #3498db;
+    }
+  }
+  
 
 @-webkit-keyframes sk-scaleout {
     0% {
