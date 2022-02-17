@@ -1769,7 +1769,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 
 .skill-bars {
     list-style: none;
-    margin: 6rem 0 3rem;
+    margin: 5rem 0 3rem;
 }
 
 .skill-bars li {
@@ -2887,6 +2887,8 @@ html.no-csstransitions .home-content__main {
     position: relative;
 }
 
+
+
 .about-content {
     margin-bottom: 3rem;
 }
@@ -3039,9 +3041,51 @@ html.no-csstransitions .home-content__main {
 .s-works {
     padding-top: 15rem;
     padding-bottom: 15.6rem;
+    background-color: #f9f8f1;
+    position: relative;
+}
+
+.s-skills {
+    padding-top: 15rem;
+    padding-bottom: 9rem;
     background-color: #f1f1f1;
     position: relative;
 }
+
+.skills {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-wrap: wrap;
+        padding-top: 20px;
+
+}
+
+.skills .skewBtn{
+
+          outline: none;
+          cursor: pointer;
+          background: none;
+          transition: .5s;
+          border-radius: 10px;
+          font-family: "Lato",sans-serif;
+          color: #862121;
+          font-weight: bold;
+        }
+.skills .skewBtn:hover{
+            color: #862121;
+            font-size: 110%;
+            transform:scale(1.02);
+          }
+
+.skills .skewBtn {
+            border: 2px solid #862121;
+}
+.skills .skewBtn:hover {
+              /* background-color: $bg; */
+              transition: all 0.3s ease-in-out;
+          }
+
 
 
 /* ------------------------------------------------------------------- 
@@ -3062,16 +3106,19 @@ html.no-csstransitions .home-content__main {
 
 .masonry .grid-sizer, .masonry__brick {
     width: 400px;
+    padding: 10px;
 }
 
 .masonry__brick {
     float: left;
-    padding: 0;
+    /* padding: 10; */
 }
 
 .item-folio {
     position: relative;
     overflow: hidden;
+    /* padding: 10px; */
+
 }
 
 .item-folio__thumb img {
@@ -3091,6 +3138,7 @@ html.no-csstransitions .home-content__main {
     background: -webkit-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
     background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
     filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#cc000000', GradientType=0);
+    padding: 10px;
 }
 
 .item-folio__thumb a {
@@ -3111,20 +3159,21 @@ html.no-csstransitions .home-content__main {
     -webkit-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;
     z-index: 1;
+    padding: 10px;
 }
 
-.item-folio__thumb a::after {
-    content: "...";
+.item-folio__thumb.hooshang a::after {
+    content: "Python, ROS, HTML, CSS, Django, Kivy, Android, OpenCV";
     font-family: georgia, serif;
-    font-size: 3rem;
+    font-size: 2rem;
     display: block;
     height: 30px;
-    width: 30px;
+    width: 70%;
     line-height: 30px;
     margin-left: -15px;
     margin-top: -15px;
     position: absolute;
-    left: 50%;
+    left: 20%;
     top: 50%;
     text-align: center;
     color: #FFFFFF;
@@ -3149,7 +3198,7 @@ html.no-csstransitions .home-content__main {
 .item-folio__title {
     color: #FFFFFF;
     font-family: "montserrat-semibold", sans-serif;
-    font-size: 1.4rem;
+    font-size: 2.4rem;
     text-transform: uppercase;
     letter-spacing: .2rem;
     margin: 0;
@@ -3161,6 +3210,8 @@ html.no-csstransitions .home-content__main {
     font-size: 1.5rem;
     margin-bottom: 0;
 }
+
+
 
 .item-folio__caption {
     display: none;
@@ -3227,6 +3278,15 @@ html.no-csstransitions .home-content__main {
     -ms-transform: scale(1.05);
     transform: scale(1.05);
 }
+
+.item-folio__thumb p {
+    display: none;
+}
+
+.item-folio:hover .item-folio__thumb p {
+    display: block;
+}
+
 
 .item-folio:hover .item-folio__project-link {
     opacity: 1;
