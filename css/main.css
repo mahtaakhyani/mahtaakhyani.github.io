@@ -344,9 +344,6 @@ ol {
     list-style: decimal;
 }
 
-ul {
-    list-style: disc;
-}
 
 li {
     display: list-item;
@@ -358,6 +355,7 @@ ol, ul {
 
 ul li {
     padding-left: .4rem;
+    padding-bottom: 2.4rem;
 }
 
 ul ul, ul ol, ol ol, ol ul {
@@ -1767,24 +1765,8 @@ button::-moz-focus-inner, input::-moz-focus-inner {
  * ## skillbars - (_skillbars.scss)
  * ------------------------------------------------------------------- */
 
-.skill-bars {
-    list-style: none;
-    margin: 5rem 0 3rem;
-}
 
-.skill-bars li {
-    height: .6rem;
-    background: #c9c9c9;
-    width: 100%;
-    margin-bottom: 6.9rem;
-    padding: 0;
-    position: relative;
-}
-
-.skill-bars li strong {
-    position: absolute;
-    left: 0;
-    top: -3rem;
+.techskill strong {
     font-family: "montserrat-extrabold", sans-serif;
     color: #0D0A0B;
     text-transform: uppercase;
@@ -1792,119 +1774,6 @@ button::-moz-focus-inner, input::-moz-focus-inner {
     font-size: 1.4rem;
     line-height: 2.4rem;
 }
-
-.skill-bars li .progress {
-    background: #000000;
-    background-image: linear-gradient(to right, #191A3F, #2d462c);
-    position: relative;
-    height: 100%;
-}
-
-.skill-bars li .progress span {
-    position: absolute;
-    right: 0;
-    top: -3.6rem;
-    display: block;
-    font-family: "montserrat-regular", sans-serif;
-    color: #FFFFFF;
-    font-size: 1.1rem;
-    line-height: 1;
-    background: #000000;
-    padding: .6rem .6rem;
-    border-radius: 3px;
-}
-
-.skill-bars li .progress span::after {
-    position: absolute;
-    left: 50%;
-    bottom: -5px;
-    margin-left: -5px;
-    border-right: 5px solid transparent;
-    border-left: 5px solid transparent;
-    border-top: 5px solid #000000;
-    content: "";
-}
-
-.skill-bars li .percent5 {
-    width: 5%;
-}
-
-.skill-bars li .percent10 {
-    width: 10%;
-}
-
-.skill-bars li .percent15 {
-    width: 15%;
-}
-
-.skill-bars li .percent20 {
-    width: 20%;
-}
-
-.skill-bars li .percent25 {
-    width: 25%;
-}
-
-.skill-bars li .percent30 {
-    width: 30%;
-}
-
-.skill-bars li .percent35 {
-    width: 35%;
-}
-
-.skill-bars li .percent40 {
-    width: 40%;
-}
-
-.skill-bars li .percent45 {
-    width: 45%;
-}
-
-.skill-bars li .percent50 {
-    width: 50%;
-}
-
-.skill-bars li .percent55 {
-    width: 55%;
-}
-
-.skill-bars li .percent60 {
-    width: 60%;
-}
-
-.skill-bars li .percent65 {
-    width: 65%;
-}
-
-.skill-bars li .percent70 {
-    width: 70%;
-}
-
-.skill-bars li .percent75 {
-    width: 75%;
-}
-
-.skill-bars li .percent80 {
-    width: 80%;
-}
-
-.skill-bars li .percent85 {
-    width: 85%;
-}
-
-.skill-bars li .percent90 {
-    width: 90%;
-}
-
-.skill-bars li .percent95 {
-    width: 95%;
-}
-
-.skill-bars li .percent100 {
-    width: 100%;
-}
-
 
 
 /* ===================================================================
@@ -2898,7 +2767,7 @@ html.no-csstransitions .home-content__main {
 }
 
 .about-content .right {
-    padding-left: 40px;
+    padding-left: 10%;
 }
 
 
@@ -3054,32 +2923,31 @@ html.no-csstransitions .home-content__main {
 
 .skills {
         display: flex;
-        justify-content: space-evenly;
         align-items: center;
         flex-wrap: wrap;
         padding-top: 20px;
 
 }
 
+
 .skills .skewBtn{
 
           outline: none;
-          cursor: pointer;
           background: none;
           transition: .5s;
           border-radius: 10px;
           font-family: "Lato",sans-serif;
-          color: #862121;
+          color: #000000;
           font-weight: bold;
         }
 .skills .skewBtn:hover{
             color: #862121;
-            font-size: 110%;
+            font-size: 90%;
             transform:scale(1.02);
           }
 
 .skills .skewBtn {
-            border: 2px solid #862121;
+            border: 2px solid #1d1d1d;
 }
 .skills .skewBtn:hover {
               /* background-color: $bg; */
@@ -3093,7 +2961,7 @@ html.no-csstransitions .home-content__main {
  * ------------------------------------------------------------------- */
 
 .masonry-wrap {
-    margin-top: 4.8rem;
+    margin-top: 1.8rem;
     max-width: none;
     width: 1600px;
 }
@@ -3114,6 +2982,7 @@ html.no-csstransitions .home-content__main {
     /* padding: 10; */
 }
 
+
 .item-folio {
     position: relative;
     overflow: hidden;
@@ -3123,8 +2992,8 @@ html.no-csstransitions .home-content__main {
 
 .item-folio__thumb img {
     vertical-align: top;
-    -webkit-transition: all 0.5s ease-in-out;
-    transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
 .item-folio__thumb .shadow-overlay {
@@ -3156,8 +3025,8 @@ html.no-csstransitions .home-content__main {
     left: 0;
     width: 100%;
     height: 100%;
-    -webkit-transition: all 0.5s ease-in-out;
-    transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
     z-index: 1;
     padding: 10px;
 }
