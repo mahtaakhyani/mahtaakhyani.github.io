@@ -1829,6 +1829,11 @@ button::-moz-focus-inner, input::-moz-focus-inner {
     text-align: center;
 }
 
+.currentproj-section {
+    max-width: fit-content !important;
+    padding-right: 5rem;
+    padding-left: 3rem;
+}
 
 /* ------------------------------------------------------------------- 
  * responsive:
