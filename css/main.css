@@ -250,19 +250,22 @@ blockquote:before {
 }
 
 blockquote p {
-    font-family: "montserrat-regular", sans-serif;
+    font-family: "librebaskerville-regular", sans-serif;
     padding: 0;
     font-size: 2.1rem;
     line-height: 1.857;
     color: #0D0A0B;
+    text-align: left;
+    font-style: italic;
 }
 
 blockquote cite {
     display: block;
-    font-family: "montserrat-regular", sans-serif;
+    font-family: "librebaskerville-regular", sans-serif;
     font-size: 1.4rem;
     font-style: normal;
     line-height: 1.5;
+    
 }
 
 blockquote cite:before {
@@ -395,6 +398,9 @@ dd {
 
 .column , .row-intro {
     display: flex;
+}
+.row-intro p {
+    padding: 5rem;
 }
 /* ------------------------------------------------------------------- 
  * ## responsive video container - (_document-setup)
