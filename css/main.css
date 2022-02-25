@@ -424,6 +424,13 @@ dd {
     height: 100%;
 }
 
+.col-six video{
+    -moz-transform:scale(1.5);
+    -webkit-transform:scale(1.5);
+    -o-transform:scale(1.5);
+    -ms-transform:scale(1.5);
+    transform:scale(1.5);
+  }
 
 /* ------------------------------------------------------------------- 
  * ## floated image - (_document-setup)  
