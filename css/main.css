@@ -70,6 +70,8 @@
 
 html {
     font-size: 10px;
+    scroll-behavior: smooth;
+    
 }
 
 @media only screen and (max-width: 400px) {
@@ -1539,6 +1541,18 @@ input[type="button"].btn--primary:focus {
 .btn--stroke:hover, button.btn--stroke:hover {
     border: 0.3rem solid #862121;
     color: #862121;
+}
+
+.nextbtn {
+    padding-top: 0 !important;
+    border: 0.3rem solid #862121;
+    color: #862121; 
+    font-size: 1.5rem;
+}
+
+.nextbtn:hover {
+    border: 0.3rem solid #000000;
+    color: #000000;
 }
 
 .btn--pill, button.btn--pill {

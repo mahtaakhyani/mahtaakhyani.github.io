@@ -36,8 +36,8 @@
 
     <!-- favicons
     ================================================== -->
-    <link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
-    <link rel="icon" href="favicon.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="Mahta.png" type="image/x-icon">
+    <link rel="icon" href="Mahta.png" type="image/x-icon">
 
 </head>
 
@@ -48,7 +48,7 @@
     <header class="s-header">
 
         <div class="header-logo">
-            <a class="site-logo" href="index.html"><img src="logo.svg" alt="logo"></a>
+            <a class="site-logo" href="index.html"><img src="Mahta.svg" alt="logo"></a>
         </div>
 
         <nav class="header-nav-wrap">
@@ -101,12 +101,6 @@ Who has lots of love to combine everything she knows and cares about to create s
                     </a>
                 </div>
 
-                <div class="home-content__scroll">
-                    <a href="#about" class="scroll-link smoothscroll">
-                        <span>Scroll Down</span>
-                    </a>
-                </div>
-
             </div>
 
         </div> <!-- end home-content -->
@@ -135,39 +129,50 @@ Who has lots of love to combine everything she knows and cares about to create s
                 <h1>More About Me</h1>
                 
                 <div class="row-intro">
-                    <img class="col-six" src="me2.jpg" style="padding-bottom: 3%;
+                    <img class="col-six" src="me2.jpg" style="padding-bottom: 7%;
                     padding-left: 4rem;
                     padding-right: 8%;
                     border-radius: 50%;
+                    width: 46%;
                     ">
                     <span style="display: flex;
                     flex-direction: column;">
-                        <p class="lead">I consider myself a multi-dimensional person. My hunger for creating things outside the box ultimately led me to find my true passion in the early stages of my life in robotics.
+                        <p class="lead">I consider myself a multi-potential person. My hunger for creating things outside the box ultimately led me to find my true passion in the early stages of my life in robotics.
                             <br><a href="#works">Robotics</a>, as an interdisciplinary field, has always satisfied my curious creative mind and drove me to be on the path of learning.
-                            It offers a free space to let my mind wander and keeps me alive and active.
+                            It offers a free space to let my mind wander and keeps me alive and active.</p>
+                            <span>
+                                <a href="#intro-two" class="nextbtn btn btn--stroke">Wanna know more?</a>
+                            </span>
                     </span>
                 </div>
-                <div class="row-intro">
+                <div id="intro-two" class="row-intro" style="padding-top: 0;">
                     <span style="display: flex;
                     flex-direction: column;">
                         <p class="lead">However, it didn't take me long to figure out the mysterious world of psychology and my ambition for self-knowledge.
                             <br> I invested a lot of time these past 6 years to know myself (and ultimately others) through books, psychoanalysis sessions, therapy, and consistent mindfulness meditations.
                             </p>
+                            <span>
+                                <a href="#intro-three" class="nextbtn btn btn--stroke">Well, now here I am!</a>
+                            </span>
                         </span>
                         <img class="col-six" src="me.jpg" style="padding-bottom: 5%;
-                        padding-left: 3rem;
-                        padding-right: 12%;
-                        border-radius: 50%;
+                        padding-right: 0rem;
+                        border-radius: 53%;
+                        width: 35%;
+                        padding-left: 0;
                         ">
                 </div>
-                <p style="font-weight: bold; font-size: x-large; color: #af2b2b;">Well, now here I am!</p>
-                <div class="row-intro">
-                    <video class="col-six" autoplay loop controls poster="selfie.svg" style="padding-bottom: 25%;
-                    padding-left: 5%;
-                    padding-right: 12rem;
-                    border-radius: 50%;
-                    padding-top: 8rem;
+                <div id="intro-three" class="row-intro">
+                    <video id="vid" class="col-six" muted autoplay loop style="padding-top: 1rem; padding-right: 12rem;
+                    border-radius: 54% 0 71% 0;
+                    transform: scale(0.85);
+                    width: 45%;
                 "><source src="duet.mp4" type="video/mp4"> Your browser does not support the video tag.</video>
+                    <!-- ------- -->
+                    <!-- <script>
+                        document.getElementById('vid').play();
+                    </script> -->
+                    <!-- ---------- -->
                     <span style="display: flex;
                     flex-direction: column;">
                         <p class="lead">
@@ -175,7 +180,7 @@ Who has lots of love to combine everything she knows and cares about to create s
                             Combining all the possible fields to add something new to the world,<br> Using all my talents and privileges I was born with, to hold others' hands and pull them up with me, too.
                         </p>
                         <p style="direction: ltr; text-align: justify;">
-                            <strong> I Enjoy:</strong> Designing and Building things, Programming, Sketching, Video Editing, Psychology, Learning, Listening to others, Playing Santour(Iranin traditional music instrument), And unapologetically, Climbing trees as a hobbie.
+                            <strong style="color: #a82929;"> I Enjoy:</strong> Designing and Building things, Programming, Sketching, Video Editing, Psychology, Learning, Listening to others, Playing Santour(Iranin traditional music instrument), And unapologetically, Climbing trees as a hobbie.
                         </p>
                     </span>
                 </div>
@@ -278,7 +283,7 @@ Who has lots of love to combine everything she knows and cares about to create s
         <div class="row about-content--buttons">
 
             <div class="col-six tab-full left">
-                <a href="#0" class="btn btn--primary full-width">Download My CV</a>
+                <a href="CV.pdf" class="btn btn--primary full-width" download>Download My CV</a>
             </div>
             <div class="col-six tab-full right">
                 <a href="#works" class="btn full-width">View Projects</a>
@@ -1077,7 +1082,7 @@ Who has lots of love to combine everything she knows and cares about to create s
 
     </div><!-- end photoSwipe background -->
 
-    <div id="preloader">
+    <!-- <div id="preloader">
         <div id="loader">
             <div id="bot">
                 <div id="eyes">
@@ -1107,7 +1112,7 @@ Who has lots of love to combine everything she knows and cares about to create s
                 </div>
               </div>
         </div>
-    </div>
+    </div> -->
 
 
     <!-- Java Script
