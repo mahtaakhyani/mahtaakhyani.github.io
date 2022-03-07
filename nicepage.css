@@ -36987,16 +36987,6 @@ a.u-link.u-text-hover-grey-90:hover {
 
   .u-header .u-social-icons-1 {
     margin-left: calc(((100% - 1200px) / 2) + 333px);
-    height: 90% !important;
-    min-width: 43px !important;
-  }
-  .u-social-icons-1 {
-    margin-left: 3% !important;
-    flex-direction: column !important;
-    width: 10% !important;
-  }
-  .u-social-icons .u-social-url {
-    margin-bottom: 20% !important;
   }
 }
 .u-block-e78b-20:not([data-block-selected]):not([data-cell-selected]), .u-block-e78b-20:not([data-block-selected]):not([data-cell-selected]):before {
