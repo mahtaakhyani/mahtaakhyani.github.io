@@ -36977,16 +36977,35 @@ a.u-link.u-text-hover-grey-90:hover {
   }
 }
 @media (max-width: 575px) {
+   .u-header {
+    min-height: 67px;
+  }
+
   .u-header .u-image-1 {
-    margin-left: calc(((100% - 1200px) / 2) + 537px);
+    width: 46px;
+    height: 34px;
+    margin-top: 20px;
+    margin-left: calc(((100% - 340px) / 2) + -23px);
   }
 
   .u-header .u-menu-1 {
-    margin-left: calc(((100% - 340px) / 2) + 247px);
+    width: auto;
+    margin-top: -38px;
+    margin-right: calc(((100% - 340px) / 2) + -24px);
+    margin-left: auto;
+  }
+
+  .u-header .u-nav-2 {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 16px;
+    width: 120px;
   }
 
   .u-header .u-social-icons-1 {
-    margin-left: calc(((100% - 1200px) / 2) + 333px);
+    width: 178px;
+    height: 31px;
+    margin: -37px calc(((100% - 340px) / 2) + 29px) 16px auto;
   }
 }
 .u-block-e78b-20:not([data-block-selected]):not([data-cell-selected]), .u-block-e78b-20:not([data-block-selected]):not([data-cell-selected]):before {
