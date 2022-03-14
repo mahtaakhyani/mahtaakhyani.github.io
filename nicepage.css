@@ -917,6 +917,10 @@ ol {
   transition: transform 500ms ease;
   transform: scale(1);
 }
+#play-sec {
+  display: none;
+}
+
 .u-effect-hover-zoom:hover .u-back-slide,
 .u-effect-hover-zoom:hover .u-background-effect-image,
 .u-effect-hover-zoom.u-effect-active .u-back-slide,
@@ -15888,6 +15892,11 @@ section.u-opacity:before,
 .u-social-icons {
   display: flex;
 }
+.u-social-icons a:hover {
+  -webkit-transform: translate3d(0, -5px, 0);
+  -ms-transform: translate3d(0, -5px, 0);
+  transform: translate3d(0, -5px, 0);
+}
 .u-social-url {
   color: inherit;
   font-size: inherit;
@@ -18412,7 +18421,7 @@ a.pswp__share--download:hover {
 .u-layout-thumbnails.u-gallery.u-product-zoom .u-back-slide {
   background-size: contain;
   background-position: 50% 50%;
-  cursor: zoom-in;
+  cursor: pointer;
   overflow: hidden;
 }
 .u-layout-carousel.u-gallery.u-product-zoom .u-back-slide.hover img,
@@ -36042,8 +36051,8 @@ a.u-link.u-text-hover-grey-90:hover {
         .u-button-style.u-custom-color-5,
         .u-button-style.u-custom-color-5[class*="u-border-"]
         {
-            color: #111111 !important;
-            background-color: #ffdc00 !important;
+          color: #ffffff !important;
+          background-color: #ee5009 !important;
         }
 
         .u-button-style.u-custom-color-5:hover,
