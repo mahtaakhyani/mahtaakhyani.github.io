@@ -39,30 +39,6 @@
     margin-right: initial;
     margin-left: initial;
   }
-
-  .u-section-1 .u-text-1 {
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  .u-section-1 .u-image-1 {
-    margin-right: 400px;
-    margin-left: 0;
-  }
-
-  .u-section-1 .u-text-2 {
-    margin-right: 336px;
-  }
-
-  .u-section-1 .u-text-3 {
-    margin-left: 500px;
-    margin-right: 116px;
-  }
-
-  .u-section-1 .u-metadata-1 {
-    margin-left: 0;
-    margin-right: 0;
-  }
 }
 
 @media (max-width: 991px) {
@@ -71,17 +47,28 @@
     padding-right: 0;
   }
 
+  .u-section-1 .u-text-1 {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
   .u-section-1 .u-image-1 {
     margin-right: 180px;
+    margin-left: 0;
   }
 
   .u-section-1 .u-text-2 {
-    margin-right: 257px;
+    margin-right: 313px;
   }
 
   .u-section-1 .u-text-3 {
-    margin-left: 390px;
-    margin-right: 6px;
+    margin-left: 490px;
+    margin-right: 106px;
+  }
+
+  .u-section-1 .u-metadata-1 {
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 
@@ -91,12 +78,12 @@
   }
 
   .u-section-1 .u-text-2 {
-    margin-right: 193px;
+    margin-right: 235px;
   }
 
   .u-section-1 .u-text-3 {
-    margin-left: 216px;
-    margin-right: 0;
+    margin-left: 400px;
+    margin-right: 16px;
   }
 }
 
@@ -108,12 +95,13 @@
 
   .u-section-1 .u-text-2 {
     margin-top: -321px;
-    margin-right: 122px;
+    margin-right: 148px;
   }
 
   .u-section-1 .u-text-3 {
     margin-top: 13px;
-    margin-left: 16px;
+    margin-right: 0;
+    margin-left: 216px;
   }
 }.u-section-2 .u-sheet-1 {
   min-height: 1181px;
@@ -165,15 +153,9 @@
   margin: -543px auto -335px 0;
 }
 
-@media (max-width: 1199px) {
-  .u-section-2 .u-text-2 {
-    margin-right: 411px;
-  }
-}
-
 @media (max-width: 991px) {
   .u-section-2 .u-text-2 {
-    margin-right: 315px;
+    margin-right: 381px;
   }
 }
 
@@ -192,7 +174,7 @@
   }
 
   .u-section-2 .u-text-2 {
-    margin-right: 236px;
+    margin-right: 286px;
   }
 
   .u-section-2 .u-text-3 {
@@ -238,7 +220,7 @@
 
   .u-section-2 .u-text-2 {
     font-size: 1.5rem;
-    margin-right: 149px;
+    margin-right: 180px;
   }
 
   .u-section-2 .u-text-3 {
@@ -287,16 +269,10 @@
   font-weight: 700;
 }
 
-@media (max-width: 1199px) {
-  .u-section-3 .u-table-1 {
-    width: 940px;
-    margin-right: 0;
-  }
-}
-
 @media (max-width: 991px) {
   .u-section-3 .u-table-1 {
     width: 720px;
+    margin-right: 0;
   }
 }
 

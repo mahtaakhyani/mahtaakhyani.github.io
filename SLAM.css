@@ -3,7 +3,7 @@
 }
 
 .u-section-1 .u-post-details-1 {
-  min-height: 710px;
+  min-height: 769px;
   margin-top: 0;
   margin-bottom: 1px;
 }
@@ -25,7 +25,7 @@
 }
 
 .u-section-1 .u-text-2 {
-  margin: -439px 234px 0 560px;
+  margin: -439px 175px 0 560px;
 }
 
 .u-section-1 .u-metadata-1 {
@@ -56,7 +56,7 @@
 
   .u-section-1 .u-text-2 {
     margin-top: -330px;
-    margin-right: 134px;
+    margin-right: 75px;
     margin-left: 460px;
   }
 
@@ -73,7 +73,7 @@
 
 @media (max-width: 991px) {
   .u-section-1 .u-text-2 {
-    margin-right: 24px;
+    margin-right: 0;
     margin-left: 474px;
   }
 }
@@ -84,7 +84,6 @@
   }
 
   .u-section-1 .u-text-2 {
-    margin-right: 0;
     margin-left: 384px;
   }
 }
