@@ -5756,6 +5756,7 @@ ul.u-text li:last-child {
   position: relative;
   text-align: center;
   padding: 1em;
+  display: none;
 }
 .u-backlink a:first-letter {
   text-transform: capitalize;
@@ -39257,21 +39258,21 @@ a.u-link.u-text-hover-grey-90:hover {
   }
 
   .u-footer .u-layout-wrap-2 {
-    margin-top: -106px;
-    margin-bottom: 13px;
+    margin-top: -90px;
+    margin-bottom: 0px;
     width: 67px;
   }
 
   .u-footer .u-layout-cell-4 {
-    min-height: 100px;
+    min-height: 34px;
   }
 
   .u-footer .u-layout-cell-5 {
-    min-height: 100px;
+    min-height: 34px;
   }
 
   .u-footer .u-layout-cell-6 {
-    min-height: 100px;
+    min-height: 34px;
   }
 }
 @media (max-width: 767px) {
