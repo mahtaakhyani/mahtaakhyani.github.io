@@ -181,6 +181,7 @@
 }
 
 .u-section-2 .u-image-5 {
+  max-height: 35% !important;
   height: 291px;
   margin: 46px 17px 0;
 }
@@ -380,6 +381,7 @@
   }
 
   .u-section-2 .u-image-5 {
+    max-height: 35%;
     height: 243px;
     margin-right: initial;
     margin-left: initial;
