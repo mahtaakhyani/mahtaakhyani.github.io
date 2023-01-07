@@ -50048,6 +50048,11 @@ a.u-link.u-text-hover-grey-90:hover {
     text-shadow: undefined undefined undefined rgba(var(--undefined-r),var(--undefined-g),var(--undefined-b),0) !important
 } 
 
+.u-footer {
+    position: fixed;
+    width: -webkit-fill-available;
+}
+
 .u-footer .u-sheet-1 {
   min-height: 110px;
 }
