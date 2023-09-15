@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+<link href="assets/images/favicon.png" rel="icon" />
+<title>Documentation | SROSP Framework</title>
+<meta name="description" content="Your ThemeForest item Name and description">
+<meta name="author" content="harnishdesign.net">
+
+<!-- Stylesheet
+============================== -->
+<!-- Bootstrap -->
+<link rel="stylesheet" type="text/css" href="assets/vendor/bootstrap/css/bootstrap.min.css" />
+<!-- Font Awesome Icon -->
+<link rel="stylesheet" type="text/css" href="assets/vendor/font-awesome/css/all.min.css" />
+<!-- Magnific Popup -->
+<link rel="stylesheet" type="text/css" href="assets/vendor/magnific-popup/magnific-popup.min.css" />
+<!-- Highlight Syntax -->
+<link rel="stylesheet" type="text/css" href="assets/vendor/highlight.js/styles/github.css" />
+<!-- Custom Stylesheet -->
+<link rel="stylesheet" type="text/css" href="assets/css/stylesheet.css" />
+</head>
+
+<body data-spy="scroll" data-target=".idocs-navigation" data-offset="125">
+
+<!-- Preloader -->
+<!--<div class="preloader">
+  <div class="lds-ellipsis">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>-->
+<!-- Preloader End --> 
+
+<!-- Document Wrapper   
+=============================== -->
+<div id="main-wrapper"> 
+  
+  <!-- Header
+  ============================ -->
+  <header id="header" class="sticky-top"> 
+    <!-- Navbar -->
+    <nav class="primary-menu navbar navbar-expand-lg navbar-dropdown-dark">
+      <div class="container-fluid">
+        <!-- Sidebar Toggler -->
+		<button id="sidebarCollapse" class="navbar-toggler d-block d-md-none" type="button"><span></span><span class="w-75"></span><span class="w-50"></span></button>
+		
+		<!-- Logo --> 
+        <a class="logo ml-md-3" href="index.html" title="iDocs Template"> <img src="assets/images/logo.png" alt="iDocs Template" style="width:25%"/> </a> 
+		 
+        <!-- Logo End -->
+        
+		<!-- Navbar Toggler -->
+		<button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#header-nav"><span></span><span></span><span></span></button>
+        
+		<div id="header-nav" class="collapse navbar-collapse justify-content-end">
+          <ul class="navbar-nav">
+            <li class="dropdown"> <a class="dropdown-toggle" href="#">Dropdown</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li class="dropdown"><a class="dropdown-item dropdown-toggle" href="#">Dropdown Action</a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="index.html">Action</a></li>
+                    <li><a class="dropdown-item" href="feature-header-dark.html">Another Action</a></li>
+                    <li><a class="dropdown-item" href="feature-header-primary.html">Something Else Here</a></li>
+                    <li><a class="dropdown-item" href="index-2.html">Another Link</a></li>
+                  </ul>
+                </li>
+                <li><a class="dropdown-item" href="#">Another Action</a>
+                <li><a class="dropdown-item" href="#">Something Else Here</a></li>
+              </ul>
+            </li>
+            <li><a target="_blank" href="https://github.com/mahtaakhyani/ossrp">Repository</a></li>
+            <li><a target="_blank" href="https://themeforest.net/user/harnishdesign/#contact?ref=HarnishDesign">Support</a></li>
+          </ul>
+        </div>
+        <ul class="social-icons social-icons-sm ml-lg-2 mr-2">
+          <li class="social-icons-twitter"><a data-toggle="tooltip" href="http://www.twitter.com/harnishdesign/" target="_blank" title="" data-original-title="Twitter"><i class="fab fa-twitter"></i></a></li>
+          <li class="social-icons-facebook"><a data-toggle="tooltip" href="http://www.facebook.com/harnishdesign/" target="_blank" title="" data-original-title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+          <li class="social-icons-dribbble"><a data-toggle="tooltip" href="http://www.dribbble.com/harnishdesign/" target="_blank" title="" data-original-title="Dribbble"><i class="fab fa-dribbble"></i></a></li>
+        </ul>
+      </div>
+    </nav>
+    <!-- Navbar End --> 
+  </header>
+  <!-- Header End --> 
+  
+  <!-- Content
+  ============================ -->
+  <div id="content" role="main">
+    
+	<!-- Sidebar Navigation
+	============================ -->
+	<div class="idocs-navigation bg-dark docs-navigation-dark">
+      <ul class="nav flex-column ">
+        <li class="nav-item"><a class="nav-link active" href="#idocs_start">Getting Started</a>
+          <ul class="nav flex-column">
+            <li class="nav-item"><a class="nav-link" href="#idocs_html_features">Features</a></li>
+
+
+
+		<li class="nav-item"><a class="nav-link active" href="#idocs_ros">ROS Package</a>
+		  <ul class="nav flex-column">
+     
+            <li class="nav-item"><a class="nav-link" href="#idocs_ros_nodes">Nodes</a></li>
+            <li class="nav-item"><a class="nav-link" href="#idocs_ros_messages">Messages</a></li>
+            <li class="nav-item"><a class="nav-link" href="#idocs_ros_services">Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="#idocs_ros_topics">Topics</a></li>
+
+
+		   </ul>
+		</li>
+		
+
+
+		<li class="nav-item"><a class="nav-link active" href="#idocs_django">Django Web Applicationn</a>
+		  <ul class="nav flex-column">
+		     	   <li class="nav-item"><a class="nav-link" href="#idocs_django_install">Installation</a></li>
+            <li class="nav-item"><a class="nav-link" href="#idocs_django_apps">Apps</a></li>
+            <li class="nav-item"><a class="nav-link" href="#idocs_django_models">Models</a></li>
+            <li class="nav-item"><a class="nav-link" href="#idocs_django_serialize">Serializers</a></li>
+            <li class="nav-item"><a class="nav-link" href="#idocs_django_urls">URLs</a></li>
+     	   <li class="nav-item"><a class="nav-link" href="#idocs_django_launch">Launching</a></li>
+<li class="nav-item"><a class="nav-link active" href="#idocs_web">Deploy</a>
+		  <ul class="nav flex-column">
+     
+            <li class="nav-item"><a class="nav-link" href="#idocs_web_install">Installation</a></li>
+            <li class="nav-item"><a class="nav-link" href="#idocs_web_daemons">Daemons</a></li>
+            <li class="nav-item"><a class="nav-link" href="#idocs_web_database">DataBase</a></li>
+
+
+		   </ul>
+		</li>
+		
+		
+		<li class="nav-item"><a class="nav-link active" href="#idocs_android">Android Package</a>
+		  <ul class="nav flex-column">
+     	    <li class="nav-item"><a class="nav-link" href="#idocs_android_dl">Download APK</a></li>
+            <li class="nav-item"><a class="nav-link" href="#idocs_android_overview">Overview</a></li>
+            <li class="nav-item"><a class="nav-link" href="#idocs_android_web">Web Server</a></li>
+            <li class="nav-item"><a class="nav-link" href="#idocs_android_media">Multimedia</a></li>
+			<li class="nav-item"><a class="nav-link" href="#idocs_android_ui"> User Interface</a></li>
+
+
+
+		   </ul>
+		</li>
+
+		   </ul>
+		</li>
+            
+          </ul>
+		</li>
+      </ul>
+    </div>
+    
+    <!-- Docs Content
+	============================ -->
+    <div class="idocs-content">
+      <div class="container"> 
+        
+        <!-- Getting Started
+		============================ -->
+        <section id="idocs_start">
+        <h1>Documentation</h1>
+        <h2>SROSP Framework</h2>
+        <p class="lead">Next generation framework for social robot developemnet</p>
+		<hr>
+		<div class="row">
+			<div class="col-sm-6 col-lg-4">
+				<ul class="list-unstyled">
+					<li><strong>Version:</strong> 1.0</li>
+					<li><strong>Author:</strong> <a href="https://mahtaakhyani.github.io" target="_blank">Mahta Akhyani</a></li>
+				</ul>
+			</div>
+			<div class="col-sm-6 col-lg-4">
+				<ul class="list-unstyled">
+					<li><strong class="font-weight-700">Created:</strong> 15 September, 2023</li>
+					<li><strong>Update:</strong> 16 September, 2023</li>
+				</ul>
+			</div>
+		</div>
+        <p class="alert alert-info">If you have any questions that are beyond the scope of this help file or any suggestions, Please feel free to email via <a target="_blank" href="mailto:mahtaakhyani@gmail.com">Email</a>.</p>
+        </section>
+        
+		<hr class="divider">
+		
+        <!-- HTML Structure
+		============================ -->
+        <section id="idocs_html_features">
+          <h2>Features</h2>
+          <p>The overall system architecture consists of four main layers:</p>
+ 			<ul>
+                <li>ROS Layer</li>
+                <li>Web Server Layer</li>
+                <li>Android Layer</li>
+                <li>Hardware Layer</li>
+              </ul>
+			<p>The schematic of the system architechture is as shown in the figure below.</p>
+			<a class="popup-img" href="assets/images/schematic.svg"><img class="img-fluid" src="assets/images/schematic.svg" style="width:80%"/></a>
+        </section>
+
+    <section id="idocs_django">
+          <h2>Django Web Application</h2>
+          <p>Django web application is responsible for communicating between the user interface and the database or the API endpoints.</p>
+<p>It also serves the static files (css, Js, img, etc.) and the html templates. </p>
+<p>The static files are where the user interface communicates directry with ROS server through a library called <code>rosbridge js</code>.
+         
+        <section id="idocs_django_install">
+         <h2>Installation</h2>
+<p class="alert alert-info">If you are here from the locally deployed version of SROSP, please skip to the <a href="#idocs_web">Deploy</a> section for running the app.</p>
+          <p class="lead">Follow the steps below to install the project:</p>
+          <ol>
+<ol>
+<li>Install  <code>Python 3.7</code> or higher</li>
+<li>Install  <code>pip</code></li>
+<li>Install the following packages:
+<ul>
+<li>django 2.2.6 or higher</li>
+<li> <code>django-rest-framework</code></li>
+<li> <code>rosbridge</code></li>
+<li> <code>websockets</code></li>
+</ul>
+</li>
+<li>Clone the repository</li>
+<li>Run the following commands:
+<ul>
+<li>  
+<pre><code class="html">python manage.py makemigrations
+python manage.py migrate
+python manage.py createsuperuser
+python manage.py runserver</code>
+</ul>
+</li>
+<li>Go to <code>http://localhost:8000/index.html</code> to access the robot control user interface</li>
+
+</ol><br>
+        <h4>File Structure</h4>
+        <ol>
+<li><code>interface_backend/</code> contains the main project</li>
+<li> <code>core/</code> contains the main app -&gt; handles the main user interface and between-device communication (a.k.a. the android app)</li>
+<li> <code>soundHandler/</code> contains the soundHandler app -&gt; handles sound related models</li>
+<li> <code>serialHandler/</code> contains the serialHandler app -&gt; handles serial communication related models</li>
+<li> <code>static/</code> contains the static files (css, js, images, etc.)</li>
+<li> <code>templates/</code> contains the html templates</li>
+<li> <code>db.sqlite3</code> is the database file</li>
+<li> <code>manage.py</code> is the main file for running the server</li>
+<li> <code>requirements.txt</code> contains the required packages for the project</li>
+
+</ol>          </ol>
+        </section>
+        <section id="idocs_django_apps">
+          <h3>Apps & API Endpoints</h3>
+         <p>1. <code>core/views.py</code> contains the main API endpoints</p>
+        <p>2. <code>soundHandler/views.py</code> contains the API endpoints for the soundHandler app</p>
+        <p>3. <code>serialHandler/views.py</code> contains the API endpoints for the serialHandler app</p>
+        </section>
+        <section id="idocs_django_models">
+         <h4>Models</h4>
+         <ol>
+			<li><code>core/models.py</code> contains the main models:
+			<ul>
+			<li><code>EmotionModel</code>
+			<ul>
+			<li><code>face</code> -&gt; name of the emotion</li>
+			<li><code>face_video_url</code> -&gt; url of the video for the emotion</li>
+			<li><code>interface_button_emoji</code> -&gt; emoji for the emotion (used in the user interface)</li>
+			</ul>
+			</li>
+			<li>Motor Control models:
+			<ul>
+			<li><code>dynatype</code> -&gt; type of the dynamixel motor</li>
+			<li><code>movement</code> -&gt; True if the motor must move, False otherwise</li>
+			<li><code>dir</code> -&gt; direction of the movement (0 for (up - right) or 1 for (down - left))</li>
+			<li><code>pos_up</code> -&gt; Neck pitch turn</li>
+			<li><code>pos_right</code> -&gt; Neck yaw turn</li>
+			<li><code>right_hand</code> -&gt; Right hand final position</li>
+			<li><code>left_hand</code> -&gt; Left hand final position</li>
+			<li><code>speed</code> -&gt; Speed of the movement</li>
+			<li><code>theta</code> -&gt; Angle of the movement</li>
+			<li><code>yaw</code> -&gt; Yaw of the movement</li>
+			</ul>
+			</li>
+
+			<li><code>soundHandler/models.py</code> contains the models for the soundHandler app</li>
+			<li><code>Song</code>:
+			<ul>
+				<li><code>title</code> -&gt; title of the sound file</li>
+				<li><code>description</code> -&gt; description of the sound file</li>
+				<li><code>audio_file</code> -&gt; the sound file (optional)</li>
+				<li><code>audio_link</code> -&gt; the link to the sound file (optional)</li>
+				<li><code>duration</code> -&gt; the duration of the sound file</li>
+			</ul>
+			</li>
+
+        </section>
+        <section id="idocs_django_serialize">
+          <h4>Serializers</h4>
+          <p>All of the following are EmotionModel serializers:</p>
+<ul>
+<li><code>EmotionModelSerializer</code></li>
+<li><code>HooshangDynaSerializerHead</code></li>
+<li><code>HooshangDynaSerializerHands</code></li>
+<li><code>HooshangDynaSerializer</code></li>
+</ul>
+</p>
+        </section>
+        <section id="idocs_django_urls">
+          <h4>URLs</h4>
+		<ol>
+          <li> Go to <code>http://localhost:8000/index.html</code> to access the robot control user interface</li>
+       	 <li> Go to <code>http://localhost:8000/admin</code> to access the admin interface</li>
+        	<li> Go to <code>http://localhost:8000/wizard/setup</code> to access the setup wizard</li>
+		<li>The following are the API endpoints:</li>
+		<ul>
+		<li><code>/reqpub</code> -&gt; <code>GET</code>: loads the main user interface, <code>POST</code>: recieves movement commands and sends them to the robot</li>
+   		<li><code>/reqcli</code> -&gt; <code>GET</code>: passes the user-selected emotion's data to the robot , <code>POST</code>: recieves the robot's response</li>
+   		<li><code>/reqemo</code> -&gt; <code>GET</code>: sends back the video url of the selected sound, or the sound url of the selected face (video)
+</li>
+   		<li><code>/reqip</code> -&gt; <code>GET</code>: sends back the IP address of the robot (fetchs server local ip address)
+</li>
+		</ul>
+		</ol>
+        </section>
+    </section>
+<section id="idocs_web">
+          <h2>Deploy</h2>
+<p>You need a web server to run the project. I used nginx and gunicorn. You can use apache or any other web server. </p>
+
+<p>To use the built-in django web-server, run the following command: <code>python manage.py runserver</code>. However, the server must have automaticly been served by the web server (e.g. nginx) in production environment (e.g. Jetson Nano) and gunicorn service &amp; socket in the background on each reboot.</p>
+<p>If not, check nginx status to make sure it is active and then check for errors in the log file: <code>/var/log/nginx/error.log</code> and <code>/var/log/nginx/access.log</code>. If you are using a different web server, check its log file.</p>
+<p>Also this could have happened because of failed gunicorn service. Check the status of gunicorn service with the following command: <pre><code class="html">sudo systemctl status gunicorn</code></pre> and check gunicorn configuration file: <code>/etc/systemd/system/gunicorn.service</code> and gunicorn.socket configuration file: <code>/etc/systemd/system/gunicorn.socket.</code></p>
+<p><strong>NOTE</strong> *Make sure you have allowed the ports in use (e.g. 1935, 5353, 8080, etc.) in the firewall. To check the status of the firewall, run the following command:<pre><code class="html">sudo ufw status</code></pre>. To allow a port, run the following command: <pre><code class="html">sudo ufw allow [port number]</code></pre>. To allow a range of ports, run the following command: <pre><code class="html">sudo ufw allow [port number]:[port number]</code></pre></p>
+       <section id="idocs_web_install">
+         <h3>Installation</h3>
+   <ol>
+<li>Install nginx</li>
+<li>Install gunicorn</li>
+<li>Install supervisor</li>
+<li>Create a new user for the project</li>
+<li>Create a new directory for the project</li>
+<li>Clone the project into the new directory</li>
+<li>Create a new virtual environment for the project</li>
+<li>Install the requirements for the project</li>
+<li>Create a new configuration file for the project in <code>/etc/nginx/sites-available/</code></li>
+<li>Create a new configuration file for the project in <code>/etc/supervisor/conf.d/</code></li>
+<li>Create a new configuration file for the gunicorn service in <code>/etc/systemd/system/</code></li>
+<li>Setup the gunicorn service</li>
+<li>Setup nginx</li>
+</ol>
+<p>14. Use the following commands for Gunicorn:
+<ul>
+<pre><code class="html">sudo systemctl start gunicorn
+sudo systemctl enable gunicorn
+sudo systemctl status gunicorn
+sudo systemctl stop gunicorn
+sudo systemctl restart gunicorn
+sudo systemctl daemon-reload
+sudo systemctl reload gunicorn
+sudo systemctl disable gunicorn</code></pre>
+</ul>
+</p>
+<p>15. Use the following commands for nginx:
+<ul><pre><code class="html">sudo systemctl daemon-reload
+sudo systemctl restart nginx
+sudo systemctl status nginx
+sudo systemctl stop nginx
+sudo systemctl start nginx
+sudo systemctl reload nginx
+sudo systemctl disable nginx
+sudo systemctl enable nginx</code></pre>
+</ul>
+</p>
+<p><strong>Notes</strong></p>
+<p>*If you want to be able to access the user-interface from other devices in the same network, you should use the same url but replace the IP address with the IP address of the main server (e.g. Jetson). You can also use a domain name instead of the IP address.*</p>
+<p>*Add the following line to nginx sites-enabled/[my website's name] configuration file because your media files will be ignored by the browser if they are served with the default mimetype of text/plain : <code>include /etc/nginx/mime.types;</code>*</p>
+<p>*If requirements.txt does not exist, run <code>pipreqs [path/to/ project]</code> to generate requirements.txt file for your project and install the requirements with <code>pip install -r requirements.txt</code>*</p>
+<p>*The user-interface must be accessible from browser with the following address:<code>http://[Jetson|Computer's IP address]:[port number(default:5353)]/index.html</code>*</p>
+<p><strong>Additions to the project</strong></p>
+<p>If you want to assign a static IP address to the Jetson Nano, you can use the following command: <pre><code class="html">sudo nmtui</code></pre></p>
+<p>To check the IP address of the Jetson Nano, run the following command: <pre><code class="html">hostname -I</code></pre></p>
+<p>To check the IP address of the computer, run the following command: <pre><code class="html">ipconfig</code></pre></p>
+<p>If you want to deploy the project or assign a purchased domain name to the project, you must change the server_name in the nginx configuration file from localhost to the domain name. Be sure to configure the DNS settings of the domain name to point to the IP address of the server using cloudflare or any other DNS service provider.</p>
+
+ 
+                </section>
+        <section id="idocs_web_daemons">
+          <h4>Daemons</h4>
+          <p>To run the project from scratch, run the following command: <pre><code class="html">gunicorn --bind host:port --workers 3 --threads 2 --timeout 120 --log-level debug --log-file log.txt --access-logfile access_log.txt --error-logfile error_log.txt --capture-output --enable-stdio-inheritance --daemon --pid pid.txt --pythonpath [path/to/project] [project_name].wsgi:application</code></pre></p>
+        </section>
+        <section id="idocs_web_database">
+         <h4>DataBase</h4>
+          <p>type of the database: <code>sqlite3</code></p>
+<p>location of the database: <code>[path/to/project]/db.sqlite3</code></p>
+<p>To access the database, you need to be a superuser. To create a superuser, run the following command: <pre><code class="html">python manage.py createsuperuser</code></pre></p>
+<p>Now you can access the database at <code>/admin</code> with admin privileges. (e.g. modify model objects, add new users, etc.)</p>
+
+        </section>
+    </section>
+
+
+
+    <section id="idocs_android">
+          <h2>Android</h2>
+          <p>The Android device is currently only responsible for acting as the robot's face and sound player. In other terms, it acts as a simple multimedia player which is also in constant communication with the ROS and Django servers.</p>
+<p> However, based on the modular structure of the whole system, it has been a vision for future developements to integrate the camera and the microphone data input of the Android device as well.</p>
+<p>In that case, <code>ROSJava</code> would be needed to be implemented in the android app. It would be in charge of publishing the camera and microphone audio data inputs on the respected topics (which already exist).</p>
+		<ul>
+			<li>Language: Kotlin</li>
+		</ul>
+          
+        <section id="idocs_android_dl">
+          <h3>Download APK</h3>
+          <p>You can download the latest version of the app from <strong><i><a href="">here</a></i></strong>.</p>
+        </section>
+        <section id="idocs_android_overview">
+         <h4>Supported Systems</h4>
+           <p class="alert alert-info">*This app can be a little tricky if using Android=<4.4.0  because it does not support some of the newer streaming protocols. Some media might fail to play.</p>
+        </section>
+		<section id="idocs_android_ui">
+		         <h4>User Interface</h4>
+		          <p>You must first fill in the url with the <code>[IP address:port number]</code>of the main server (e.g. Jetson). No need for the <code>/reqcli</code> part.</p>
+		<p class="alert alert-info"><strong>*NOTE: </strong> <code>http://</code> is required.
+		</p>
+		<p>Then press the Check button on the bottom. Make sure the status is OK before going into full screen mode.</p>
+		<p> Note that if the status is OK but you see no URL provided, there is no problem and the client probably hasn't requested any changes yet. Move on.
+		<p>When the screen goes into full screen mode, there's a small lock icon on the top right corner of the screen. If you wish to lock the medial player controls to prevent any sudden exits or block accidental touches, click on the lock icon.</p>
+		<p>You can always release the controls by touching the lock icon again.</p>
+        </section>
+
+        <section id="idocs_android_media">
+          <h4>Multimedia</h4>
+          <p>If you want to stream a video or audio file from the server, you must first put the file in the <code>media</code> folder of the project and then use the following url to access it: <code>http://[IP address:port number]/media/[file name].[file extension]</code></p>
+
+<p>Additionaly, you can online stream a video or audio by sending the url of the stream server to the androind app, just like you would do with a local file. (It is recommended to use a local server for streaming though for faster response time and less bandwidth usage.) </p>
+
+<p>The app is capable of playing any video or audio file that is supported by the android device (e.g. mp4, mp3, wav, etc.) and any video or audio stream that is supported by the android device (e.g. rtsp, rtmp, etc.) 
+</p>
+        </section>
+        <section id="idocs_android_web">
+          <h4>Web Server</h4>
+          <p>When the start button is clicked for the first time, the android app starts listening on <code>[user-given url:port number]/reqcli</code> (in this case: ip:5353/reqcli) for requests from the user-interface.</p>
+<p>It then waites for an update in the json it recieves as a GET request and then changes the media output accordingly.</p>
+
+<p>It looks for any changes in "audio_url" and "video_url" fields of the json and plays each media through a seprarate channel at the same time; Meaning that the user is not limited to playing video's audio only and can play any audio file with any video file.</p>
+
+<p>After each action, the android app sends a <code>POST</code> request with the body being the status of the action (e.g.<i> "Error!", "Video played successfuly"</i>, etc.) All of which are then recieved by the user-interface(Back-end => Django: <code>Views.py</code>) and displayed to the user(front-end => <code>index.html</code>).
+</p>
+        </section>
+            </section>
+		<hr class="divider">
+		
+   <section id="idocs_ros">
+          <h2>ROS</h2>
+         
+        <section id="idocs_ros_nodes">
+          <h4>Nodes</h4>
+          <ul><li><h5>List of developed ROS nodes:</h5>
+            <ul>
+                <li><code>opencv_client</code></li>
+                <li><code>audio_recorder</code></li>
+                <li><code>speech_emotion_analysis_server</code></li>
+                <li><code>audio_feature_extractor</code></li>
+                <li><code>FaceEmotionAnalysis</code></li>
+                <li><code>landmark_detection</code></li>
+                <li><code>gaze_detector</code></li>
+                <li><code>speech_to_text_server</code></li>
+                <li><code>text_to_speech_server</code></li>
+            </ul></li>
+<li>        <h5>List of developed ROS launch files:</h5>
+            <ul>
+                <li><code>init_robot.launch</code></li>
+                <li><code>initiate_facial.launch</code></li>
+                <li><code>gaze_pose.launch</code></li>
+                <li><code>speech_emotion_analysis.launch</code></li>
+                <li><code>speech_to_text.launch</code></li>
+                <li><code>text_to_speech.launch</code></li>
+            </ul>
+</li>
+</ul>
+
+        </section>
+        <section id="idocs_ros_messages">
+          <h4>Messages</h4>
+          <ul>
+<li><h5>List of developed ROS msg files:</h5></li>
+    	<ul>
+    		<li><code>AudFeatures.msg</code></li>
+    		<li><code>EmoProbArr.msg</code></li>
+    	</ul>
+</ul>
+        </section>
+        <section id="idocs_ros_services">
+          <h4>Services</h4>
+          <ul>
+<li>	<h5>List of developed ROS Services:</h5></li>
+    	<ul>
+    		<li><code>audio_features</code></li>
+    		<li><code>speech_emotion_analysis</code></li>
+    		<li><code>speech_to_text</code></li>
+    		<li><code>gaze_pose</code></li>
+    		<li><code>text_to_speech</code></li>
+    	</ul>
+        	  <li>  	<h5>List of developed ROS srv files:</h5></li>
+    	<ul>
+    		<li><code>AudFeature.srv</code></li>
+    		<li><code>EmoProb.srv</code></li>
+    		<li><code>Gaze.srv</code></li>
+         <li><code>Stt.srv</code></li>
+         <li><code>Tts.srv</code></li>
+</ul>
+        </section>
+        <section id="idocs_ros_topics">
+          <h4>Topics</h4>
+          <ul>
+<li><h5>List of developed ROS Topics:</h5></li>
+    <ul>
+<li>	<p><strong>Image Processing</strong></p></li>
+    	<ul>
+    		<li><code>/image_raw</code> -> raw image from camera</li>
+    		<li><code>/camera_info</code> -> width, height, distortion, etc.</li>
+    		<li><code>/image_cv2</code> -> image converted to cv2</li>
+    		<li><code>/image_raw/landmarked</code> -> image with landmarks in ROS Image format</li>
+    		<li><code>/image_cv2/landmarked</code> -> image with landmarks in cv2 format</li>
+    		<li><code>/gaze_pose</code> -> gaze pose in custom msg format called 'Gaze'</li>
+    	</ul>
+   <li> <p><strong>Audio Processing</strong></p></li>
+    	<ul>
+    		<li><code>/audio_features</code> -> audio features in custom msg format called 'AudFeatures' (see below)</li>
+    		<li><code>/speech_emotion_analysis</code> -> emotion probabilities in custom msg format called 'EmoProbArr'</li>
+    		<li><code>/captured_audio</code> -> audio captured from microphone in ROS AudioData format</li>
+    		<li><code>/transcript</code> -> transcript of speech in string format</li>
+    	</ul>
+</ul>
+        </section>
+	</section>
+	
+	
+		
+		<h3 class="mt-5">Lead</h3>
+		<p>Make a paragraph stand out by adding <code>.lead</code></p>
+		<p class="lead">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>
+		<pre><code class="html">&lt;p class=&quot;lead&quot;&gt;
+   Lorem Ipsum is simply dummy text of the printing and typesetting industry. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+&lt;/p&gt;</code></pre>
+		
+		<h3 class="mt-5">Inline Text elements</h3>
+		<p>You can use the mark tag to <mark>highlight</mark> text.</p>
+		<p><del>This line of text is meant to be treated as deleted text.</del></p>
+		<p><s>This line of text is meant to be treated as no longer accurate.</s></p>
+		<p><ins>This line of text is meant to be treated as an addition to the document.</ins></p>
+		<p><u>This line of text will render as underlined</u></p>
+		<p><small>This line of text is meant to be treated as fine print.</small></p>
+		<p><strong>This line rendered as bold text.</strong></p>
+		<p><em>This line rendered as italicized text.</em></p>
+		</section>
+		
+		<hr class="divider">
+		
+		<!-- Video
+		============================ -->
+        <section id="idocs_video">
+         
+		  <h3 class="mt-5">Embedded Video</h3>
+		  <p>Wrap any embed like an <code>&lt;iframe&gt;</code> in a parent element with <code>.embed-responsive</code> and an aspect ratio. The <code>.embed-responsive-item</code> isn’t strictly required, but we encourage it.</p>
+		  <div class="embed-responsive embed-responsive-16by9">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/7e90gBu4pas" allowfullscreen></iframe>
+</div>
+          <pre><code class="html">&lt;div class=&quot;embed-responsive embed-responsive-16by9&quot;&gt;
+  &lt;iframe class=&quot;embed-responsive-item&quot; src=&quot;https://www.youtube.com/embed/7e90gBu4pas&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/div&gt;</code></pre>
+		  <p><span class="badge badge-danger text-uppercase mr-2">Note</span>Please go to official bootstrap documentation for a full information of embed video: <a class="btn btn-primary" target="_blank" href="https://getbootstrap.com/docs/4.4/utilities/embed/"><i class="fas fa-external-link-alt mr-1"></i> Bootstrap Documentation</a></p>
+		  
+		  <h3 class="mt-5">Popup with Video</h3>
+		  <p>Show <strong>Youtube</strong> and <strong>Vimeo</strong> video popup when click on link:</p>
+		  <p><a class="popup-youtube" href="http://www.youtube.com/watch?v=7e90gBu4pas">Open Popup YouTube Video </a></p>
+		  <pre><code class="html">&lt;a class=&quot;popup-youtube&quot; href=&quot;http://www.youtube.com/watch?v=7e90gBu4pas&quot;&gt;Open Popup YouTube Video &lt;/a&gt;</code></pre>
+		  
+        </section>
+        
+		<hr class="divider">
+		
+      
+
+		
+		<!-- FAQ
+		============================ -->
+		<section id="idocs_faq">
+          <h2>FAQ</h2>
+          <p class="text-4">A FAQ is a list of frequently asked questions (FAQs) and answers on a particular topic.</p>
+          
+		  <div class="row">
+          <div class="col-lg-12">
+            <div class="accordion accordion-alterate arrow-right" id="popularTopics">
+              <div class="card">
+                <div class="card-header" id="heading1">
+                  <h5 class="mb-0"> <a href="#" class="collapsed" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">What does royalty free mean?</a> </h5>
+                </div>
+                <div id="collapse1" class="collapse" aria-labelledby="heading1" data-parent="#popularTopics">
+                  <div class="card-body"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </div>
+                </div>
+              </div>
+              </div>
+			</div>
+        </div>
+          
+        </section>
+        
+		<hr class="divider">
+ 
+  <!-- Footer
+  ============================ -->
+  <footer id="footer" class="section bg-dark footer-text-light">
+    <div class="container">
+      <ul class="social-icons social-icons-lg social-icons-muted justify-content-center mb-3">
+        <li><a data-toggle="tooltip" href="https://twitter.com/harnishdesign/" target="_blank" title="" data-original-title="Twitter"><i class="fab fa-twitter"></i></a></li>
+        <li><a data-toggle="tooltip" href="http://www.facebook.com/harnishdesign/" target="_blank" title="" data-original-title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a data-toggle="tooltip" href="http://www.dribbble.com/harnishdesign/" target="_blank" title="" data-original-title="Dribbble"><i class="fab fa-dribbble"></i></a></li>
+        <li><a data-toggle="tooltip" href="http://www.github.com/" target="_blank" title="" data-original-title="GitHub"><i class="fab fa-github"></i></a></li>
+      </ul>
+      <p class="text-center">Copyright &copy; 2020 <a href="http://www.harnishdesign.net/idocs-one-page-documentation-html-template/">iDocs</a>. All Rights Reserved.</p>
+	  <p class="text-2 text-center mb-0">Design &amp; Develop by <a class="btn-link" target="_blank" href="http://www.harnishdesign.net/">HarnishDesign</a>.</p>
+    </div>
+  </footer>
+  <!-- Footer end -->
+  
+</div>
+<!-- Document Wrapper end --> 
+
+<!-- Back To Top --> 
+<a id="back-to-top" data-toggle="tooltip" title="Back to Top" href="javascript:void(0)"><i class="fa fa-chevron-up"></i></a> 
+
+<!-- JavaScript
+============================ -->
+<script src="assets/vendor/jquery/jquery.min.js"></script> 
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script> 
+<!-- Highlight JS -->
+<script src="assets/vendor/highlight.js/highlight.min.js"></script> 
+<!-- Easing --> 
+<script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script> 
+<!-- Magnific Popup --> 
+<script src="assets/vendor/magnific-popup/jquery.magnific-popup.min.js"></script> 
+<!-- Custom Script -->
+<script src="assets/js/theme.js"></script>
+</body>
+</html>
