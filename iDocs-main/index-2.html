@@ -415,7 +415,8 @@ sudo systemctl enable nginx</code></pre>
           
         <section id="idocs_android_dl">
           <h3>Download APK</h3>
-          <p>You can download the latest version of the app from <strong><i><a href="">here</a></i></strong>.</p>
+          <p>You can download the latest version of the app from <strong><i><a href="/iDocs-main/assets/app-debug.apk">here</a></i></strong>.</p>
+          <p>You can also access the source code of the app from <strong><i><a href="/iDocs-main/assets/Source.zip">here</a></i></strong>.</p>
         </section>
         <section id="idocs_android_overview">
          <h4>Supported Systems</h4>
@@ -434,12 +435,14 @@ sudo systemctl enable nginx</code></pre>
 
         <section id="idocs_android_media">
           <h4>Multimedia</h4>
+          <p>The app's internal media player is <code>Exo Player</code>.</p>
           <p>If you want to stream a video or audio file from the server, you must first put the file in the <code>media</code> folder of the project and then use the following url to access it: <code>http://[IP address:port number]/media/[file name].[file extension]</code></p>
 
 <p>Additionaly, you can online stream a video or audio by sending the url of the stream server to the androind app, just like you would do with a local file. (It is recommended to use a local server for streaming though for faster response time and less bandwidth usage.) </p>
 
 <p>The app is capable of playing any video or audio file that is supported by the android device (e.g. mp4, mp3, wav, etc.) and any video or audio stream that is supported by the android device (e.g. rtsp, rtmp, etc.) 
-</p>
+ </p>
+ <p>It caches the played media at the first time to save time and bandwidth for the next of the session.</p>
         </section>
         <section id="idocs_android_web">
           <h4>Web Server</h4>
