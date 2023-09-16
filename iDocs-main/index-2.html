@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
 <link href="assets/images/favicon.png" rel="icon" />
 <title>Documentation | SROSP Framework</title>
-<meta name="description" content="Your ThemeForest item Name and description">
+<meta name="description" content="Documentation | SROSP Framewor">
 <meta name="author" content="harnishdesign.net">
 
 <!-- Stylesheet
@@ -103,20 +103,6 @@
 
 
 
-		<li class="nav-item"><a class="nav-link active" href="#idocs_ros">ROS Package</a>
-		  <ul class="nav flex-column">
-     
-            <li class="nav-item"><a class="nav-link" href="#idocs_ros_nodes">Nodes</a></li>
-            <li class="nav-item"><a class="nav-link" href="#idocs_ros_messages">Messages</a></li>
-            <li class="nav-item"><a class="nav-link" href="#idocs_ros_services">Services</a></li>
-            <li class="nav-item"><a class="nav-link" href="#idocs_ros_topics">Topics</a></li>
-
-
-		   </ul>
-		</li>
-		
-
-
 		<li class="nav-item"><a class="nav-link active" href="#idocs_django">Django Web Applicationn</a>
 		  <ul class="nav flex-column">
 		     	   <li class="nav-item"><a class="nav-link" href="#idocs_django_install">Installation</a></li>
@@ -149,6 +135,19 @@
 
 		   </ul>
 		</li>
+		
+		<li class="nav-item"><a class="nav-link active" href="#idocs_ros">ROS Package</a>
+		  <ul class="nav flex-column">
+     
+            <li class="nav-item"><a class="nav-link" href="#idocs_ros_nodes">Nodes</a></li>
+            <li class="nav-item"><a class="nav-link" href="#idocs_ros_messages">Messages</a></li>
+            <li class="nav-item"><a class="nav-link" href="#idocs_ros_services">Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="#idocs_ros_topics">Topics</a></li>
+
+
+		   </ul>
+		</li>
+		
 
 		   </ul>
 		</li>
@@ -340,7 +339,6 @@ python manage.py runserver</code>
    <ol>
 <li>Install nginx</li>
 <li>Install gunicorn</li>
-<li>Install supervisor</li>
 <li>Create a new user for the project</li>
 <li>Create a new directory for the project</li>
 <li>Clone the project into the new directory</li>
@@ -464,24 +462,26 @@ sudo systemctl enable nginx</code></pre>
           <h4>Nodes</h4>
           <ul><li><h5>List of developed ROS nodes:</h5>
             <ul>
-                <li><code>opencv_client</code></li>
-                <li><code>audio_recorder</code></li>
-                <li><code>speech_emotion_analysis_server</code></li>
-                <li><code>audio_feature_extractor</code></li>
-                <li><code>FaceEmotionAnalysis</code></li>
-                <li><code>landmark_detection</code></li>
-                <li><code>gaze_detector</code></li>
-                <li><code>speech_to_text_server</code></li>
-                <li><code>text_to_speech_server</code></li>
+                <li><code>opencv_client</code> -&gt; converts the Image messages to OpenCV messages and publishes them in the form of several <i><u>list of lists </u>(<code>List.msg)</code></i>, since ROS doesn't support 3D Array messages</li>
+                <li><code>audio_recorder</code> -&gt; captures the mic's input via PyAudio library and broadcasts it as <code><a href="http://wiki.ros.org/audio_common">Audio_common_msgs</code></a> </li>
+                <li><code>speech_emotion_analysis_server</code> -&gt; uses pre-trained audio features for sentiment analysis to analyze the speech's emotion, then publishes the results in custom messages(<code>EmoProbArr.msg</code>)</li>
+                <li><code>audio_feature_extractor</code> -&gt; uses <strong>PRAAT</strong> library to extract 10 features of the audio, then publishes the result as custom messages(<code>AudFeatures.msg</code>)</li>
+                <li><code>FaceEmotionAnalysis</code> -&gt; uses <strong>DeepFace</strong>  library to analyze the face emotions and their probablities, then publishes the results as custom messages(<code>FaceEmotions.msg</code>).</li>
+                <li><code>landmark_detection</code> -&gt; uses Google's <strong>MediaPipe</strong> library to extract full-body landmarks, the publishes the results as custom messages(<code>Landmarks.msg</code>)</li>
+                <li><code>gaze_detector</code> -&gt; uses the face/head landmarks to estimate the head and gaze position. Then returns the result as a single String message.</li>
+				<li><code>gaze_pose_node</code> -&gt; calls the <code>gaze_detector</code> service and publishes its responses</li>
+                <li><code>speech_to_text_server</code> -&gt; takes in the audio data as <code>Audio_common_msgs</code> and returns the transcript as a single String.</li>
+                <li><code>text_to_speech_server</code> -&gt; Takes a text as a single String message and returns spoken data as <code>Audio_common_msgs</code></li>
+            </ul></li>
+                <li><code>speech_to_text_node</code> -&gt; calls the <code>speech_to_text_server</code> service and publishes its responses</li>
             </ul></li>
 <li>        <h5>List of developed ROS launch files:</h5>
             <ul>
-                <li><code>init_robot.launch</code></li>
-                <li><code>initiate_facial.launch</code></li>
-                <li><code>gaze_pose.launch</code></li>
-                <li><code>speech_emotion_analysis.launch</code></li>
-                <li><code>speech_to_text.launch</code></li>
-                <li><code>text_to_speech.launch</code></li>
+                <li><code>init_robot.launch</code> -&gt; initiates all the available nodes</li>
+                <li><code>initiate_facial.launch</code> -&gt; initiates all the face/head-related nodes</li>
+                <li><code>gaze_pose.launch</code> -&gt; initiates the <code>gaze_detector</code> service and the <code>gaze_pose_node</code></li>
+                <li><code>speech_emotion_analysis.launch</code> -&gt; initiates the <code>audio_recorder</code> and <code>speech_emotion_analysis_server</code> </li>
+                <li><code>speech_to_text.launch</code> -&gt; initiates the <code>speech_to_text_server</code> and <code>speech_to_text_node</code></li>
             </ul>
 </li>
 </ul>
@@ -492,8 +492,12 @@ sudo systemctl enable nginx</code></pre>
           <ul>
 <li><h5>List of developed ROS msg files:</h5></li>
     	<ul>
-    		<li><code>AudFeatures.msg</code></li>
-    		<li><code>EmoProbArr.msg</code></li>
+    		<li><code>AudFeatures.msg</code> -&gt; 10 float64 items as 10 audio features</li>
+    		<li><code>EmoProbArr.msg</code> -&gt; emotion's name as String and the probablity of it as float32</li>
+		<li><code>Array3D.msg</code> -&gt; a list of float64s</li>
+		<li id="List"><code>List.msg</code> -&gt; a list of <code>Array3D</code>s</li>
+		<li><code>Landmarks.msg</code> -&gt; 4 lists of <code>geometry_msgs/Point</code>s as face, right and left hand, and the pose landmarks</li>
+		<li><code>FaceEmotions.msg</code> -&gt; a list of <code>EmoProbArr</code>s</li>
     	</ul>
 </ul>
         </section>
@@ -502,41 +506,42 @@ sudo systemctl enable nginx</code></pre>
           <ul>
 <li>	<h5>List of developed ROS Services:</h5></li>
     	<ul>
-    		<li><code>audio_features</code></li>
-    		<li><code>speech_emotion_analysis</code></li>
-    		<li><code>speech_to_text</code></li>
-    		<li><code>gaze_pose</code></li>
-    		<li><code>text_to_speech</code></li>
+    		<li><code>audio_features</code> -&gt; same as <code>audio_feature_extractor</code> node</li>
+    		<li><code>speech_emotion_analysis</code> -&gt; same as <code>speech_emotion_analysis_server</code> node</li>
+    		<li><code>speech_to_text</code> -&gt; same as <code>speech_to_text_server</code> node</li>
+    		<li><code>gaze_pose</code> -&gt; same as <code>gaze_detector</code> node</li>
+    		<li><code>text_to_speech</code> -&gt; same as <code>text_to_speech_server</code> node</li>
     	</ul>
         	  <li>  	<h5>List of developed ROS srv files:</h5></li>
     	<ul>
-    		<li><code>AudFeature.srv</code></li>
-    		<li><code>EmoProb.srv</code></li>
-    		<li><code>Gaze.srv</code></li>
-         <li><code>Stt.srv</code></li>
-         <li><code>Tts.srv</code></li>
+    		<li><code>AudFeature.srv</code> -&gt; takes <code>Audio_common_msgs</code> and returns <code>AudFeatures</code></li>
+    		<li><code>EmoProb.srv</code> -&gt; takes <code>Audio_common_msgs</code> and returns <code>EmoProbArr</code></li>
+    		<li><code>Gaze.srv</code> -&gt; takes <code>List.msg</code> (as the camera frame) and code>Landmarks</code>, and returns a String</li>
+         <li><code>Stt.srv</code> -&gt; takes <code>Audio_common_msgs</code> and returns a String</li>
+         <li><code>Tts.srv</code> -&gt; takes a String and returns <code>Audio_common_msgs</code></li>
 </ul>
         </section>
         <section id="idocs_ros_topics">
           <h4>Topics</h4>
           <ul>
 <li><h5>List of developed ROS Topics:</h5></li>
+<p> In the following section each message type in the brackets with a ".msg" and also without a package name is pointing to one of our custom messages described carefully in the <a href="#idocs_ros_messages">list of developed msg files</a>.
     <ul>
 <li>	<p><strong>Image Processing</strong></p></li>
     	<ul>
-    		<li><code>/image_raw</code> -> raw image from camera</li>
-    		<li><code>/camera_info</code> -> width, height, distortion, etc.</li>
-    		<li><code>/image_cv2</code> -> image converted to cv2</li>
-    		<li><code>/image_raw/landmarked</code> -> image with landmarks in ROS Image format</li>
-    		<li><code>/image_cv2/landmarked</code> -> image with landmarks in cv2 format</li>
-    		<li><code>/gaze_pose</code> -> gaze pose in custom msg format called 'Gaze'</li>
+    		<li><code>/image_raw</code> -> raw image from camera [<code>Sensor_msgs/Image</code>]</li>
+    		<li><code>/camera_info</code> -> width, height, distortion, etc. [<code>Sensor_msgs/CameraInfo</code>]</li>
+    		<li><code>/image_cv2</code> -> image converted to cv2 [<code>List.msg</code>]</li>
+    		<li><code>/image_raw/landmarked</code> -> image with landmarks in ROS Image format [<code>Sensor_msgs/Image</code>]</li>
+    		<li><code>/image_cv2/landmarked</code> -> image with landmarks in cv2 format [<code>List.msg</code>]</li>
+    		<li><code>/gaze_pose</code> -> gaze pose in String format [<code>Std_msgs/String</code>]</li>
     	</ul>
    <li> <p><strong>Audio Processing</strong></p></li>
     	<ul>
-    		<li><code>/audio_features</code> -> audio features in custom msg format called 'AudFeatures' (see below)</li>
-    		<li><code>/speech_emotion_analysis</code> -> emotion probabilities in custom msg format called 'EmoProbArr'</li>
-    		<li><code>/captured_audio</code> -> audio captured from microphone in ROS AudioData format</li>
-    		<li><code>/transcript</code> -> transcript of speech in string format</li>
+    		<li><code>/audio_features</code> -> audio features in custom msg format [<code>AudFeatures.msg</code>] </li>
+    		<li><code>/speech_emotion_analysis</code> -> emotion probabilities in custom msg format called [<code>EmoProbArr.msg</code>]</li>
+    		<li><code>/captured_audio</code> -> audio captured from microphone in ROS AudioData format [<code>Audio_common_msgs</code>]</li>
+    		<li><code>/transcript</code> -> transcript of speech in string format [<code>Std_msgs/String</code>]</li>
     	</ul>
 </ul>
         </section>
@@ -544,12 +549,7 @@ sudo systemctl enable nginx</code></pre>
 	
 	
 		
-		<h3 class="mt-5">Lead</h3>
-		<p>Make a paragraph stand out by adding <code>.lead</code></p>
-		<p class="lead">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</p>
-		<pre><code class="html">&lt;p class=&quot;lead&quot;&gt;
-   Lorem Ipsum is simply dummy text of the printing and typesetting industry. Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
-&lt;/p&gt;</code></pre>
+				<p class="lead">Lorem Ipsum is simply dummy text</p>
 		
 		<h3 class="mt-5">Inline Text elements</h3>
 		<p>You can use the mark tag to <mark>highlight</mark> text.</p>
@@ -558,7 +558,6 @@ sudo systemctl enable nginx</code></pre>
 		<p><ins>This line of text is meant to be treated as an addition to the document.</ins></p>
 		<p><u>This line of text will render as underlined</u></p>
 		<p><small>This line of text is meant to be treated as fine print.</small></p>
-		<p><strong>This line rendered as bold text.</strong></p>
 		<p><em>This line rendered as italicized text.</em></p>
 		</section>
 		
