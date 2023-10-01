@@ -2,6 +2,7 @@
   min-height: 706px;
 }
 
+
 .u-section-1 .u-post-details-1 {
   min-height: 769px;
   margin-top: 0;
@@ -67,7 +68,7 @@
   }
 
   .u-section-1 .u-text-2 {
-    margin-top: -330px;
+    margin-top: -500px;
     margin-right: 75px;
     margin-left: 460px;
   }
@@ -136,7 +137,23 @@
 .u-section-2 .u-text-1 {
   margin-bottom: 0;
   margin-top: 0;
+  font-family: 'Times New Roman', Times, serif;
 }
+
+.u-section-2>p {
+  font-family: 'Times New Roman', Times, serif;
+}
+.u-clearfix >h2 {
+  font-family: 'Times New Roman', Times, serif !important;
+}
+.u-clearfix >p {
+  font-family: 'Times New Roman', Times, serif !important;
+}
+.u-clearfix >h1 {
+  font-family: 'Times New Roman', Times, serif !important;
+}
+
+
 
 @media (max-width: 1199px) {
   .u-section-2 .u-sheet-1 {
@@ -146,6 +163,7 @@
   .u-section-2 .u-text-1 {
     width: auto;
     margin: 14px 0 23px;
+    font-family: 'Times New Roman', Times, serif;
   }
 }
 

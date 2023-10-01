@@ -16591,11 +16591,11 @@ section.u-image:not(.u-hover-box),
     width: var(--theme-sheet-width-xl) !important;
   }
 }
-@media (min-width: 992px) and (max-width: 1199px) {
+/* @media (min-width: 992px) and (max-width: 1199px) {
   .u-sheet {
     width: var(--theme-sheet-width-lg) !important;
   }
-}
+} */
 @media (min-width: 768px) and (max-width: 991px) {
   .u-sheet {
     width: var(--theme-sheet-width-md) !important;
@@ -17328,7 +17328,7 @@ section.u-image:not(.u-hover-box),
 }
 .u-layout-col > .u-size-20 {
   flex: 20 0 auto;
-  max-width: 52%;
+  /* max-width: 52%; */
 }
 .u-layout-row > .u-size-19 {
   flex: 0 0 31.66666667%;
@@ -27021,6 +27021,9 @@ p {
 }
 .u-font-georgia.u-custom-font {
   font-family: Georgia, serif !important;
+}
+.u-font-times-new-roman.custom-font {
+  font-family: 'Times New Roman', serif !important;
 }
 .u-font-roboto.u-custom-font {
   font-family: Roboto, sans-serif !important;

@@ -126,170 +126,140 @@
       <div class="u-container-style u-expanded-width u-post-details u-shape-rectangle u-post-details-1">
         <div class="u-container-layout u-container-layout-1"><!--blog_post_header-->
           <h3 class="u-align-left u-blog-control u-text u-text-1">
-            <a class="u-post-header-link" href="blog/slam-capable-robot.html"><!--blog_post_header_content-->SLAM Capable Robot<!--/blog_post_header_content--></a>
+            <a class="u-post-header-link" href="blog/slam-capable-robot.html"><!--blog_post_header_content-->SLAM Capable Mobile Robot For Pipeline Inspection<!--/blog_post_header_content--></a>
           </h3><!--/blog_post_header--><!--blog_post_image-->
           <img alt="" class="u-blog-control u-image u-image-default u-image-1" src="images/20210706_2025583.jpg"><!--/blog_post_image-->
           <div class="fr-view u-clearfix u-rich-text u-text u-text-2">
             <p>
-              <span class="u-custom-font u-font-playfair-display" style="font-weight: 600; font-size: 1.875rem;">Intro:&nbsp;</span>
+              <span class="u-custom-font u-font-playfair-display" style="font-weight: 600; font-size: 1.875rem;">Abstract&nbsp;</span>
             </p>
             <h5 id="isPasted">
               <span class="u-custom-font u-font-playfair-display">MY B.Sc. thesis<span style="font-style: italic; font-weight: 600;">:</span>
               </span>
             </h5>
             <h5>
-              <span class="u-custom-font u-font-playfair-display" style="font-style: italic; font-weight: 600;">"The role of SLAM capable robots in chemical and
-Petroleum industrial pipelines"</span>
+              <span class="u-custom-font u-font-playfair-display" style="font-style: italic; font-weight: 600;">"Mapping Pipelines and Simultaneous Localization for Petrochemical Industry Robots"</h1></span>
             </h5>
             <hr>
-            <p id="isPasted">This project of mine was a SLAM feature
-implemented on my 2- wheeled robot, which I had designed for this specific matter.</p>
-            <p>The robot was initially designed in Solid Works 2019, converted to urdf format, and simulated in Rviz + Gazebo environment using
-Robot operating system (ROS). After successfully
-parsing the robot's model, LDS (laser distance sensor), differential drive plugins, etc. were added to the urdf file. The simulation was then tested using a pre-made maze, in gazebo, for evaluation of localization + generated map
-accuracy.</p>
-            <p>In a brief, my project is divided into:&nbsp;</p>
-            <ol>
-              <li>30% simulation</li>
-              <li>70% built and Real-world testing</li>
-            </ol>
+            <p id="isPasted">Inspecting petrochemical pipelines is challenging due to hazardous materials, narrow diameters, and inaccessible locations. Mobile robots are promising for autonomous pipeline inspection and mapping. This project aimed to simulate and implement a robot capable of simultaneous localization and mapping (SLAM) in an indoor maze-like environment representing simplified pipelines. The approach involved simulating a differential drive robot in Gazebo/ROS, equipping it with sensors, implementing SLAM using mapping, and path planning with move_base.</p>
+            
           </div>
           <a href="social-robot.html" data-page-id="940806010" class="u-border-5 u-border-active-custom-color-6 u-border-custom-color-7 u-border-hover-custom-color-5 u-border-no-left u-border-no-right u-border-no-top u-bottom-left-radius-0 u-bottom-right-radius-0 u-btn u-button-style u-none u-radius-0 u-text-active-custom-color-6 u-text-grey-40 u-text-hover-custom-color-5 u-top-left-radius-0 u-top-right-radius-0 u-btn-1">Next Project&nbsp;<span class="u-file-icon u-icon u-text-grey-40 u-icon-1"><img src="images/8071442-fcdc75e2.png" alt=""></span>
           </a>
         </div>
       </div><!--/blog_post--><!--/post_details-->
     </section>
-    <section class="u-clearfix u-section-2" id="sec-6655">
+    <section class="u-clearfix u-section-2" id="sec-6655" style="padding: 65px;padding-bottom: 0px;">
       <div class="u-clearfix u-sheet u-sheet-1">
         <div class="fr-view u-clearfix u-rich-text u-text u-text-1">
           <hr>
-          <h3>Intro</h3>
+          <h2>Summary</h2>
           <p>This project of mine was a SLAM feature
-implemented on my 2- wheeled robot, which I had designed for this specific matter.</p>
-          <p>The robot was initially designed in Solid Works 2019, converted to urdf format, and simulated in Rviz + Gazebo environment using
-Robot operating system (ROS). After successfully
-parsing the robot's model, LDS (laser distance sensor), differential drive plugins, etc. were added to the urdf file. The simulation was then tested using a pre-made maze, in gazebo, for evaluation of localization + generated map
-accuracy.</p>
-          <p>In a brief, my project is divided into:&nbsp;</p>
-          <ol>
-            <li>30% simulation</li>
-            <li>70% built and Real-world testing</li>
-          </ol>
-          <p>As it may be obvious, designing both the robot and the maze was such a challenge to overcome under my room's circumstances, available materials, etc.
-I had many limitations such as not being able to attach any encoder to the wheels because of the chassis I was given (and I had no other choice!)</p>
-          <p>so in a sense it's safe to say that I almost covered
-the flaws by combining Kalman filter, AMCI, and Kinect ✗ Box -560 depth images (which were ultimately converted to 2d laser data) and Imu raw data in a way that satisfied the goal.</p>
-          <p>
-            <img src="images/frames.png" class="fr-dii fr-fic">
+            implemented on my 2- wheeled robot, which I had designed for this specific matter.</p>
+                        <p>The robot was initially designed in Solid Works 2019, converted to urdf format, and simulated in Rviz + Gazebo environment using
+            Robot operating system (ROS). After successfully
+            parsing the robot's model, LDS (laser distance sensor), differential drive plugins, etc. were added to the urdf file. The simulation was then tested using a pre-made maze, in gazebo, for evaluation of localization + generated map
+            accuracy.</p>
+                        <p>In a brief, my project is divided into:&nbsp;</p>
+                        <ol>
+                          <li>30% simulation</li>
+                          <li>70% built and Real-world testing</li>
+                        </ol>  <p>A physical robot was then built and tested by manually driving it in a constructed maze while collecting sensor data and mapping. Sensor fusion of wheel encoders, Kinect camera, and inertial measurement unit (IMU) data was explored to improve odometry and mapping accuracy without encoders. The final map had reasonable correspondence to the true maze despite lacking wheel encoders. In summary, results show the feasibility of using ROS-based SLAM for pipeline inspection if accounting for real-world complexities.</p>
+  <h2>I. Introduction</h2>
+  <p>Inspecting petrochemical pipelines is an extremely important but challenging task. Petrochemical pipelines form expansive networks across sites to transport various hazardous materials under diverse operating conditions. The transported substances often have highly corrosive and flammable properties. At the same time, the pipelines are subject to internal and external stresses and damage from oxidation and corrosion of the pipe surface. This can sometimes lead to hazardous leakage. Therefore, the pipelines need to undergo frequent inspection on a regular basis. In light of these challenges, using various mobile robots for pipeline inspection systems is gaining increasing importance, as they can conduct faster and more precise inspections. Given the continuous flow of diverse fluids under varying operational conditions, these pipelines require regular checks. These pipelines usually have small diameters, making human inspection extremely difficult. Therefore, building an independent pipe inspection robot is imperative.</p>
+  <p>In this regard, the aim of this thesis is to study and implement a SLAM algorithm by simplifying the pipelines to a maze-like environment that can be experimentally evaluated, so the robot can independently move in different parts of the maze and perform the inspection process by receiving and mapping the hypothetical pipeline walls or maze boundaries. The first goal is to simulate a simple robot to implement a 2D SLAM algorithm in a custom indoor maze environment in Gazebo, a ROS-based 3D robotics simulator framework. The next goal is evaluating the generated map based on quality, robot localization error, and improving localization accuracy and map quality. Additionally, this process is tested on an actual physical robot, which is a differential drive mobile robot, and is simulated.</p>
+  <p>Mobile robots equipped with SLAM capabilities have promising applications for autonomous inspection of hazardous industrial environments like petrochemical pipelines. This chapter provides background on the importance and challenges of pipeline inspection, and how robotic systems can help address these challenges.</p>
+  <p>Petrochemical pipelines transport a range of hazardous substances including flammable, corrosive, and toxic materials. Regular inspection is critical to detect any leaks or damage before major disasters occur. However, manually inspecting pipelines is difficult, slow, and dangerous due to the narrow diameters and hazardous contents. Using mobile robots is an emerging solution, allowing autonomous inspection and mapping of hard-to-reach pipelines without endangering human lives.</p>
+  <p>The key capabilities needed for such robotic inspection include sensors for obstacle detection, cameras for vision, locomotion mechanisms to move within pipes, on-board power, and wireless communication. SLAM algorithms are essential to build maps of unknown environments while tracking the robot's location. This project explores a ROS-based implementation of SLAM using both simulation and a physical robot testbed. The goal is to demonstrate the feasibility of autonomously mapping an indoor maze as a simplified representation of real-world pipelines.</p>
+  <h2>A. Prior work</h2>
+  <p>Several robotic systems have been developed and researched for in-pipe inspection and cleaning, though most cases assume predictable environments and operating conditions. Handling bends and deviations in pipelines adds challenges for mapping and navigation.</p>
+  <p>Some examples of prior inspection robots include:</p>
+  <ul>
+    <li>A serpentine robot capable of SLAM inside pipes using ultrasound sensors and infrared imaging for short ranges.</li>
+    <li>Robots with tank-style wheels, as used in this project, for traversing small irregularities.</li>
+    <li>Robots based on worm-like crawling or wheeled locomotion with cameras and laser scanners for vision .</li>
+    <li>Robots adhere to pipe walls using magnetic wheels or legs and move by propelling against walls.</li>
+  </ul>
+  <p>While progress is being made, practical applications currently focus on large-diameter pipes with low fluid flows due to the difficulties of unknown environments. For reliable inspection, robots need to independently navigate with online mapping and obstacle avoidance capabilities. This project aims to provide a proof-of-concept using ROS-based SLAM on a simple two-wheeled robot.</p>
+  <h2>II. Methodology</h2>
+  <p>The key challenge for a mobile robot is determining its position and orientation within the environment. GPS can provide sufficient outdoor localization but fails indoors, requiring an alternative solution. If a robot has perfect sensors, it can easily build a map of its surroundings. However, in reality, this is impossible - the robot faces an unknown environment, all sensors have some errors, and uncertainties in mapping accumulate over time.</p>
+  <p>To address this chicken-and-egg problem of mapping requiring localization while localization relies on the map, an iterative mathematical approach known as simultaneous localization and mapping (SLAM) is taken. SLAM incrementally builds a map while simultaneously localizing the robot, propagating and reducing errors over time. This enables autonomous mapping of unknown environments.</p>
+  <p>This project implements a 2D SLAM algorithm on a simulated differential drive robot equipped with sensors. The virtual environment is an indoor maze representing simplified pipeline geometry. The mapper generates a 2D occupancy grid map while outputting an estimate of the robot's changing position. The algorithm and sensors are then implemented on a physical robot in the real maze. A key focus is improving mapping accuracy without wheel encoders through sensor fusion.</p>
+  <h2>III. Demonstration</h2>
+  <h3>A. Simulation</h3>
+  <p>Robotic simulations play an important role in robotics research and development by providing a safe and cost-effective testbed for algorithms, hardware designs, and software systems before real-world deployment. In this work, simulations were conducted using the Robot Operating System (ROS) and its integrated 3D simulation platform, Gazebo.</p>
+  <img class="fr-dii fr-fic" src="images/figure1.png" alt="Localization method with IMU, odometry data, and Kinect diagram" style="width: 50%;">
+  <p>Localization method with IMU, odometry data, and Kinect diagram</p>
+  <p>A 3D robot model was developed using the SolidWorks CAD software and exported to Universal Robotic Description Format (URDF) for use in Gazebo. This allowed a realistic rendering of the robot's visual appearance and physical properties such as link sizes, masses, and inertial properties.</p>
+  <div class="u-container-layout u-valign-bottom u-container-layout-1" style="width: 50%;">
+    <img class="u-image u-image-default u-image-1" src="images/figure2.png" alt="" data-image-width="264" data-image-height="280">
+  </div>  <p>Simulated robotic experiments were performed in a virtual environment modeled within Gazebo. The robotic motions were executed using the ROS navigation stack which integrates control capabilities. This facilitated the evaluation of the overall system performance in a maze.</p>
+  <p>Odometry data from the simulated tf data and scans from the simulated Lidar sensor were used as input to the Gmapping SLAM algorithm for building maps of the environments. Qualitative analysis through map visualizations provided insights into the mapping quality and how well environmental structures were reconstructed.</p>
+  <p>In addition, the robot's localization performance was tested using the AMCL module. Trajectories recorded during simulations were played back and the estimated trajectory from AMCL was compared to the ground truth from Gazebo to calculate localization errors over time. This allowed analyzing factors affecting long-term localization drift. Together, the simulation results served to validate and refine the SLAM solution before real-world robot experiments.</p>
+  <h3>B. Physical Robot Platform</h3>
+  <img class="fr-dii fr-fic" src="images/figure3.png" alt="The robot's chassis" style="width: 50%;">
+  <p><i>The robot's chassis</i></p>
+  <p>A physical two-wheeled differential drive robot was constructed by integrating off-the-shelf components including Rasberry Pi, a motor controller, and a Kinect camera. The robot chassis was custom-fabricated using laser-cut acrylic parts.</p>
+  <img class="fr-dii fr-fic" src="images/figure4.png" alt="A top-down view of the robot's control system" style="width: 50%;">
+  <p><i>A top-down view of the robot's control system: 1) Fan 2) Control board mounted on the chassis 3) IMU driver (MPU9250 sensor) 4) Motor driver (L298N chip)
+  </i></p>
+  <h2>IV. Experiments and Results</h2>
+  <p>The robot was manually driven through a constructed indoor maze environment while capturing sensor data for mapping. The SLAM and navigation algorithms developed in the simulation were implemented on the physical robot using ROS. The sensor data was visualized in RViz and the output map was generated.</p>
+  <img class="fr-dii fr-fic" src="images/figure6.png" alt="Real-time sensory data visualization on RViz" style="width: 30%;">
+  <p><i>Real-time sensory data visualization on RViz</i></p>
+  <img class="fr-dii fr-fic" src="images/figure8.png" alt="Preliminary Test Results of Map Generation" style="width: 30%;">
+  <p><i>Preliminary Test Results of Map Generation</i></p>
+  <img class="fr-dii fr-fic" src="images/figure5.png" alt="Evaluating the Final Test Map Output Against the Actual Floorplan" style="width: 30%;">
+  <p><i>Evaluating the Final Test Map Output Against the Actual Floorplan</i></p>
+  <img class="fr-dii fr-fic" src="images/figure11.png" alt="Belt and pulley rotation mechanism for manually driving the Kinect for 360 degrees capturing" style="width: 30%;">
+  <p><i>Belt and pulley rotation mechanism for manually driving the Kinect for 360 degrees capturing</i></p>
+  <img class="fr-dii fr-fic" src="images/figure12.png" alt="General overview of the frame sequences in fusing sensor data for localization" style="width: 30%;">
+  <p><i>General overview of the frame sequences in fusing sensor data for localization</i></p>
+  <img src="images/frames.png" class="fr-dii fr-fic" style="width: 50%;">
+  <p><i>Specifications of the frame sequences in fusing sensor data for localization</i></p>
+  <h2>V. Contribution</h2>
+  <p>This project provides an overview of applying ROS and SLAM methods to autonomously map an unknown indoor environment representing simplified petrochemical pipeline geometry. The specific contributions include:</p>
+  <ul>
+    <li>Designing and fabricating a two-wheeled robot chassis to serve as an experimental platform</li>
+    <li>Modeling the robot in ROS using URDF for physics simulation</li>
+    <li>Implementing SLAM using Gmapping in Gazebo and tuning parameters</li>
+    <li>Developing a sensor fusion pipeline to integrate Kinect camera and IMU data for improving odometry</li>
+    <li>Testing and benchmarking mapping accuracy with and without fusion on the physical robot</li>
+  </ul>
+  <img class="fr-dii fr-fic" src="images/figure10.png" alt="Final design of the robot" style="width: 50%;">
+  <p><i>Final design of the robot</i></p>
+  <p>Providing recommendations for real-world application based on analysis of simulation versus experimental results</p>
+  <p>The project can inform the future development of practical pipeline inspection robots using ROS-based SLAM approaches.</p>
+  <h2>VI. Conclusion</h2>
+  <p>This project demonstrated a proof-of-concept application of using ROS and SLAM for autonomously mapping an unknown indoor environment representing simplified petrochemical pipeline conditions. Both simulation and physical robot experiments were conducted to implement 2D occupancy grid mapping using laser scan data and sensor fusion techniques.</p>
+  <p>The final map produced by manually driving the physical robot through the maze showed reasonable correspondence to the true layout, despite the lack of wheel encoders. This indicates that encoding odometry using visual and inertial data can be a feasible alternative for pipeline mapping robots. However, accuracy was heavily dependent on sensor calibration, algorithm tuning, and environmental conditions.</p>
+  <p>While the results help validate the approach, substantial further development would be required for real-world deployment in petrochemical plants. Key areas needing improvement include:</p>
+  <ul>
+    <li>Insulation and waterproofing for hazardous environments</li>
+    <li>Accounting for temperature effects, rust, and other factors affecting sensor accuracy</li>
+    <li>Handling a wider range of pipe geometries and sizes</li>
+    <li>Increased robustness to unpredictable disturbances like fluid flows</li>
+    <li>Advanced control algorithms for autonomous navigation and exploration</li>
+    <li>Higher resolution sensing for detecting small cracks and leaks</li>
+    <li>Adding redundancy for mission-critical uses</li>
+  </ul>
+  <p>The sensor payload and software algorithms would need to be tailored to the specific application requirements. LIDAR scanners can provide more reliable longer-range measurements than the Kinect depth camera used. The SLAM algorithm parameters would also require tuning based on sensor error profiles.</p>
+  <p>In conclusion, this project provides a valuable starting point for the future development of ROS-based autonomous pipeline inspection robots. The experimental results highlight challenges that would need to be addressed for real-world viability across diverse pipeline conditions. Suggestions are provided on mechanical design, sensor selection, and algorithm improvements to robustly handle industrial environments.</p>
           </p>
-          <p>This is a picture captured from the latest mapping
-output considering the chalenges overcame mentioned above.</p>
+          <p>** <i>This is a picture captured from the latest mapping
+output considering the chalenges overcame mentioned above.</i></p>
           <p>
             <img src="images/mapping.png" width="606" style="width: 929px;" class="fr-dii fr-fic">
             <img src="images/mapsim.jpg" width="606" style="width: 929px;" class="fr-dii fr-fic">
           </p>
           <p>Feel free to read my work using the provided link below</p>
-          <p>It is worth mentioning that this is only an unofficial translation of my fall-marked, university official full-text thesis, thus it may have differences from the original. However, the fundamentals are the same.</p>
-        </div>
-      </div>
-    </section>
-    <section class="u-align-center u-clearfix u-gradient u-section-3" id="sec-c7d9">
-      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-        <h2 class="u-text u-text-1">Technichal Specifications</h2>
-        <div class="u-table u-table-responsive u-table-1">
-          <table class="u-table-entity">
-            <colgroup>
-              <col width="20%">
-              <col width="24.8%">
-              <col width="15%">
-              <col width="12.7%">
-              <col width="27.5%">
-            </colgroup>
-            <thead class="u-black u-table-header u-table-header-1">
-              <tr style="height: 53px;">
-                <th class="u-border-2 u-border-black u-table-cell u-white u-table-cell-1">Programming Languages</th>
-                <th class="u-border-2 u-border-black u-table-cell">Software</th>
-                <th class="u-align-center u-border-2 u-border-black u-border-no-left u-border-no-right u-table-cell u-white u-table-cell-3">Hardware Details</th>
-                <th class="u-border-2 u-border-black u-border-no-left u-border-no-right u-table-cell u-white u-table-cell-4"></th>
-                <th class="u-border-2 u-border-black u-table-cell">Simulation</th>
-              </tr>
-            </thead>
-            <tbody class="u-table-body">
-              <tr style="height: 32px;">
-                <td class="u-border-1 u-border-grey-30 u-table-cell">Python</td>
-                <td class="u-border-1 u-border-grey-30 u-table-cell">SolidWorks - Gazebo - ROS</td>
-                <td class="u-align-right u-border-1 u-border-grey-30 u-table-cell"> Board =</td>
-                <td class="u-align-left u-border-1 u-border-grey-30 u-table-cell">Raspberri Pi 3B</td>
-                <td class="u-align-center u-border-1 u-border-grey-30 u-table-cell"><span class="u-file-icon u-icon u-icon-1"><img src="images/232444.png" alt=""></span>&nbsp; 
-                </td>
-              </tr>
-              <tr style="height: 39px;">
-                <td class="u-border-1 u-border-grey-30 u-table-cell">HTML</td>
-                <td class="u-border-2 u-border-black u-table-cell u-white u-table-cell-12">OS</td>
-                <td class="u-align-right u-border-1 u-border-grey-30 u-table-cell"> Depth Camera =</td>
-                <td class="u-border-1 u-border-grey-30 u-table-cell">Kinect XBox 360<br>
-                </td>
-                <td class="u-black u-border-2 u-border-black u-table-cell u-table-cell-15">Real</td>
-              </tr>
-              <tr style="height: 58px;">
-                <td class="u-border-1 u-border-grey-30 u-table-cell">CSS</td>
-                <td class="u-border-1 u-border-grey-30 u-table-cell">Ubuntu 20.01</td>
-                <td class="u-align-right u-border-1 u-border-grey-30 u-table-cell"> Sensors =</td>
-                <td class="u-align-left u-border-1 u-border-grey-30 u-table-cell">IMU2298</td>
-                <td class="u-align-center u-border-1 u-border-grey-30 u-table-cell"><span class="u-file-icon u-icon u-icon-2"><img src="images/1828665.png" alt=""></span>
-                </td>
-              </tr>
-              <tr style="height: 58px;">
-                <td class="u-border-1 u-border-grey-30 u-table-cell">XML</td>
-                <td class="u-border-1 u-border-grey-30 u-table-cell"></td>
-                <td class="u-align-right u-border-1 u-border-grey-30 u-table-cell"> Driver =</td>
-                <td class="u-align-left u-border-1 u-border-grey-30 u-table-cell">&nbsp;LN298</td>
-                <td class="u-border-1 u-border-grey-30 u-table-cell"></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-    <section class="u-clearfix u-gradient u-section-4" id="sec-bedf">
-      <div class="u-align-left u-clearfix u-sheet u-sheet-1">
-        <h3 class="u-text u-text-1">Simulation and Built</h3>
-        <div class="u-clearfix u-expanded-width u-gutter-32 u-layout-wrap u-layout-wrap-1">
-          <div class="u-gutter-0 u-layout">
-            <div class="u-layout-col">
-              <div class="u-size-30">
-                <div class="u-layout-row">
-                  <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-1">
-                    <div class="u-container-layout u-valign-bottom u-container-layout-1">
-                      <img class="u-image u-image-default u-image-1" src="images/image3.png" alt="" data-image-width="264" data-image-height="280">
-                    </div>
-                  </div>
-                  <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-2">
-                    <div class="u-container-layout u-valign-top u-container-layout-2">
-                      <img class="u-image u-image-default u-image-2" src="images/image2.png" alt="" data-image-width="565" data-image-height="316">
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="u-size-30">
-                <div class="u-layout-row">
-                  <div class="u-container-style u-image u-image-contain u-layout-cell u-size-30 u-image-3" data-image-width="510" data-image-height="520">
-                    <div class="u-container-layout u-container-layout-3"></div>
-                  </div>
-                  <div class="u-container-style u-image u-image-contain u-layout-cell u-size-30 u-image-4" data-image-width="540" data-image-height="410">
-                    <div class="u-container-layout u-container-layout-4"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
     <section class="u-clearfix u-gradient u-section-5" id="sec-2c85">
       <div class="u-clearfix u-sheet u-sheet-1">
         <p class="u-align-center u-small-text u-text u-text-variant u-text-1">Interested?</p>
-        <a href="files/SLAMRobot-Copy.docx" class="u-active-custom-color-6 u-border-1 u-border-active-grey-30 u-border-grey-75 u-border-hover-custom-color-7 u-btn u-btn-round u-button-style u-file-link u-hover-custom-color-7 u-radius-9 u-text-hover-white u-white u-btn-1" target="_blank"><span class="u-icon"><svg class="u-svg-content" viewBox="0 0 512 512" x="0px" y="0px" style="width: 1em; height: 1em;"><path d="M382.56,233.376C379.968,227.648,374.272,224,368,224h-64V16c0-8.832-7.168-16-16-16h-64c-8.832,0-16,7.168-16,16v208h-64    c-6.272,0-11.968,3.68-14.56,9.376c-2.624,5.728-1.6,12.416,2.528,17.152l112,128c3.04,3.488,7.424,5.472,12.032,5.472    c4.608,0,8.992-2.016,12.032-5.472l112-128C384.192,245.824,385.152,239.104,382.56,233.376z"></path><path d="M432,352v96H80v-96H16v128c0,17.696,14.336,32,32,32h416c17.696,0,32-14.304,32-32V352H432z"></path></svg><img></span>&nbsp;Download PDf<br>
+        <a href="files/Mapping_Pipelines_and_SLAM _for_Petrochemical_Industry_Robots.pdf" class="u-active-custom-color-6 u-border-1 u-border-active-grey-30 u-border-grey-75 u-border-hover-custom-color-7 u-btn u-btn-round u-button-style u-file-link u-hover-custom-color-7 u-radius-9 u-text-hover-white u-white u-btn-1" target="_blank"><span class="u-icon"><svg class="u-svg-content" viewBox="0 0 512 512" x="0px" y="0px" style="width: 1em; height: 1em;"><path d="M382.56,233.376C379.968,227.648,374.272,224,368,224h-64V16c0-8.832-7.168-16-16-16h-64c-8.832,0-16,7.168-16,16v208h-64    c-6.272,0-11.968,3.68-14.56,9.376c-2.624,5.728-1.6,12.416,2.528,17.152l112,128c3.04,3.488,7.424,5.472,12.032,5.472    c4.608,0,8.992-2.016,12.032-5.472l112-128C384.192,245.824,385.152,239.104,382.56,233.376z"></path><path d="M432,352v96H80v-96H16v128c0,17.696,14.336,32,32,32h416c17.696,0,32-14.304,32-32V352H432z"></path></svg><img></span>&nbsp;Download Project Report<br>
         </a>
       </div>
     </section>
