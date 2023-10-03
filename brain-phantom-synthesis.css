@@ -1,0 +1,36 @@
+table.u-table-entity {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+    }
+    
+    th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    }
+  
+    th {
+      font-weight: lighter !important;
+    }
+    tr {
+      font-weight: bold !important;
+    }
+    td{
+      font-weight: bolder;
+    }
+    
+    tr:nth-child(even){background-color: #f2f2f2;}
+    
+    tr:hover {background-color: #ddd;}
+    
+    .section {
+        margin-bottom: 20px;
+      }
+      
+      .subsection {
+        margin-left: 20px;
+      }
+      
+      .subsubsection {
+        margin-left: 40px;
+      }
