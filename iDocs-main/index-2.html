@@ -125,14 +125,15 @@
 		  <ul class="nav flex-column">
 		     <li class="nav-item"><a class="nav-link" href="#idocs_android_dl">Download APK</a></li>
 		     <li class="nav-item"><a class="nav-link" href="#idocs_android_overview">Overview</a></li>
-		     <li class="nav-item"><a class="nav-link" href="#idocs_android_web">Web Server</a></li>
 		     <li class="nav-item"><a class="nav-link" href="#idocs_android_media">Multimedia</a></li>
+		     <li class="nav-item"><a class="nav-link" href="#idocs_android_web">Web Server</a></li>
 		     <li class="nav-item"><a class="nav-link" href="#idocs_android_ui"> User Interface</a></li>
 		   </ul>
 		</li>
 		
 		<li class="nav-item"><a class="nav-link active" href="#idocs_ros">ROS Package</a>
 		  <ul class="nav flex-column">
+	            <li class="nav-item"><a class="nav-link" href="#idocs_ros_install">Installation</a></li>
 	            <li class="nav-item"><a class="nav-link" href="#idocs_ros_nodes">Nodes</a></li>
 	            <li class="nav-item"><a class="nav-link" href="#idocs_ros_messages">Messages</a></li>
 	            <li class="nav-item"><a class="nav-link" href="#idocs_ros_services">Services</a></li>
@@ -213,17 +214,21 @@
 <li> <code>websockets</code></li>
 </ul>
 </li>
-<li>Clone the repository</li>
+<li>Clone the repository and go to <code>OSSRP/cleancoded/webInterface/interface_backend</code></li>
 <li>Run the following commands:
 <ul>
 <li>  
 <pre><code class="html">python manage.py makemigrations
-python manage.py migrate
-python manage.py createsuperuser
-python manage.py runserver</code>
+python manage.py migrate</code>
+<li>To run the web server run:</li>
+<code>python manage.py runserver</code>
 </ul>
 </li>
-<li>Go to <code>http://localhost:8000/index.html</code> to access the robot control user interface</li>
+<li>Go to <code>http://localhost:8000/index.html</code> to access the robot control user interface. 
+  You will be prompted to login as you choose the robot panel. 
+  If there is none, click on the "add" button, fill the form that opens and save it. 
+  Rename your robot's GUI's HTML file as you named it in the form you just filled and copy it to <code>/OSSRP/cleancoded/webInterface/interface_backend/core/templates</code> 
+  and the static files in <code>/core/statics</code>. Now refresh the page.</li>
 
 </ol><br>
         <h4>File Structure</h4>
@@ -255,6 +260,8 @@ python manage.py runserver</code>
 			<ul>
 			<li><code>face</code> -&gt; name of the emotion</li>
 			<li><code>face_video_url</code> -&gt; url of the video for the emotion</li>
+			<li><code>video_file</code> -&gt; file of the video for the emotion</li>
+			<li><code>sound</code> -&gt; a foreign key field to that of the Song model in soundHandler app (the sound to play with the video simultaneously)</li>
 			<li><code>interface_button_emoji</code> -&gt; emoji for the emotion (used in the user interface)</li>
 			</ul>
 			</li>
@@ -399,7 +406,7 @@ sudo systemctl enable nginx</code></pre>
 			<li>Language: Kotlin</li>
 		</ul>
         <section id="idocs_android_dl">
-          <h3>Download APK</h3>
+          <h3>Download APK and Source Code</h3>
           <p>You can download the latest version of the app from <strong><i><a href="/iDocs-main/assets/app-debug.apk">here</a></i></strong>.</p>
           <p>You can also access the source code of the app from <strong><i><a href="/iDocs-main/assets/Source.zip">here</a></i></strong>.</p>
         </section>
@@ -444,10 +451,65 @@ sudo systemctl enable nginx</code></pre>
 		
    <section id="idocs_ros">
           <h2>ROS</h2>
-         
+        <section id="idocs_ros_installation">
+          <h3>Installation</h3>
+          <p class="lead">Follow the steps below to install the project:</p>
+          <ol>
+          <ol>
+            <li>Install ROS Melodic or higher</li>
+            <li>Install the following packages:
+            <ul>
+                <li> <code>numpy==1.25.1</code></li>
+                <li> <code>matplotlib==3.7.2</code></li>
+                <li> <code>scipy==1.7.3</code></li>
+                <li> <code>pandas==2.0.3</code></li>
+                <li> <code>tensorflow==2.6.0</code></li>
+                <li> <code>torch</code></li>
+                <li> <code>openpyxl==3.1.2</code></li>
+                <li> <code>Pillow==10.0.0</code></li>
+                <li> <code>pyaudio==0.2.13</code></li>
+                <li> <code>opencv-python</code></li>
+                <li> <code>tabulate==0.9.0</code></li>
+                <li> <code>Image==1.5.33</code></li>
+                <li> <code>mediapipe==0.10.2</code></li>
+                <li> <code>deepface==0.0.79</code></li>
+                <li> <code>glob2==0.7</code></li>
+                <li> <code>pyax12</code></li>
+                <li> <code>argparse</code></li>
+                <li> <code>transformers</code></li>
+                <li> <code>torch</code></li>
+                <li> <code>hazm</code></li>
+                <li> <code>deep_translator</code></li>
+                <li> <code>edge_tts</code></li>
+                <li> <code>audio_common_msgs</code></li>
+            </ul>
+            </li>
+            <li>Clone the repository and go to <code>OSSRP/cleancoded/</code></li>
+            <li>Run the following commands:
+              <ul>
+                <li>
+                <pre><code class="html">catkin_make
+                source devel/setup.bash</code></pre>
+                </li>
+                <li>Now to run the ROS nodes, run the following command:
+                <code>roslaunch infrastructure init_robot.launch</code>
+                This will initiate all the available nodes. You can also initiate other node combinations separately by running the following commands:
+                <ul>
+                <li><code>roslaunch infrastructure initiate_facial.launch</code></li>
+                <li><code>roslaunch infrastructure gaze_pose.launch</code></li>
+                <li><code>roslaunch infrastructure speech_emotion_analysis.launch</code></li>
+                <li><code>roslaunch infrastructure speech_to_text.launch</code></li>
+              </ul>
+              In case of any errors, check the log file: <code>~/.ros/log/latest/</code> for the error message.<br>
+              If you would like to run a node separately, run the following command:
+              <code>rosrun infrastructure [node_name]</code>
+            </li>
+          </ol>
+          </ol>
+        </section>
         <section id="idocs_ros_nodes">
           <h4>Nodes</h4>
-          <ul><li><h5>List of developed ROS nodes:</h5>
+          <ul><li><h5>List of available ROS nodes:</h5>
             <ul>
                 <li><code>opencv_client</code> -&gt; converts the Image messages to OpenCV messages and publishes them in the form of several <i><u>list of lists </u>(<code>List.msg)</code></i>, since ROS doesn't support 3D Array messages</li>
                 <li><code>audio_recorder</code> -&gt; captures the mic's input via PyAudio library and broadcasts it as <code><a href="http://wiki.ros.org/audio_common">Audio_common_msgs</code></a> </li>
@@ -462,7 +524,7 @@ sudo systemctl enable nginx</code></pre>
             </ul></li>
                 <li><code>speech_to_text_node</code> -&gt; calls the <code>speech_to_text_server</code> service and publishes its responses</li>
             </ul></li>
-<li>        <h5>List of developed ROS launch files:</h5>
+            <ul><li><h5>List of developed ROS launch files:</h5>
             <ul>
                 <li><code>init_robot.launch</code> -&gt; initiates all the available nodes</li>
                 <li><code>initiate_facial.launch</code> -&gt; initiates all the face/head-related nodes</li>
@@ -470,8 +532,8 @@ sudo systemctl enable nginx</code></pre>
                 <li><code>speech_emotion_analysis.launch</code> -&gt; initiates the <code>audio_recorder</code> and <code>speech_emotion_analysis_server</code> </li>
                 <li><code>speech_to_text.launch</code> -&gt; initiates the <code>speech_to_text_server</code> and <code>speech_to_text_node</code></li>
             </ul>
-</li>
-</ul>
+          </li>
+          </ul>
 
         </section>
         <section id="idocs_ros_messages">
