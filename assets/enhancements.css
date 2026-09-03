@@ -475,3 +475,97 @@ html, body { overflow-x: hidden; }
   .u-btn, .u-nav-link, .to-top { forced-color-adjust: none; border: 1px solid ButtonText; }
   *:focus-visible { outline: 3px solid Highlight !important; }
 }
+
+/* --------------------------------------------------------------------------
+   23. Homepage mobile repair  (scoped to <body class="home-page">)
+   Nicepage's exported per-breakpoint CSS for the hero still carries rules
+   from an unrelated gallery template: 300px side margins on the headline
+   and bio, a 175px-wide paragraph, negative top margins that drag the
+   contact block up over the text, 441px/340px image boxes wider than the
+   viewport, and fixed section min-heights of 1141-1158px. On a phone the
+   result is text piling on top of text. This block overrides only the
+   real elements and restores a single, natural column.
+   -------------------------------------------------------------------------- */
+@media (max-width: 991px) {
+  .home-page #Home { height: auto !important; }
+
+  .home-page .u-section-1,
+  .home-page .u-section-1 .u-sheet-1,
+  .home-page .u-section-1 [class*="u-layout-cell"],
+  .home-page .u-section-1 .u-container-layout,
+  .home-page .u-section-2 .u-sheet-1,
+  .home-page .u-section-3 .u-sheet-1,
+  .home-page .u-section-3 [class*="u-layout-cell"],
+  .home-page .u-section-4 .u-sheet-1 {
+    min-height: 0 !important;
+    height: auto !important;
+  }
+
+  /* headline + bio + contact list: drop the inherited side / negative margins */
+  .home-page .u-section-1 .u-text-1,
+  .home-page .u-section-1 .u-text-2,
+  .home-page .u-section-1 .u-text-3,
+  .home-page .u-section-1 h2 {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-top: 0 !important;
+    width: auto !important;
+    max-width: 100% !important;
+    float: none !important;
+  }
+  .home-page .u-section-1 .u-text-1 { font-size: 2.5rem !important; margin-top: 8px !important; line-height: 1.1 !important; }
+  .home-page .u-section-1 h2 { font-size: 1.35rem !important; margin: 6px 0 16px !important; }
+  .home-page .u-section-1 .u-text-2 { font-size: 1rem !important; line-height: 1.7 !important; margin: 0 !important; }
+
+  /* hero photo: was a 441px / 340px fixed box and hidden under 576px */
+  .home-page .u-section-1 .u-image-1 {
+    display: block !important;
+    position: static !important;
+    width: 100% !important;
+    height: 260px !important;
+    min-height: 0 !important;
+    margin: 20px 0 4px !important;
+    border-radius: 12px !important;
+    background-size: cover !important;
+    background-position: 50% 20% !important;
+  }
+
+  /* contact block */
+  .home-page .u-section-1 .u-text-3 { display: block !important; margin: 8px 0 0 !important; }
+  .home-page .u-section-1 .u-text-3 li { margin: 0 0 8px !important; line-height: 1.5; overflow-wrap: anywhere; }
+
+  /* rich-text sections below the hero */
+  .home-page .u-section-2 .u-text-1,
+  .home-page .u-section-4 .u-text-1 { margin-right: 0 !important; }
+  .home-page .u-rich-text ul { padding-left: 20px !important; }
+  .home-page .u-rich-text li,
+  .home-page .u-rich-text p { text-align: left !important; }
+
+  /* projects: fixed-px image boxes -> fluid squares, no giant shadows */
+  .home-page .u-section-3 .u-layout-wrap-1 { width: 100% !important; margin: 24px 0 0 !important; }
+  .home-page .u-section-3 [class*="u-image"] {
+    width: 100% !important;
+    max-width: 300px !important;
+    height: auto !important;
+    aspect-ratio: 1 / 1;
+    margin: 0 auto 10px !important;
+    box-shadow: 0 6px 18px rgba(0,0,0,.18) !important;
+    object-fit: cover;
+  }
+  .home-page .u-section-3 [class*="u-container-layout"] { padding: 14px 18px !important; box-shadow: none !important; }
+  .home-page .u-section-3 [class*="u-text"] { margin: 8px 0 !important; }
+  .home-page .u-section-3 [class*="u-btn"] { margin: 12px 0 0 !important; }
+
+  /* uniform breathing room + no sideways scroll */
+  .home-page .u-section-1 .u-sheet-1,
+  .home-page .u-section-2 .u-sheet-1,
+  .home-page .u-section-3 .u-sheet-1,
+  .home-page .u-section-4 .u-sheet-1 { padding: 26px 20px !important; }
+  .home-page .u-section-1 .u-layout,
+  .home-page .u-section-1 [class*="u-container-layout"] { padding-left: 0 !important; padding-right: 0 !important; }
+}
+
+@media (max-width: 575px) {
+  .home-page .u-section-1 .u-text-1 { font-size: 2.1rem !important; }
+  .home-page .u-section-1 .u-image-1 { height: 220px !important; }
+}
