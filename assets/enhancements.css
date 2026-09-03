@@ -1,0 +1,477 @@
+/* ==========================================================================
+   enhancements.css
+   Progressive UX / UI / accessibility layer for mahtaakhyani.github.io
+
+   This file is loaded LAST, after nicepage.css and the per-page stylesheet.
+   It never changes content — only presentation, accessibility and behaviour.
+   Everything here is additive and safe to remove.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Design tokens
+   Derived from the existing Nicepage theme so nothing looks foreign:
+   gold  #ffbb00 / #dd980d   orange #ee5009   red #db545a
+   -------------------------------------------------------------------------- */
+:root {
+  --ink:            #1c1b18;
+  --ink-soft:       #4a4740;
+  --ink-muted:      #6f6b62;
+
+  --gold:           #ffbb00;
+  --gold-deep:      #dd980d;
+  --gold-ink:       #8a5e00;  /* AA-contrast gold for text on white (4.6:1) */
+  --ember:          #ee5009;
+  --rose:           #db545a;
+
+  --paper:          #ffffff;
+  --paper-tint:     #faf8f4;
+  --rule:           rgba(28, 27, 24, .10);
+  --rule-strong:    rgba(28, 27, 24, .22);
+
+  --focus:          #0b63d6;
+
+  --shadow-1: 0 1px 2px rgba(28,27,24,.06), 0 2px 8px rgba(28,27,24,.06);
+  --shadow-2: 0 4px 12px rgba(28,27,24,.10), 0 12px 32px rgba(28,27,24,.10);
+
+  --header-h: 84px;
+
+  --ease: cubic-bezier(.22,.61,.36,1);
+}
+
+/* --------------------------------------------------------------------------
+   2. Skip link — first tab stop on every page
+   -------------------------------------------------------------------------- */
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: -100px;
+  z-index: 100000;
+  padding: 12px 20px;
+  background: var(--ink);
+  color: #fff !important;
+  font: 700 15px/1 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  border-radius: 0 0 8px 8px;
+  text-decoration: none;
+  box-shadow: var(--shadow-2);
+  transition: top .18s var(--ease);
+}
+.skip-link:focus,
+.skip-link:focus-visible {
+  top: 0;
+  outline: 3px solid var(--gold);
+  outline-offset: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   3. Focus visibility
+   Nicepage strips outlines almost everywhere. This restores a keyboard-only
+   focus ring without showing it on mouse clicks.
+   -------------------------------------------------------------------------- */
+*:focus-visible {
+  outline: 3px solid var(--focus) !important;
+  outline-offset: 3px !important;
+  border-radius: 3px;
+}
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible) { outline: none; }
+
+/* Keyboard users need to see where they are inside dropdown menus too. */
+.u-nav-link:focus-visible,
+.u-social-url:focus-visible,
+.u-gallery-item:focus-visible,
+.u-btn:focus-visible {
+  outline: 3px solid var(--focus) !important;
+  outline-offset: 2px !important;
+}
+
+/* --------------------------------------------------------------------------
+   4. Anchor scrolling under the sticky header
+   Previously #about / #projects landed *behind* the fixed header.
+   -------------------------------------------------------------------------- */
+html { scroll-behavior: smooth; }
+
+:target,
+[id="Home"], [id="about"], [id="projects"], [id="contact"],
+section[id], footer[id], header[id] {
+  scroll-margin-top: calc(var(--header-h) + 16px);
+}
+
+/* --------------------------------------------------------------------------
+   5. Motion safety
+   The site autoplays looping video/GIF backgrounds and animated reveals.
+   Honour the OS "reduce motion" setting.
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *,
+  *::before,
+  *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .u-carousel,
+  .u-background-video video,
+  video[autoplay] {
+    animation: none !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   6. Layout stability (CLS)
+   Media without intrinsic dimensions caused the page to jump while loading.
+   -------------------------------------------------------------------------- */
+img, video, iframe, svg { max-width: 100%; }
+img[width][height] { height: auto; }
+
+img:not([src]),
+img[src=""] { visibility: hidden; }
+
+.u-image,
+.u-back-slide,
+.u-gallery-item { background-color: var(--paper-tint); }
+
+/* Placeholder shimmer while background images resolve */
+.u-back-slide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,.35) 50%, transparent 60%);
+  opacity: 0;
+}
+
+/* --------------------------------------------------------------------------
+   7. Typography — readability pass
+   Nicepage sets sizes in fixed px/rem. These are gentle, non-destructive
+   refinements: measure, rhythm, hyphenation, and fluid headline scaling.
+   -------------------------------------------------------------------------- */
+.u-body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-kerning: normal;
+  font-variant-ligatures: common-ligatures;
+}
+
+.u-text p,
+.u-post-content p,
+.u-text ul,
+.u-text ol {
+  line-height: 1.7;
+  max-width: 72ch;
+}
+
+.u-text li { margin-bottom: .35em; }
+
+h1, h2, h3, h4, h5, h6,
+.u-text h1, .u-text h2, .u-text h3 {
+  text-wrap: balance;
+  line-height: 1.18;
+  letter-spacing: -0.012em;
+}
+
+p, li { text-wrap: pretty; }
+
+/* Long technical words (ROS, SLAM specs, chemical names) shouldn't overflow */
+.u-text, .u-post-content { overflow-wrap: break-word; }
+
+/* Fluid hero headline: stops the 3.75rem "Hello." from dwarfing small screens */
+@media (max-width: 767px) {
+  .u-section-1 .u-text-1 { font-size: clamp(2.25rem, 11vw, 3.75rem) !important; }
+}
+
+/* --------------------------------------------------------------------------
+   8. Links
+   -------------------------------------------------------------------------- */
+.u-text a:not(.u-btn):not(.u-nav-link):not(.u-social-url),
+.u-post-content a:not(.u-btn) {
+  color: var(--gold-ink);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: .18em;
+  text-decoration-color: color-mix(in srgb, var(--gold-ink) 45%, transparent);
+  transition: color .16s var(--ease), text-decoration-color .16s var(--ease);
+}
+.u-text a:not(.u-btn):not(.u-nav-link):not(.u-social-url):hover,
+.u-post-content a:not(.u-btn):hover {
+  color: var(--ember);
+  text-decoration-color: currentColor;
+}
+
+/* Mark links that open a new tab so it isn't a surprise (a11y: WCAG 3.2.5) */
+.u-text a[target="_blank"]:not(.u-btn):not(.u-social-url)::after,
+.u-post-content a[target="_blank"]:not(.u-btn)::after {
+  content: "↗";
+  display: inline-block;
+  margin-left: .28em;
+  font-size: .82em;
+  text-decoration: none;
+  opacity: .7;
+}
+
+/* --------------------------------------------------------------------------
+   9. Header / navigation
+   -------------------------------------------------------------------------- */
+.u-header {
+  backdrop-filter: saturate(160%) blur(10px);
+  -webkit-backdrop-filter: saturate(160%) blur(10px);
+  background-color: rgba(255, 255, 255, .88) !important;
+  border-bottom: 1px solid var(--rule);
+  transition: box-shadow .22s var(--ease), background-color .22s var(--ease);
+}
+.u-header.is-scrolled {
+  box-shadow: var(--shadow-1);
+  background-color: rgba(255, 255, 255, .96) !important;
+}
+
+/* Underline-grow affordance on the top-level nav */
+.u-nav-1 > .u-nav-item > .u-nav-link {
+  position: relative;
+  transition: color .16s var(--ease);
+}
+.u-nav-1 > .u-nav-item > .u-nav-link::after {
+  content: "";
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 6px;
+  height: 2px;
+  background: var(--gold-deep);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .22s var(--ease);
+}
+.u-nav-1 > .u-nav-item > .u-nav-link:hover::after,
+.u-nav-1 > .u-nav-item > .u-nav-link:focus-visible::after,
+.u-nav-1 > .u-nav-item > .u-nav-link[aria-current="page"]::after {
+  transform: scaleX(1);
+}
+.u-nav-1 > .u-nav-item > .u-nav-link[aria-current="page"] {
+  color: var(--gold-ink) !important;
+  font-weight: 700;
+}
+
+/* Dropdown polish */
+.u-nav-popup {
+  box-shadow: var(--shadow-2);
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--rule);
+}
+.u-nav-popup .u-nav-link {
+  transition: background-color .14s var(--ease), padding-left .14s var(--ease);
+}
+.u-nav-popup .u-nav-link:hover {
+  background-color: var(--paper-tint);
+}
+
+/* --------------------------------------------------------------------------
+   10. Touch targets (WCAG 2.5.8 — minimum 24×24, comfortable 44×44)
+   -------------------------------------------------------------------------- */
+@media (pointer: coarse) {
+  .u-nav-link,
+  .u-social-url,
+  .u-btn,
+  .menu-collapse > a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+  .u-social-icons .u-icon { min-width: 44px; min-height: 44px; }
+}
+
+/* The hamburger was a bare <a href="#"> with no accessible name */
+.menu-collapse > a { border-radius: 8px; }
+
+/* --------------------------------------------------------------------------
+   11. Cards, galleries, project tiles
+   -------------------------------------------------------------------------- */
+.u-gallery-item,
+.u-blog-post,
+.u-repeater-item {
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform .26s var(--ease), box-shadow .26s var(--ease);
+}
+.u-gallery-item:hover,
+.u-blog-post:hover,
+.u-repeater-item:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-2);
+}
+@media (prefers-reduced-motion: reduce) {
+  .u-gallery-item:hover,
+  .u-blog-post:hover,
+  .u-repeater-item:hover { transform: none; }
+}
+
+/* Gallery captions were low-contrast white-on-photo */
+.u-over-slide,
+.u-gallery-item .u-shading {
+  background: linear-gradient(to top, rgba(12,11,9,.82) 0%, rgba(12,11,9,.42) 55%, rgba(12,11,9,0) 100%);
+}
+
+/* --------------------------------------------------------------------------
+   12. Buttons
+   -------------------------------------------------------------------------- */
+.u-btn {
+  border-radius: 8px;
+  transition: transform .16s var(--ease), box-shadow .16s var(--ease), filter .16s var(--ease);
+}
+.u-btn:hover { filter: brightness(1.06); box-shadow: var(--shadow-1); }
+.u-btn:active { transform: translateY(1px); }
+
+/* --------------------------------------------------------------------------
+   13. Media — video backgrounds
+   Several looping background videos are large; while they buffer the panel
+   was pure white. Give them a settled backdrop and never let them block.
+   -------------------------------------------------------------------------- */
+.u-background-video,
+.embed-responsive {
+  background-color: #14130f;
+}
+.u-background-video video {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   14. Carousel controls — were nearly invisible against light slides
+   -------------------------------------------------------------------------- */
+.u-carousel-control {
+  background: rgba(20, 19, 15, .45);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color .18s var(--ease);
+}
+.u-carousel-control:hover { background: rgba(20, 19, 15, .72); }
+.u-carousel-indicators li { border: 1px solid rgba(20,19,15,.5); }
+
+/* --------------------------------------------------------------------------
+   15. Footer
+   -------------------------------------------------------------------------- */
+.u-footer { border-top: 3px solid var(--gold-deep); }
+.u-footer .u-social-url {
+  border-radius: 8px;
+  transition: transform .16s var(--ease), opacity .16s var(--ease);
+  opacity: .88;
+}
+.u-footer .u-social-url:hover { transform: translateY(-2px); opacity: 1; }
+
+/* --------------------------------------------------------------------------
+   16. Back-to-top control (injected by enhancements.js)
+   -------------------------------------------------------------------------- */
+.to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 9000;
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--rule-strong);
+  border-radius: 50%;
+  background: rgba(255,255,255,.94);
+  color: var(--ink);
+  box-shadow: var(--shadow-1);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity .2s var(--ease), transform .2s var(--ease), visibility .2s;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+.to-top.is-visible { opacity: 1; visibility: visible; transform: none; }
+.to-top:hover { border-color: var(--gold-deep); color: var(--gold-ink); }
+.to-top svg { width: 20px; height: 20px; }
+
+@media print { .to-top { display: none; } }
+
+/* --------------------------------------------------------------------------
+   17. Reading-progress bar (injected by enhancements.js) — long project pages
+   -------------------------------------------------------------------------- */
+.read-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0;
+  z-index: 100001;
+  background: linear-gradient(90deg, var(--gold-deep), var(--ember));
+  transition: width .08s linear;
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   18. Horizontal-overflow guard
+   Fixed 1124px Nicepage rows caused sideways scroll on phones.
+   -------------------------------------------------------------------------- */
+html, body { overflow-x: hidden; }
+.u-sheet, .u-layout-wrap { max-width: 100%; }
+
+@media (max-width: 575px) {
+  .u-container-layout { padding-left: 18px !important; padding-right: 18px !important; }
+  .u-sheet { padding-left: 0; padding-right: 0; }
+}
+
+/* --------------------------------------------------------------------------
+   19. Selection + scrollbar
+   -------------------------------------------------------------------------- */
+::selection { background: var(--gold); color: var(--ink); }
+
+@supports (scrollbar-color: auto) {
+  html { scrollbar-color: var(--gold-deep) var(--paper-tint); }
+}
+
+/* --------------------------------------------------------------------------
+   20. Dark-mode courtesy
+   The site is a light design; this only softens the harshest whites for
+   users who have asked their OS for dark, rather than inverting the design.
+   -------------------------------------------------------------------------- */
+@media (prefers-color-scheme: dark) {
+  :root { --focus: #7ab4ff; }
+  html { background: #16150f; }
+}
+
+/* --------------------------------------------------------------------------
+   21. Print — the CV / project pages are frequently printed by reviewers
+   -------------------------------------------------------------------------- */
+@media print {
+  .u-header,
+  .u-menu,
+  .u-sidenav,
+  .skip-link,
+  .read-progress,
+  video,
+  .u-background-video { display: none !important; }
+
+  .u-body { background: #fff !important; color: #000 !important; }
+  .u-section, .u-sheet { page-break-inside: auto; }
+  h1, h2, h3 { page-break-after: avoid; }
+  img { page-break-inside: avoid; max-width: 100% !important; }
+
+  /* Expose destinations of links on paper */
+  .u-text a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: .78em;
+    color: #444;
+    word-break: break-all;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   22. Forced-colors / high-contrast mode
+   -------------------------------------------------------------------------- */
+@media (forced-colors: active) {
+  .u-btn, .u-nav-link, .to-top { forced-color-adjust: none; border: 1px solid ButtonText; }
+  *:focus-visible { outline: 3px solid Highlight !important; }
+}
