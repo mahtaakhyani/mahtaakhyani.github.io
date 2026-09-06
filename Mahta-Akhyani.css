@@ -50,9 +50,9 @@
 
 .u-section-1 .u-image-1 {
   min-height: 384px;
-  background-image: url("images/DSC_0074-2.jpg");
-  background-position: 29.18% 64.51%;
-  background-size: auto 135%;
+  background-image: url("images/photo_2022-03-03_22-42-16.jpg");
+  background-position: center 18%;
+  background-size: cover;
 }
 
 .u-section-1 .u-container-layout-4 {
@@ -105,8 +105,8 @@
 
   .u-section-1 .u-image-1 {
     /* min-height: 438px; */
-    background-position: 28.46% 100%;
-    background-size: auto 120%;
+    background-position: center 18%;
+    background-size: cover;
   }
 
   .u-section-1 .u-layout-cell-5 {
@@ -142,8 +142,8 @@
 
   .u-section-1 .u-image-1 {
     min-height: 335px;
-    background-position: 29.36% 100%;
-    background-size: auto 105%;
+    background-position: center 18%;
+    background-size: cover;
   }
 
   .u-section-1 .u-layout-cell-5 {
