@@ -486,6 +486,16 @@ html, body { overflow-x: hidden; }
    result is text piling on top of text. This block overrides only the
    real elements and restores a single, natural column.
    -------------------------------------------------------------------------- */
+/* --------------------------------------------------------------------------
+   23b. Homepage hero: collapse Nicepage's forced heights so the section is
+   only as tall as its content and the next section sits right under it.
+   -------------------------------------------------------------------------- */
+.home-page .u-section-1 .u-sheet-1 { min-height: 0; }
+.home-page .u-section-1 .u-layout-wrap-1 { margin-bottom: 0; }
+.home-page .u-section-1 .u-layout-cell-2 { min-height: 0; }
+.home-page .u-section-1 .u-layout-cell-3 { min-height: 0; }
+.home-page .u-section-1 .u-container-layout-3 { padding: 0; }
+
 @media (max-width: 991px) {
   .home-page #Home { height: auto !important; }
 
