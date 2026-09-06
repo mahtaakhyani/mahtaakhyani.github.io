@@ -623,64 +623,58 @@
           <style>
             #projects .pj { --pj-ink:var(--ink,#1c1b18); --pj-soft:var(--ink-soft,#4a4740); --pj-muted:var(--ink-muted,#6f6b62); --pj-gold-deep:var(--gold-deep,#dd980d); --pj-gold-ink:var(--gold-ink,#8a5e00); --pj-tint:var(--paper-tint,#faf8f4); --pj-rule:var(--rule,rgba(28,27,24,.12)); font-family:"Raleway","Open Sans",-apple-system,sans-serif; }
             #projects .pj *, #projects .pj *::before, #projects .pj *::after { box-sizing:border-box; }
-            #projects .pj a.pj-card { text-decoration:none; color:inherit; display:block; }
-            #projects .pj .pj-feat {
-              display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,1fr); gap:0;
-              border:1px solid color-mix(in srgb, var(--pj-gold-deep) 45%, var(--pj-rule));
-              border-radius:16px; overflow:hidden; background:var(--pj-tint); margin-bottom:22px;
+            #projects .pj .pj-list { display:flex; flex-direction:column; gap:16px; }
+            #projects .pj a.pj-row {
+              display:grid; grid-template-columns:168px 1fr; gap:0;
+              text-decoration:none; color:inherit;
+              border:1px solid var(--pj-rule); border-radius:14px; overflow:hidden; background:#fff;
               transition:box-shadow .2s ease, transform .2s ease;
             }
-            #projects .pj .pj-feat:hover { box-shadow:0 12px 32px rgba(28,27,24,.12); transform:translateY(-2px); }
-            #projects .pj .pj-feat img { width:100%; height:100%; min-height:220px; object-fit:cover; display:block; background:#fff; }
-            #projects .pj .pj-feat-body { padding:26px 28px 28px; align-self:center; }
-            #projects .pj .pj-tag { display:inline-block; font-size:.68rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--pj-gold-ink); background:color-mix(in srgb,var(--pj-gold-deep) 20%,transparent); border-radius:999px; padding:3px 10px; margin-bottom:10px; }
-            #projects .pj h3 { font-family:"Playfair Display",Georgia,serif; font-size:1.5rem; color:var(--pj-ink); margin:0 0 8px; font-weight:700; }
-            #projects .pj .pj-feat p { font-size:1rem; line-height:1.65; color:var(--pj-soft); margin:0 0 14px; }
-            #projects .pj .pj-go { font-weight:700; font-size:.92rem; color:var(--pj-gold-ink); }
+            #projects .pj a.pj-row:hover { box-shadow:0 10px 26px rgba(28,27,24,.12); transform:translateY(-2px); }
+            #projects .pj a.pj-row.is-current { border-color:color-mix(in srgb, var(--pj-gold-deep) 45%, var(--pj-rule)); background:var(--pj-tint); }
+            #projects .pj .pj-thumb { width:100%; height:100%; min-height:132px; object-fit:cover; display:block; background:var(--pj-tint); }
+            #projects .pj .pj-thumb.is-contain { object-fit:contain; padding:14px; }
+            #projects .pj .pj-body { padding:16px 20px 18px; align-self:center; }
+            #projects .pj .pj-tag { display:inline-block; font-size:.66rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--pj-gold-ink); background:color-mix(in srgb,var(--pj-gold-deep) 18%,transparent); border-radius:999px; padding:3px 9px; margin-bottom:7px; }
+            #projects .pj h3 { font-family:"Playfair Display",Georgia,serif; font-size:1.15rem; color:var(--pj-ink); margin:0 0 5px; font-weight:700; }
+            #projects .pj .pj-body p { font-size:.92rem; line-height:1.55; color:var(--pj-soft); margin:0 0 9px; }
+            #projects .pj .pj-go { font-weight:700; font-size:.86rem; color:var(--pj-gold-ink); }
             #projects .pj .pj-go::after { content:" \2192"; }
-            #projects .pj .pj-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
-            #projects .pj .pj-tile { border:1px solid var(--pj-rule); border-radius:14px; overflow:hidden; background:#fff; transition:box-shadow .2s ease, transform .2s ease; }
-            #projects .pj .pj-tile:hover { box-shadow:0 10px 26px rgba(28,27,24,.12); transform:translateY(-2px); }
-            #projects .pj .pj-tile img { width:100%; height:150px; object-fit:cover; display:block; background:var(--pj-tint); }
-            #projects .pj .pj-tile .pj-tbody { padding:16px 18px 18px; }
-            #projects .pj .pj-tile h3 { font-size:1.12rem; margin:0 0 6px; }
-            #projects .pj .pj-tile p { font-size:.92rem; line-height:1.55; color:var(--pj-muted); margin:0 0 10px; }
-            @media (max-width:820px) {
-              #projects .pj .pj-feat { grid-template-columns:1fr; }
-              #projects .pj .pj-feat img { min-height:180px; max-height:240px; }
-              #projects .pj .pj-grid { grid-template-columns:1fr; }
-              #projects .pj .pj-tile img { height:180px; }
+            @media (max-width:640px) {
+              #projects .pj a.pj-row { grid-template-columns:1fr; }
+              #projects .pj .pj-thumb { height:170px; min-height:0; }
+              #projects .pj .pj-thumb.is-contain { height:130px; }
             }
           </style>
-          <a class="pj-card pj-feat" href="trust-pomdp.html">
-            <img src="images/trust-pomdp-anxiety-simulation.png" alt="Simulated real-time state-anxiety estimate A(t) over a 10-minute exoskeleton session, crossing the intervention threshold at 6 minutes" loading="lazy" decoding="async">
-            <div class="pj-feat-body">
-              <span class="pj-tag">Current &middot; GIST</span>
-              <h3>Trust &amp; State Anxiety in Wearable pHRI</h3>
-              <p>A closed-form, real-time model of a wearer&rsquo;s state anxiety from kinematic and cardiac signals, driving a Trust-POMDP that adapts exoskeleton actuation before trust fails. Peer-reviewed at ICROS&nbsp;2026.</p>
-              <span class="pj-go">Read the research</span>
-            </div>
-          </a>
-          <div class="pj-grid">
-            <a class="pj-card pj-tile" href="SLAM.html">
-              <img src="images/image.png" alt="CAD model of the SLAM-capable mobile robot" loading="lazy" decoding="async">
-              <div class="pj-tbody">
+          <div class="pj-list">
+            <a class="pj-row is-current" href="trust-pomdp.html">
+              <img class="pj-thumb" src="images/trust-pomdp-anxiety-simulation.png" alt="Simulated real-time state-anxiety estimate A(t) crossing the intervention threshold at 6 minutes" loading="lazy" decoding="async">
+              <div class="pj-body">
+                <span class="pj-tag">Current &middot; GIST</span>
+                <h3>Trust &amp; State Anxiety in Wearable pHRI</h3>
+                <p>A closed-form, real-time model of a wearer&rsquo;s state anxiety from kinematic and cardiac signals, driving a Trust-POMDP that adapts exoskeleton actuation before trust fails. Peer-reviewed at ICROS&nbsp;2026.</p>
+                <span class="pj-go">Read the research</span>
+              </div>
+            </a>
+            <a class="pj-row" href="SLAM.html">
+              <img class="pj-thumb" src="images/image.png" alt="CAD model of the SLAM-capable mobile robot" loading="lazy" decoding="async">
+              <div class="pj-body">
                 <h3>SLAM Mobile Robot</h3>
                 <p>B.Sc. thesis (highest grade): a two-wheeled ROS robot with SLAM for pipe inspection, designed in SolidWorks and validated in Gazebo.</p>
                 <span class="pj-go">Details</span>
               </div>
             </a>
-            <a class="pj-card pj-tile" href="Fanjoo.html">
-              <img src="images/fj3.png" alt="Fanjoo logo" loading="lazy" decoding="async">
-              <div class="pj-tbody">
+            <a class="pj-row" href="Fanjoo.html">
+              <img class="pj-thumb is-contain" src="images/fj3.png" alt="Fanjoo logo" loading="lazy" decoding="async">
+              <div class="pj-body">
                 <h3>Fanjoo</h3>
                 <p>Co-founder of a peer-knowledge-exchange platform where anyone can teach a skill in short videos and must learn one in return.</p>
                 <span class="pj-go">Details</span>
               </div>
             </a>
-            <a class="pj-card pj-tile" href="social-robot.html">
-              <img src="images/selfie.jpg" alt="Mahta Akhyani with the social robot she developed" loading="lazy" decoding="async">
-              <div class="pj-tbody">
+            <a class="pj-row" href="social-robot.html">
+              <img class="pj-thumb" src="images/selfie.jpg" alt="Mahta Akhyani with the social robot she developed" loading="lazy" decoding="async">
+              <div class="pj-body">
                 <h3>ASD Social Robot</h3>
                 <p>A modular, customizable ROS framework for rapid development of social robots for children on the autism spectrum (arXiv:2311.15780).</p>
                 <span class="pj-go">Details</span>
