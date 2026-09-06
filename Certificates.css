@@ -370,6 +370,34 @@
   margin: 6px 0 0;
 }
 
+.u-section-1 .u-list-item-10 {
+  background-image: none;
+}
+
+.u-section-1 .u-container-layout-10 {
+  padding: 11px 10px 1px 8px;
+}
+
+.u-section-1 .u-image-10 {
+  height: 224px;
+  object-fit: contain;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.u-section-1 .u-text-20 {
+  font-weight: 700;
+  text-transform: none;
+  font-size: 1rem;
+  margin: 3px 13px 0;
+}
+
+.u-section-1 .u-text-21 {
+  font-weight: 700;
+  font-size: 0.875rem;
+  margin: 6px 0 0;
+}
+
 @media (max-width: 1199px) {
    .u-section-1 {
     background-size: auto 135%;
