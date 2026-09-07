@@ -160,10 +160,28 @@ img[src=""] { visibility: hidden; }
 .u-text ul,
 .u-text ol {
   line-height: 1.7;
-  max-width: 72ch;
 }
 
 .u-text li { margin-bottom: .35em; }
+
+/* Rich-text article bodies (Froala "fr-view"): one consistent, centred
+   reading column, so headings, paragraphs and figures share a measure
+   instead of paragraphs sitting in a narrow ragged strip. */
+.fr-view {
+  max-width: 74ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+.fr-view img,
+.fr-view video,
+.fr-view iframe { height: auto; max-width: 100%; }
+.fr-view img[style*="width: 50%"],
+.fr-view img[style*="width:50%"],
+.fr-view [class*="u-container-layout"][style*="width: 50%"],
+.fr-view [class*="u-container-layout"][style*="width:50%"] {
+  width: 100% !important;
+  max-width: 100%;
+}
 
 h1, h2, h3, h4, h5, h6,
 .u-text h1, .u-text h2, .u-text h3 {

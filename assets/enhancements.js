@@ -129,12 +129,25 @@
      actually visible.
      ------------------------------------------------------------------ */
   function throttleVideos() {
-    var videos = document.querySelectorAll('video');
-    if (!videos.length) return;
+    var all = document.querySelectorAll('video');
+    if (!all.length) return;
+
+    /* Only manage videos that were meant to loop in the background
+       (autoplay / data-autoplay / already muted). A video with controls
+       and sound that the visitor is expected to click is left alone -
+       we never start it, and never unmute it. */
+    var managed = Array.prototype.filter.call(all, function (v) {
+      return v.autoplay || v.muted ||
+             v.hasAttribute('autoplay') || v.hasAttribute('data-autoplay');
+    });
+    if (!managed.length) return;
+
+    /* A background video must be silent. */
+    managed.forEach(function (v) { v.muted = true; v.setAttribute('muted', ''); });
 
     /* Users who asked for reduced motion get static frames. */
     if (reduceMotion) {
-      Array.prototype.forEach.call(videos, function (v) {
+      managed.forEach(function (v) {
         v.autoplay = false;
         v.removeAttribute('autoplay');
         try { v.pause(); } catch (e) {}
@@ -158,7 +171,7 @@
       });
     }, { rootMargin: '200px 0px', threshold: 0.1 });
 
-    Array.prototype.forEach.call(videos, function (v) { io.observe(v); });
+    managed.forEach(function (v) { io.observe(v); });
   }
 
   /* ------------------------------------------------------------------

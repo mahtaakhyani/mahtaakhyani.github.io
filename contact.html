@@ -190,21 +190,32 @@
         }
         .ct-page .ct-intro { font-size:1.05rem; line-height:1.7; margin:0 0 32px; color:var(--ct-soft); }
 
-        .ct-page .ct-list { list-style:none; margin:0; padding:0; border-top:1px solid var(--ct-rule); }
-        .ct-page .ct-list li { border-bottom:1px solid var(--ct-rule); }
-        .ct-page .ct-list a, .ct-page .ct-list .ct-row {
-          display:flex; align-items:baseline; gap:14px; padding:16px 4px;
+        .ct-page .ct-list { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px; }
+        .ct-page .ct-list a {
+          display:flex; align-items:center; gap:16px; padding:15px 18px;
           text-decoration:none; color:var(--ct-ink);
+          border:1px solid var(--ct-rule); border-radius:12px; background:var(--ct-paper);
+          transition:border-color .15s ease, background .15s ease, transform .15s ease;
         }
-        .ct-page .ct-list a:hover { color:var(--ct-gold-ink); }
-        .ct-page .ct-label { flex:0 0 116px; font-size:.8rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--ct-muted); }
-        .ct-page .ct-val { font-size:1rem; word-break:break-word; }
-        .ct-page .ct-val small { display:block; color:var(--ct-muted); font-size:.85rem; margin-top:2px; }
+        .ct-page .ct-list a:hover,
+        .ct-page .ct-list a:focus-visible {
+          border-color:var(--ct-gold-deep); background:var(--ct-tint); transform:translateX(2px);
+        }
+        .ct-page .ct-label { flex:0 0 104px; font-size:.72rem; font-weight:700; letter-spacing:.09em; text-transform:uppercase; color:var(--ct-muted); }
+        .ct-page .ct-val { flex:1; font-size:1rem; word-break:break-word; color:var(--ct-gold-ink); font-weight:600; }
+        .ct-page .ct-val small { display:block; color:var(--ct-muted); font-size:.82rem; font-weight:400; margin-top:2px; }
+        .ct-page .ct-list a::after {
+          content:"\2192"; flex:none; color:var(--ct-muted); font-size:1.1rem;
+          transition:transform .15s ease, color .15s ease;
+        }
+        .ct-page .ct-list a:hover::after,
+        .ct-page .ct-list a:focus-visible::after { color:var(--ct-gold-deep); transform:translateX(3px); }
 
         @media (max-width:520px) {
           .ct-page .ct-wrap { padding:44px 18px 64px; }
-          .ct-page .ct-list a, .ct-page .ct-list .ct-row { flex-direction:column; gap:3px; }
-          .ct-page .ct-label { flex:none; }
+          .ct-page .ct-list a { flex-wrap:wrap; gap:4px 12px; }
+          .ct-page .ct-label { flex:none; width:100%; }
+          .ct-page .ct-val { flex:1 1 auto; }
         }
       </style>
 
