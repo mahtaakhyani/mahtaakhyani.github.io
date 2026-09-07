@@ -496,6 +496,13 @@ html, body { overflow-x: hidden; }
 .home-page .u-section-1 .u-layout-cell-3 { min-height: 0; }
 .home-page .u-section-1 .u-container-layout-3 { padding: 0; }
 
+/* 23c. Projects section carried min-height:1948px from the old grid, plus an
+   empty 82px .u-rotation-parent spacer -> dead space after the projects list. */
+.home-page .u-section-3 .u-sheet-1 { min-height: 0; }
+.home-page .u-section-3 .u-group-1 { min-height: 0; }
+.home-page .u-section-3 .u-repeater-1 { min-height: 0; }
+.home-page main > .u-rotation-parent { display: none; }
+
 @media (max-width: 991px) {
   .home-page #Home { height: auto !important; }
 

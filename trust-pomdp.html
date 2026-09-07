@@ -234,7 +234,7 @@
         .rp-page figcaption { font-size:.9rem; color:var(--pg-muted); margin-top:10px; line-height:1.55; }
 
         .rp-page .pg-arch { width:100%; border:1px solid var(--pg-rule); border-radius:10px; background:#fff; padding:14px; margin:6px 0; overflow-x:auto; }
-        .rp-page .pg-arch svg { width:100%; min-width:560px; height:auto; color:var(--pg-ink); display:block; }
+        .rp-page .pg-arch img { width:100%; height:auto; display:block; }
 
         .rp-page .pg-cite {
           margin-top:48px; padding:22px 24px; border:1px solid var(--pg-rule);
@@ -300,48 +300,8 @@
           <li><b>At or above</b> &mdash; increase actuation predictability (slower ramps, pre-cues, reduced timing jitter), targeting the prediction error <em>without</em> withdrawing assistance.</li>
           <li><b>Sustained &ge; T<sub>s</sub>/2 &asymp; 3 min</b> &mdash; escalate to assistance reduction.</li>
         </ul>
-        <div class="pg-arch" role="img" aria-label="Block diagram: a kinematic stream and a cardiac stream feed compute and normalise blocks, which feed the anxiety model A(t); A(t) is compared against a threshold, whose output adapts the exoskeleton controller; the controller's forces feed back to the kinematic stream, and an optional EDA channel feeds the anxiety model.">
-          <svg viewBox="0 0 640 250" xmlns="http://www.w3.org/2000/svg" font-family="Raleway, sans-serif" font-size="11">
-            <defs>
-              <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-                <path d="M0 0 L10 5 L0 10 z" fill="currentColor"/>
-              </marker>
-            </defs>
-            <g fill="none" stroke="currentColor" stroke-width="1.4">
-              <rect x="8"   y="34"  width="104" height="42" rx="5"/>
-              <rect x="8"   y="104" width="104" height="42" rx="5"/>
-              <rect x="8"   y="170" width="104" height="34" rx="5" stroke-dasharray="4 3"/>
-              <rect x="150" y="36"  width="96"  height="38" rx="5"/>
-              <rect x="150" y="106" width="96"  height="38" rx="5"/>
-              <rect x="286" y="70"  width="96"  height="46" rx="5"/>
-              <rect x="420" y="74"  width="86"  height="38" rx="5"/>
-              <rect x="540" y="72"  width="86"  height="42" rx="5"/>
-            </g>
-            <g fill="currentColor" text-anchor="middle">
-              <text x="60"  y="50">Kinematic</text><text x="60" y="63">stream</text><text x="60" y="76" font-size="9">(IMU / MoCap)</text>
-              <text x="60"  y="122">Cardiac</text><text x="60" y="135">stream</text><text x="60" y="148" font-size="9">(HR trace)</text>
-              <text x="60"  y="190">EDA</text><text x="60" y="200" font-size="9">(optional)</text>
-              <text x="198" y="52">Compute</text><text x="198" y="66" font-size="10">E&#8202;i, U&#8202;i, R&#8202;i</text>
-              <text x="198" y="122">Normalise</text><text x="198" y="136" font-size="10">HRS(t)</text>
-              <text x="334" y="88">Anxiety</text><text x="334" y="101">Model A(t)</text><text x="334" y="113" font-size="9">Eq. (1)</text>
-              <text x="463" y="90">A(t) vs</text><text x="463" y="103" font-size="10">A&#8202;thresh</text>
-              <text x="583" y="90">Exo</text><text x="583" y="104">Controller</text>
-            </g>
-            <g fill="none" stroke="currentColor" stroke-width="1.4" marker-end="url(#ah)">
-              <path d="M112 55 H148"/>
-              <path d="M112 125 H148"/>
-              <path d="M246 55 H270 Q284 55 284 78 V88"/>
-              <path d="M246 125 H270 Q284 125 284 106 V96"/>
-              <path d="M382 93 H418"/>
-              <path d="M506 93 H538"/>
-              <path d="M112 187 H265 Q284 187 284 120 V118" stroke-dasharray="4 3"/>
-            </g>
-            <path d="M583 114 V150 H60 V80" fill="none" stroke="currentColor" stroke-width="1.4" marker-end="url(#ah)"/>
-            <g fill="currentColor" font-size="9">
-              <text x="524" y="88" text-anchor="middle">adapt / hold</text>
-              <text x="72" y="146">forces</text>
-            </g>
-          </svg>
+        <div class="pg-arch">
+          <img src="images/trust-pomdp-architecture.png" alt="Block diagram of the closed-loop anxiety-mediated control architecture: a kinematic stream and a cardiac stream feed compute and normalise blocks, which feed the anxiety model A(t); A(t) is compared against a threshold whose output adapts the exoskeleton controller; the controller's forces feed back to the kinematic stream, and an optional EDA channel feeds the anxiety model." loading="lazy" decoding="async">
         </div>
         <figcaption style="font-size:.9rem;color:var(--pg-muted);margin-top:10px;">Closed-loop anxiety-mediated control. Kinematic and cardiac streams feed the anxiety model; A(t) drives controller adaptation; the controller&rsquo;s forces return to the kinematic stream. EDA (dashed) is an optional logging channel.</figcaption>
 
