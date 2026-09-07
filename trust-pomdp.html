@@ -246,6 +246,14 @@
         .rp-page .pg-back { display:inline-block; margin-bottom:8px; font-size:.92rem; font-weight:700; text-decoration:none; }
         .rp-page .pg-back::before { content:"\2190  "; }
 
+        .rp-page .pg-nav { display:flex; flex-wrap:wrap; gap:12px; margin-top:44px; padding-top:28px; border-top:1px solid var(--pg-rule); }
+        .rp-page .pg-nav a { display:inline-flex; align-items:center; gap:8px; font-weight:700; font-size:.95rem; text-decoration:none; padding:11px 20px; border-radius:9px; }
+        .rp-page .pg-nav .pg-nav-back { border:1px solid var(--pg-rule); color:var(--pg-soft); }
+        .rp-page .pg-nav .pg-nav-back:hover { border-color:var(--pg-gold-deep); color:var(--pg-gold-ink); }
+        .rp-page .pg-nav .pg-nav-next { margin-left:auto; background:linear-gradient(180deg,var(--pg-gold),var(--pg-gold-deep)); color:#3a2a00; box-shadow:0 1px 2px rgba(28,27,24,.18); }
+        .rp-page .pg-nav .pg-nav-next:hover { filter:brightness(1.05); }
+        @media (max-width:600px) { .rp-page .pg-nav .pg-nav-next { margin-left:0; } }
+
         @media (max-width:600px) {
           .rp-page .pg-wrap { padding:40px 18px 64px; }
           .rp-page p, .rp-page li { font-size:1rem; }
@@ -253,7 +261,7 @@
       </style>
 
       <div class="pg-wrap">
-        <a class="pg-back" href="index.html">Home</a>
+        <a class="pg-back" href="Projects.html">Back to All Projects</a>
         <p class="pg-eyebrow">Current Research &middot; GIST &middot; Advisor: Prof. Pilwon Hur</p>
         <h1>Trust &amp; State Anxiety in Physically Coupled Human&ndash;Robot Interaction</h1>
         <p class="pg-authors">Real-time state-anxiety estimation and a Trust-POMDP for adaptive wearable-exoskeleton control. &nbsp;<b>Mahta Akhyani</b>, Pilwon Hur.</p>
@@ -317,6 +325,11 @@
           <p>M. Akhyani and P. Hur, &ldquo;Real-Time State Anxiety Estimation for Adaptive Wearable Exoskeleton Control,&rdquo; in <i>Proc. 41st ICROS Annual Conference (ICROS 2026)</i>, Daegu, Korea, pp. 199&ndash;200, Jul. 2026.</p>
           <p style="margin-top:12px;"><a href="papers.html">All publications &rarr;</a></p>
         </div>
+
+        <nav class="pg-nav">
+          <a class="pg-nav-back" href="Projects.html">&larr;&nbsp;Back to All Projects</a>
+          <a class="pg-nav-next" href="brain-phantom-synthesis.html">Next Project&nbsp;&rarr;</a>
+        </nav>
       </div>
     </article>
 
